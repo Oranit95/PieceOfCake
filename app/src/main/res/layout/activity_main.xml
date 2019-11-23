@@ -8,8 +8,8 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="409dp"
+        android:layout_height="811dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,7 +39,7 @@
             android:layout_height="56dp"
             android:layout_marginEnd="108dp"
             android:layout_marginRight="108dp"
-            android:layout_marginBottom="324dp"
+            android:layout_marginBottom="376dp"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="אופה"
@@ -65,7 +65,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/baker"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.55" />
 
         <TextView
             android:id="@+id/headline"
