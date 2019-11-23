@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
         customer.setTypeface(font);
         baker.setTypeface(font);
-        customer.setOnClickListener(new View.OnClickListener() {
+        baker.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             moveToActivitySchedule();
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void moveToActivitySchedule() {
-        Intent intent = new Intent(MainActivity.this, searchBaker.class);
+        Intent intent = new Intent(this, bakerScreen.class);
         startActivity(intent);
     }
 

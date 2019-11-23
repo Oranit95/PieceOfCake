@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/bacground"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/myOrders"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="ההזמנות שלי"
+        android:textColor="#000000"
+        android:textDirection="anyRtl"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/myMenu"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="התפריט שלי"
+        android:textColor="#000000"
+        android:textDirection="anyRtl"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="הגדרות"
+        android:textColor="#000000"
+        android:textDirection="anyRtl"
+        android:textSize="36sp" />
+
+</LinearLayout>
