@@ -12,6 +12,8 @@
         <activity android:name=".ChoosePastry"></activity>
         <activity android:name=".BakerMenuActivity" />
         <activity android:name=".bakerScreen" />
+        <activity android:name=".Login" />
+        <activity android:name=".Choose" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

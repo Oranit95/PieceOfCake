@@ -2,10 +2,20 @@
     <string name="app_name">Piece Of Cake</string>
     <string name="filter">filter</string>
     <string name="action_settings">Settings</string>
-    <string name="clicked_item">Clicked item : %1$s</string>
-    <string name="rename_album">RENAME ALBUM</string>
-    <string name="delete_item">DELETE ITEM</string>
-    <string name="cant_be_empty">Can\'t be empty</string>
+    <string name="pieceofcake">pieceofcake</string>
+    <string name="Next">הבא</string>
+    <string name="City">עיר</string>
+    <string name="Baker">אופה</string>
+    <string name="Pastry">מאפה</string>
+    <string name="Entry">שלום משתמש יקר</string>
+    <string name="Customer">לקוח</string>
+    <string name="email">Email</string>
+    <string name="Password">סיסמא</string>
+    <string name="NewUser">משתמש חדש</string>
+    <string name="reg">לחץ על הרשמה</string>
+    <string name="registration">הרשמה</string>
+    <string name="Confirm">אישור</string>
+    <string name="ExsitCustomer">משתמש רשום</string>
 
 
 </resources>
