@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bacground"
+    tools:context=".Register">
+
+    <Button
+        android:id="@+id/registration2"
+        android:layout_width="157dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginRight="164dp"
+        android:layout_marginBottom="92dp"
+        android:background="#FAF7F7"
+        android:text="@string/Confirm"
+        android:textColor="#0A0A0A"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/emailInput4"
+        android:layout_width="258dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginBottom="224dp"
+        android:autofillHints=""
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#0C0C0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/password3"
+        android:layout_width="116dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="224dp"
+        android:text="@string/phoneNumber"
+        android:textColor="#0A0A0A"
+        android:textSize="30sp"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/emailInput3"
+        android:layout_width="255dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_marginBottom="296dp"
+        android:autofillHints=""
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#0C0C0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/password2"
+        android:layout_width="116dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="296dp"
+        android:text="@string/fullName"
+        android:textColor="#0A0A0A"
+        android:textSize="30sp"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="262dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:layout_marginBottom="352dp"
+        android:autofillHints=""
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#0C0C0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="129dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="192dp"
+        android:text="הרשמה"
+        android:textColor="#111111"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PieceOfCake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/pieceofcake"
+        android:textColor="#161616"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:fontFamily="aclonica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/EmailInput"
+        android:layout_width="261dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:layout_marginBottom="28dp"
+        android:autofillHints=""
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:textColor="#0C0C0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/emailInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="420dp"
+        android:text="@string/Email"
+        android:textColor="#0C0C0C"
+        android:textSize="30sp"
+        app:fontFamily="aclonica"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/Password"
+        android:layout_width="98dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="352dp"
+        android:text="@string/Password"
+        android:textColor="#0A0A0A"
+        android:textSize="30sp"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

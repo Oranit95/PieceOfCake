@@ -15,7 +15,10 @@
     <string name="registration">הרשמה</string>
     <string name="Confirm">אישור</string>
     <string name="ExsitCustomer">לקוח רשום</string>
-    <string name="Email">אימייל</string>
+    <string name="Email">E-mail</string>
+    <string name="fullName">שם מלא</string>
+    <string name="passwordApprove">אישור סיסמא</string>
+    <string name="phoneNumber">טלפון</string>
 
 
 </resources>

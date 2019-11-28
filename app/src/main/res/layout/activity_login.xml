@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/alreadyRegistered"
             android:layout_width="174dp"
             android:layout_height="53dp"
             android:layout_marginEnd="16dp"
@@ -60,8 +60,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="LabelFor"
-            tools:targetApi="o"
-            tools:text="Email" />
+            tools:targetApi="o" />
 
 
         <TextView
@@ -95,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/password"
             android:layout_width="299dp"
             android:layout_height="58dp"
             android:layout_marginEnd="8dp"

@@ -7,7 +7,7 @@ import android.view.View;
 import android.content.Intent;
 
 public class Login extends AppCompatActivity {
-
+//Test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
