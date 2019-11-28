@@ -17,7 +17,7 @@
             android:id="@+id/PieceOfCake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:text="@string/pieceofcake"
             android:textColor="#161616"
             android:textSize="36sp"
@@ -25,7 +25,7 @@
             android:typeface="serif"
             app:fontFamily="aclonica"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.034"
+            app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
             android:layout_height="53dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="576dp"
+            android:layout_marginBottom="424dp"
             android:text="@string/ExsitCustomer"
             android:textColor="#141414"
             android:textSize="30sp"
@@ -48,9 +48,9 @@
             android:id="@+id/EmailInput"
             android:layout_width="298dp"
             android:layout_height="56dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="460dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="340dp"
             android:autofillHints=""
             android:background="#FCF9F9"
             android:ems="10"
@@ -59,9 +59,10 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:targetApi="o"
             tools:ignore="LabelFor"
+            tools:targetApi="o"
             tools:text="Email" />
+
 
         <TextView
             android:id="@+id/Email"
@@ -69,10 +70,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="528dp"
-            android:text="@string/email"
+            android:layout_marginBottom="396dp"
+            android:text="@string/Email"
             android:textColor="#0C0C0C"
             android:textSize="30sp"
+            android:textStyle="bold"
             app:fontFamily="aclonica"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -83,7 +85,7 @@
             android:layout_height="55dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="404dp"
+            android:layout_marginBottom="276dp"
             android:text="@string/Password"
             android:textColor="#0A0A0A"
             android:textSize="30sp"
@@ -92,21 +94,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-
         <EditText
             android:id="@+id/editText"
             android:layout_width="299dp"
             android:layout_height="58dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="344dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="232dp"
             android:autofillHints=""
             android:background="#FAFAFA"
             android:ems="10"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="LabelFor" tools:targetApi="o"/>
+            tools:ignore="LabelFor"
+            tools:targetApi="o" />
 
         <TextView
             android:id="@+id/ExsitCustomer"
@@ -114,7 +116,7 @@
             android:layout_height="42dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="272dp"
+            android:layout_marginBottom="180dp"
             android:text="@string/NewUser"
             android:textColor="#0F0F0F"
             android:textSize="30sp"
@@ -125,11 +127,11 @@
 
         <TextView
             android:id="@+id/Reg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="207dp"
+            android:layout_height="41dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="216dp"
+            android:layout_marginBottom="148dp"
             android:text="@string/reg"
             android:textColor="#0E0E0E"
             android:textSize="30sp"
@@ -141,9 +143,9 @@
             android:id="@+id/registration"
             android:layout_width="157dp"
             android:layout_height="39dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="176dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="96dp"
             android:background="#FAF7F7"
             android:text="@string/registration"
             android:textColor="#0A0A0A"

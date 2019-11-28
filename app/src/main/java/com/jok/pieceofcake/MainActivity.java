@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button customer;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(MainActivity.this, "firebase conection success",Toast.LENGTH_LONG).show();
         customer = (Button) findViewById(R.id.Customer);
         baker = (Button) findViewById(R.id.Baker);
         font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,Login.class);
                 startActivity(intent);
-            }
+           }
         });
         baker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
     }
 }

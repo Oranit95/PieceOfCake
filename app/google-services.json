@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "864108469040",
+    "firebase_url": "https://piece-of-cake-10037.firebaseio.com",
+    "project_id": "piece-of-cake-10037",
+    "storage_bucket": "piece-of-cake-10037.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864108469040:android:0c90b3e5d328c02416c6f5",
+        "android_client_info": {
+          "package_name": "com.jok.pieceofcake"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864108469040-tlnsrehrp5g6l8h5h357a9ol0mcg22s1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jok.pieceofcake",
+            "certificate_hash": "7949ae995a32935d738cc42a6959010812cd256c"
+          }
+        },
+        {
+          "client_id": "864108469040-3l1s8b8s9jsvvdqint3j968gctbraji4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZaES6BWwvADij-2Nc9i8DKnO6f7Fv-pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864108469040-3l1s8b8s9jsvvdqint3j968gctbraji4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

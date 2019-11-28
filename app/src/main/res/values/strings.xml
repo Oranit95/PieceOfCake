@@ -9,13 +9,13 @@
     <string name="Pastry">מאפה</string>
     <string name="Entry">שלום משתמש יקר</string>
     <string name="Customer">לקוח</string>
-    <string name="email">Email</string>
     <string name="Password">סיסמא</string>
     <string name="NewUser">משתמש חדש</string>
     <string name="reg">לחץ על הרשמה</string>
     <string name="registration">הרשמה</string>
     <string name="Confirm">אישור</string>
-    <string name="ExsitCustomer">משתמש רשום</string>
+    <string name="ExsitCustomer">לקוח רשום</string>
+    <string name="Email">אימייל</string>
 
 
 </resources>
