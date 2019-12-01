@@ -139,7 +139,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/registration"
+            android:id="@+id/registrationA"
             android:layout_width="157dp"
             android:layout_height="39dp"
             android:layout_marginEnd="48dp"
