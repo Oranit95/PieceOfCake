@@ -43,13 +43,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+
         <EditText
             android:id="@+id/EmailInput"
             android:layout_width="298dp"
             android:layout_height="56dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="340dp"
+            android:layout_marginBottom="336dp"
             android:autofillHints=""
             android:background="#FCF9F9"
             android:ems="10"
@@ -58,53 +58,57 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.99"
+            app:layout_constraintStart_toStartOf="parent"
             tools:ignore="LabelFor"
             tools:targetApi="o" />
 
-
         <TextView
             android:id="@+id/Email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="113dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="396dp"
+            android:layout_marginBottom="408dp"
             android:text="@string/Email"
             android:textColor="#0C0C0C"
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="aclonica"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/Password"
             android:layout_width="123dp"
             android:layout_height="55dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="276dp"
+            android:layout_marginBottom="280dp"
             android:text="@string/Password"
             android:textColor="#0A0A0A"
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="casual"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="299dp"
             android:layout_height="58dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="232dp"
+            android:layout_marginBottom="228dp"
             android:autofillHints=""
             android:background="#FAFAFA"
             android:ems="10"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             tools:ignore="LabelFor"
             tools:targetApi="o" />
 

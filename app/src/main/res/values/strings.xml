@@ -19,7 +19,9 @@
     <string name="fullName">שם מלא</string>
     <string name="passwordApprove">אישור סיסמא</string>
     <string name="phoneNumber">טלפון</string>
-
+    <string name="ifBaker">אופה</string>
+    <string name="ifCustomer">לקוח</string>
+    <string name="Reg">הרשמה</string>
 
 
 </resources>

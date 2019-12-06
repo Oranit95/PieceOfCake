@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,11 @@ public class Register extends AppCompatActivity {
         EditText inputFullName = (EditText) findViewById(R.id.inputFullName);
         String fullName = inputFullName.getText().toString();
 
+        CheckBox inputBaker= (CheckBox) findViewById(R.id.ifBaker);
+
+        CheckBox inputCustomer = (CheckBox) findViewById(R.id.ifCustomer);
+
+
         if(TextUtils.isEmpty(email)){
             email_handler.setError("Email is Required.");
             return;
@@ -76,6 +82,10 @@ public class Register extends AppCompatActivity {
         }
 
 
+        if((!inputBaker.isChecked())&& (!inputCustomer.isChecked())) {
+            inputBaker.setError("One of the roles is Required.");
+
+        }
 
 
 
@@ -96,13 +106,12 @@ public class Register extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
 
-                        // ...
                     }
                 });
     }
 
 
-                         
+
     private void updateUI() {
         Intent intent = new Intent(getApplicationContext(),Login.class);
         startActivity(intent);
