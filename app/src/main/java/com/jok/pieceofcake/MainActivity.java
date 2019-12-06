@@ -11,8 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button customer;
-    Button baker;
+    Button newUser;
+    Button ExsitCustomer;
     TextView headline;
     TextView welcome;
     Typeface font;
@@ -24,26 +24,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(MainActivity.this, "firebase conection success",Toast.LENGTH_LONG).show();
-        customer = (Button) findViewById(R.id.Customer);
-        baker = (Button) findViewById(R.id.Baker);
+        newUser = (Button) findViewById(R.id.Customer);
+        ExsitCustomer = (Button) findViewById(R.id.Baker);
         headline = (TextView) findViewById(R.id.PieceOfCake);
         welcome = (TextView) findViewById(R.id.Hello);
         font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
-        customer.setTypeface(font);
-        baker.setTypeface(font);
+        newUser.setTypeface(font);
+        ExsitCustomer.setTypeface(font);
         headline.setTypeface(font);
         welcome.setTypeface(font);
-        customer.setOnClickListener(new View.OnClickListener() {
+        newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Login.class);
+                Intent intent = new Intent(MainActivity.this,Register.class);
                 startActivity(intent);
            }
         });
-        baker.setOnClickListener(new View.OnClickListener() {
+        ExsitCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,bakerScreen.class);
+                Intent intent = new Intent(MainActivity.this,Login.class);
                 startActivity(intent);
             }
         });
