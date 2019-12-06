@@ -1,8 +1,7 @@
 package com.jok.pieceofcake;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,21 +10,36 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.graphics.Typeface;
+
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Register extends AppCompatActivity {
 
+    public static final String TAG = "TAG";
     private FirebaseAuth FireLog;
-
+    FirebaseFirestore fStore;
     TextView registeTextView;
     Typeface font;
+    EditText password_handler, email_handler, inputPhone, inputFullName;
+    String password, email, Phone, fullName;
+    String userID;
+    CheckBox inputBaker, inputCustomer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,61 +47,29 @@ public class Register extends AppCompatActivity {
 //        font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
 //        registeTextView.setTypeface(font);
         FireLog = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
+        //retrieving details EditText
+        password_handler = (EditText) findViewById(R.id.PasswordInput);
+        email_handler = (EditText) findViewById(R.id.EmailInput);
+        inputPhone = (EditText) findViewById(R.id.inputPhone);
+        inputFullName = (EditText) findViewById(R.id.inputFullName);
 
     }
-    public void register (View v){
 
+    public void register(View v) {
 
-        EditText password_handler = (EditText) findViewById(R.id.PasswordInput);
-        String password = password_handler.getText().toString();
+        //saving context of user details
+        password = password_handler.getText().toString().trim();
+        email = email_handler.getText().toString().trim();
+        Phone = inputPhone.getText().toString().trim();
+        fullName = inputFullName.getText().toString().trim();
 
-        EditText email_handler = (EditText) findViewById(R.id.EmailInput);
-        String email = email_handler.getText().toString();
+        //checkboxes of baker and customer
+        inputBaker = (CheckBox) findViewById(R.id.ifBaker);
+        inputCustomer = (CheckBox) findViewById(R.id.ifCustomer);
 
-        EditText inputPhone = (EditText) findViewById(R.id.inputPhone);
-        String Phone = inputPhone.getText().toString();
-
-        EditText inputFullName = (EditText) findViewById(R.id.inputFullName);
-        String fullName = inputFullName.getText().toString();
-
-        CheckBox inputBaker= (CheckBox) findViewById(R.id.ifBaker);
-
-        CheckBox inputCustomer = (CheckBox) findViewById(R.id.ifCustomer);
-
-
-        if(TextUtils.isEmpty(email)){
-            email_handler.setError("Email is Required.");
-            return;
-        }
-
-        if(TextUtils.isEmpty(password)){
-            password_handler.setError("Password is Required.");
-            return;
-        }
-
-        if(password.length() < 6){
-            password_handler.setError("Password Must be >= 6 Characters");
-            return;
-        }
-
-        if(TextUtils.isEmpty(fullName)){
-            inputFullName.setError("fullName is Required.");
-            return;
-        }
-
-        if(TextUtils.isEmpty(Phone)){
-            inputPhone.setError("Phone is Required.");
-            return;
-        }
-
-
-        if((!inputBaker.isChecked())&& (!inputCustomer.isChecked())) {
-            inputBaker.setError("One of the roles is Required.");
-
-        }
-
-
+        validation();//check that all the inputs are valid
 
         FireLog.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -98,7 +80,31 @@ public class Register extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "createUserWithEmail:success");
                             FirebaseUser user = FireLog.getCurrentUser();
-                             updateUI();
+                            userID = user.getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String, Object> userDetails = new HashMap<>();
+                            userDetails.put("Full Name",fullName );
+                            userDetails.put("Email",email );
+                            userDetails.put("Phone",Phone );
+                          //  userDetails.put("Password", password );
+                            if(inputBaker.isChecked()){
+                                userDetails.put("User Type", "Baker");
+                            }
+                            else {
+                                userDetails.put("User Type", "Customer");
+                            }
+                            documentReference.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "onSuccess: user profile is create for "+ userID);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG, "onFailue" + e.toString());
+                                }
+                            });
+                            updateUI();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("[INFO]", "createUserWithEmail:failure", task.getException());
@@ -110,10 +116,42 @@ public class Register extends AppCompatActivity {
                 });
     }
 
+    public void validation() {
+        if (TextUtils.isEmpty(email)) {
+            email_handler.setError("נא למלא E-mail");
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            password_handler.setError("נא למלא סיסמא.");
+            return;
+        }
+
+        if (password.length() < 6) {
+            password_handler.setError("סיסמא חייבת להיות עם 6 תווים לפחות.");
+            return;
+        }
+
+        if (TextUtils.isEmpty(fullName)) {
+            inputFullName.setError("זהו שדה חובה.");
+            return;
+        }
+
+        if (TextUtils.isEmpty(Phone)) {
+            inputPhone.setError("יש למלא מספר טלפון");
+            return;
+        }
+
+
+        if ((!inputBaker.isChecked()) && (!inputCustomer.isChecked())) {
+            inputBaker.setError("יש לבחור אופה/לקוח");
+            return;
+        }
+    }
 
 
     private void updateUI() {
-        Intent intent = new Intent(getApplicationContext(),Login.class);
+        Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
     }
 
