@@ -19,7 +19,7 @@ public class BakerMenuActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
 
             //Bind listview
-            listView=(ListView)findViewById(R.id.listview);
+            listView=(ListView)findViewById(R.id.menu);
 
             //Create adapter and set it to listview.
          //   adapter=new ListViewAdapter(BakerMenuActivity.this, pastryList);

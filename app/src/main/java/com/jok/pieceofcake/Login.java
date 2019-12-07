@@ -1,13 +1,9 @@
 package com.jok.pieceofcake;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,12 +11,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
 //Test
@@ -53,29 +49,18 @@ public class Login extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "signInWithEmail:success");
                             UserID = FireLog.getCurrentUser().getUid();
-                            DocumentReference docRef;
-                            try {
-                                 docRef = fStore.collection("Customers").document(UserID);
-                                Toast.makeText(getApplicationContext(), "You are customer.",
-                                        Toast.LENGTH_SHORT).show();
+                            DocumentReference docRef = fStore.collection("Users").document(UserID);
+                            DocumentSnapshot docSnap = docRef.get().getResult();
+                            String role = docSnap.getString("Role");
+                            System.out.println("*****************************  " + role + "***************************");
 
-                            }
-                           catch (Exception e) {
-                               docRef = fStore.collection("Bakers").document(UserID);
-                               baker = true;
-                               Toast.makeText(getApplicationContext(), "You are baker.",
-                                       Toast.LENGTH_SHORT).show();
-                           }
-
-                        } else {
+                        }
+                        else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(), "Sign in failed", Toast.LENGTH_SHORT).show();
                             Log.w("[ERROR]", "signInWithEmail:failure", task.getException());
 
                         }
-
-                        if (baker == true) BakerLogin();
-                        else  CustomerLogin();
 
                     }
                 });

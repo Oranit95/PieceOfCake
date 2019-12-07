@@ -39,7 +39,6 @@ public class Register extends AppCompatActivity {
     TextView pass, mail, phone, name;//names near input bars
     Button confirm;
     String password, email, Phone, fullName;
-    String baker, customer;
     String userID;
     CheckBox inputBaker, inputCustomer;
 
@@ -105,41 +104,29 @@ public class Register extends AppCompatActivity {
                             Log.d("[INFO]", "createUserWithEmail:success");
                             FirebaseUser user = FireLog.getCurrentUser();
                             userID = user.getUid();
-                            DocumentReference docCustomer = fStore.collection("Customers").document(userID);
-                            DocumentReference docBaker = fStore.collection("Bakers").document(userID);
+                            DocumentReference docRef = fStore.collection("Users").document(userID);
                             Map<String, Object> userDetails = new HashMap<>();
                             userDetails.put("Full Name",fullName );
                             userDetails.put("Email",email );
                             userDetails.put("Phone",Phone );
                             //  userDetails.put("Password", password );
                             if(inputBaker.isChecked()){
-                                userDetails.put("Role",baker);
-                                docBaker.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "onSuccess: user profile is create for "+ userID);
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailue" + e.toString());
-                                    }
-                                });
+                                userDetails.put("Role","Baker");
                             }
                             else {
-                                userDetails.put("Role",customer);
-                                docCustomer.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "onSuccess: user profile is create for "+ userID);
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailue" + e.toString());
-                                    }
-                                });                            }
-
+                                userDetails.put("Role","Customer");
+                            }
+                            docRef.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "onSuccess: user profile is create for "+ userID);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG, "onFailue" + e.toString());
+                                }
+                            });
                             moveToLogin();
                         } else {
                             // If sign in fails, display a message to the user.

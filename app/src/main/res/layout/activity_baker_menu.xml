@@ -7,15 +7,10 @@
     android:background="@drawable/bacground"
     tools:context=".BakerMenuActivity">
 
-    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="1dp"
-        android:divider="@color/cardview_dark_background"
-        android:background="@drawable/bacground"
-        android:scrollbars="none"
-        >
-
-    </ListView>
+    <ListView
+        android:id="@+id/menu"
+        android:layout_width="413dp"
+        android:layout_height="658dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

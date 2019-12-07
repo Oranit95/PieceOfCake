@@ -71,7 +71,7 @@ public class AddPastry extends AppCompatActivity {
     }
 
     public void backToMenu() {
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(AddPastry.this, BakerMenuActivity.class);
         startActivity(intent);
     }
 
