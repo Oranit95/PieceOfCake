@@ -22,6 +22,14 @@
     <string name="ifBaker">אופה</string>
     <string name="ifCustomer">לקוח</string>
     <string name="Reg">הרשמה</string>
+    <string name="addItem">הוספת מאפה</string>
+    <string name="pastryName">שם </string>
+    <string name="price">מחיר </string>
+    <string name="description">תיאור</string>
+    <string name="alerganic">מרכיבים אלרגניים</string>
+
+
+
 
 
 </resources>

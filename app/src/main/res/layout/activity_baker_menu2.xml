@@ -5,7 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bacground"
-    tools:context=".Register">
+    tools:context=".BakerMenu">
+
+    <EditText
+        android:id="@+id/alerganicInput"
+        android:layout_width="262dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="124dp"
+        android:autofillHints=""
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:inputType="textWebPassword"
+        android:textColor="#0C0C0C"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/desInput"
+        tools:ignore="LabelFor"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/alerganic"
+        android:layout_width="121dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="148dp"
+        android:text="@string/alerganic"
+        android:textColor="#0A0A0A"
+        android:textSize="24sp"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/confirm"
@@ -14,7 +46,7 @@
         android:layout_marginEnd="176dp"
         android:layout_marginBottom="84dp"
         android:background="#FAF7F7"
-        android:onClick="register"
+        android:onClick="addItem"
         android:text="@string/Confirm"
         android:textColor="#0A0A0A"
         android:textSize="30sp"
@@ -22,40 +54,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/inputPhone"
-        android:layout_width="258dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="224dp"
-        android:autofillHints=""
-        android:background="#FCF9F9"
-        android:ems="10"
-        android:inputType="phone"
-        android:textColor="#0C0C0C"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="LabelFor"
-        tools:targetApi="o" />
-
-    <TextView
-        android:id="@+id/Phone"
-        android:layout_width="116dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="224dp"
-        android:text="@string/phoneNumber"
-        android:textColor="#0A0A0A"
-        android:textSize="24sp"
-        app:fontFamily="casual"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
         android:id="@+id/desInput"
-        android:layout_width="255dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="296dp"
+        android:layout_width="261dp"
+        android:layout_height="103dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="232dp"
         android:autofillHints=""
         android:background="#FCF9F9"
         android:ems="10"
@@ -71,8 +74,9 @@
         android:id="@+id/decription"
         android:layout_width="116dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="296dp"
-        android:text="@string/fullName"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="292dp"
+        android:text="@string/description"
         android:textColor="#0A0A0A"
         android:textSize="24sp"
         app:fontFamily="casual"
@@ -83,33 +87,35 @@
         android:id="@+id/priceInput"
         android:layout_width="262dp"
         android:layout_height="38dp"
+        android:layout_marginTop="324dp"
         android:layout_marginEnd="124dp"
-        android:layout_marginBottom="352dp"
         android:autofillHints=""
         android:background="#FCF9F9"
         android:ems="10"
         android:inputType="textWebPassword"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor"
         tools:targetApi="o" />
 
     <TextView
         android:id="@+id/registerTextView"
-        android:layout_width="129dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="132dp"
+        android:layout_width="256dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="76dp"
         android:layout_marginTop="136dp"
-        android:text="@string/Reg"
+        android:text="@string/addItem"
         android:textColor="#111111"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/EmailInput"
+        app:layout_constraintBottom_toTopOf="@id/nameInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.142" />
 
     <TextView
         android:id="@+id/PieceOfCake"
@@ -131,25 +137,25 @@
         android:layout_width="261dp"
         android:layout_height="44dp"
         android:layout_marginEnd="124dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginBottom="32dp"
         android:autofillHints=""
         android:background="#FCF9F9"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/priceInput"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="LabelFor"
         tools:targetApi="o" />
 
     <TextView
         android:id="@+id/pastryName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="77dp"
+        android:layout_height="37dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="416dp"
-        android:text="@string/Email"
+        android:layout_marginBottom="432dp"
+        android:text="@string/pastryName"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
         app:fontFamily="aclonica"
@@ -160,39 +166,12 @@
         android:id="@+id/price"
         android:layout_width="98dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="352dp"
-        android:text="@string/Password"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="360dp"
+        android:text="@string/price"
         android:textColor="#0A0A0A"
         android:textSize="24sp"
         app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <CheckBox
-        android:id="@+id/ifBaker"
-        android:layout_width="135dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="144dp"
-        android:buttonTint="#110000"
-        android:text="@string/ifBaker"
-        android:textColor="#0C0C0C"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/ifCustomer"
-        android:layout_width="109dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="140dp"
-        android:buttonTint="#0C0000"
-        android:text="@string/ifCustomer"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
