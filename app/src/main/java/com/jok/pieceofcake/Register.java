@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,11 +32,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Register extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    private FirebaseAuth FireLog;
-    FirebaseFirestore fStore;
-    TextView registeTextView;
-    Typeface font;
-    EditText password_handler, email_handler, inputPhone, inputFullName;
+    private FirebaseAuth FireLog;// fire base authentication
+    FirebaseFirestore fStore; //firebase DB
+    Typeface font; // font
+    EditText password_handler, email_handler, inputPhone, inputFullName;//input bars
+    TextView pass, mail, phone, name;//names near input bars
+    Button confirm;
     String password, email, Phone, fullName;
     String userID;
     CheckBox inputBaker, inputCustomer;
@@ -44,16 +46,12 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-//        font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
-//        registeTextView.setTypeface(font);
+        font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
         FireLog = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        retrieve();//retrieve all elements in the activity
+        setFonts();
 
-        //retrieving details EditText
-        password_handler = (EditText) findViewById(R.id.PasswordInput);
-        email_handler = (EditText) findViewById(R.id.EmailInput);
-        inputPhone = (EditText) findViewById(R.id.inputPhone);
-        inputFullName = (EditText) findViewById(R.id.inputFullName);
 
     }
 
@@ -65,58 +63,7 @@ public class Register extends AppCompatActivity {
         Phone = inputPhone.getText().toString().trim();
         fullName = inputFullName.getText().toString().trim();
 
-        //checkboxes of baker and customer
-        inputBaker = (CheckBox) findViewById(R.id.ifBaker);
-        inputCustomer = (CheckBox) findViewById(R.id.ifCustomer);
-
-        validation();//check that all the inputs are valid
-
-        FireLog.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("[INFO]", "createUserWithEmail:success");
-                            FirebaseUser user = FireLog.getCurrentUser();
-                            userID = user.getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
-                            Map<String, Object> userDetails = new HashMap<>();
-                            userDetails.put("Full Name",fullName );
-                            userDetails.put("Email",email );
-                            userDetails.put("Phone",Phone );
-                          //  userDetails.put("Password", password );
-                            if(inputBaker.isChecked()){
-                                userDetails.put("User Type", "Baker");
-                            }
-                            else {
-                                userDetails.put("User Type", "Customer");
-                            }
-                            documentReference.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "onSuccess: user profile is create for "+ userID);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailue" + e.toString());
-                                }
-                            });
-                            updateUI();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("[INFO]", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
-    }
-
-    public void validation() {
+        //check that all the inputs are valid
         if (TextUtils.isEmpty(email)) {
             email_handler.setError("נא למלא E-mail");
             return;
@@ -147,10 +94,87 @@ public class Register extends AppCompatActivity {
             inputBaker.setError("יש לבחור אופה/לקוח");
             return;
         }
+
+        FireLog.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("[INFO]", "createUserWithEmail:success");
+                            FirebaseUser user = FireLog.getCurrentUser();
+                            userID = user.getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String, Object> userDetails = new HashMap<>();
+                            userDetails.put("Full Name",fullName );
+                            userDetails.put("Email",email );
+                            userDetails.put("Phone",Phone );
+                            //  userDetails.put("Password", password );
+                            if(inputBaker.isChecked()){
+                                userDetails.put("User Type", "Baker");
+                            }
+                            else {
+                                userDetails.put("User Type", "Customer");
+                            }
+                            documentReference.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "onSuccess: user profile is create for "+ userID);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG, "onFailue" + e.toString());
+                                }
+                            });
+                            moveToLogin();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("[INFO]", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
     }
 
+    /**
+     * retrieve all elements in the activity
+     */
+    public void retrieve(){
+        //retrieving details EditText input bars
+        password_handler = (EditText) findViewById(R.id.PasswordInput);
+        email_handler = (EditText) findViewById(R.id.EmailInput);
+        inputPhone = (EditText) findViewById(R.id.inputPhone);
+        inputFullName = (EditText) findViewById(R.id.inputFullName);
 
-    private void updateUI() {
+        //retrieving the names near the input bars
+        pass = (TextView ) findViewById(R.id.Password);
+        mail = (TextView ) findViewById(R.id.Email);
+        phone = (TextView ) findViewById(R.id.Phone);
+        name= (TextView ) findViewById(R.id.fullName);
+
+        //confirm button
+        confirm = (Button)findViewById(R.id.confirm);
+
+        //checkboxes of baker and customer
+        inputBaker = (CheckBox) findViewById(R.id.ifBaker);
+        inputCustomer = (CheckBox) findViewById(R.id.ifCustomer);
+
+    }
+    public void setFonts(){
+        pass.setTypeface(font);
+        mail.setTypeface(font);
+        phone.setTypeface(font);
+        pass.setTypeface(font);
+        name.setTypeface(font);
+        inputBaker.setTypeface(font);
+        inputCustomer.setTypeface(font);
+        confirm.setTypeface(font);
+    }
+
+    private void moveToLogin() {
         Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
     }

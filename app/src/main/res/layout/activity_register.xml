@@ -8,7 +8,7 @@
     tools:context=".Register">
 
     <Button
-        android:id="@+id/registration2"
+        android:id="@+id/confirm"
         android:layout_width="157dp"
         android:layout_height="39dp"
         android:layout_marginEnd="176dp"
@@ -45,7 +45,7 @@
         android:layout_marginBottom="224dp"
         android:text="@string/phoneNumber"
         android:textColor="#0A0A0A"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -74,7 +74,7 @@
         android:layout_marginBottom="296dp"
         android:text="@string/fullName"
         android:textColor="#0A0A0A"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -151,7 +151,7 @@
         android:layout_marginBottom="416dp"
         android:text="@string/Email"
         android:textColor="#0C0C0C"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:fontFamily="aclonica"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -163,7 +163,7 @@
         android:layout_marginBottom="352dp"
         android:text="@string/Password"
         android:textColor="#0A0A0A"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
