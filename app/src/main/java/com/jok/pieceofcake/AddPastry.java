@@ -1,5 +1,6 @@
 package com.jok.pieceofcake;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,7 +19,7 @@ import java.util.Map;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class BakerMenu extends AppCompatActivity {
+public class AddPastry extends AppCompatActivity {
     public static final String TAG = "TAG_ADD_PASTRY";
     String userID;
     private FirebaseAuth FireLog;// fire base authentication
@@ -28,7 +29,7 @@ public class BakerMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_baker_menu2);
+        setContentView(R.layout.activity_add_pastry);
         FireLog = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         retrieve();
@@ -38,20 +39,20 @@ public class BakerMenu extends AppCompatActivity {
         FirebaseUser user = FireLog.getCurrentUser();
         userID = user.getUid();
         String priceIn = price.getText().toString().trim();
-        String nameIn = name.getText().toString().trim();
+        final String nameIn = name.getText().toString().trim();
         String descIn = description.getText().toString().trim();
         String allergicIn = allergenic.getText().toString().trim();
 
-        DocumentReference docBaker = fStore.collection("Bakers").document(userID).collection("Menu")
-                .document(nameIn);
+        DocumentReference docBaker = fStore.collection("Bakers")
+                .document(userID).collection("Menu").document(nameIn);
         Map<String, Object> pastryDetails = new HashMap<>();
-        pastryDetails.put("מחיר",priceIn );
-        pastryDetails.put("תיאור",descIn );
-        pastryDetails.put("רכיבים אלרגניים",allergicIn );
+        pastryDetails.put("מחיר", priceIn);
+        pastryDetails.put("תיאור", descIn);
+        pastryDetails.put("רכיבים אלרגניים", allergicIn);
         docBaker.set(pastryDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Log.d(TAG, "onSuccess: added pastry "+ userID);
+                Log.d(TAG, "onSuccess: added pastry " + nameIn);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -59,6 +60,7 @@ public class BakerMenu extends AppCompatActivity {
                 Log.d(TAG, "onFailue" + e.toString());
             }
         });
+        backToMenu();
     }
 
     public void retrieve() {
@@ -67,4 +69,10 @@ public class BakerMenu extends AppCompatActivity {
         description = (EditText) findViewById(R.id.desInput);
         allergenic = (EditText) findViewById(R.id.alerganicInput);
     }
+
+    public void backToMenu() {
+        Intent intent = new Intent(getApplicationContext(), Login.class);
+        startActivity(intent);
+    }
+
 }
