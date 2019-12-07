@@ -39,6 +39,7 @@ public class Register extends AppCompatActivity {
     TextView pass, mail, phone, name;//names near input bars
     Button confirm;
     String password, email, Phone, fullName;
+    String baker, customer;
     String userID;
     CheckBox inputBaker, inputCustomer;
 
@@ -112,6 +113,7 @@ public class Register extends AppCompatActivity {
                             userDetails.put("Phone",Phone );
                             //  userDetails.put("Password", password );
                             if(inputBaker.isChecked()){
+                                userDetails.put("Role",baker);
                                 docBaker.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
@@ -125,6 +127,7 @@ public class Register extends AppCompatActivity {
                                 });
                             }
                             else {
+                                userDetails.put("Role",customer);
                                 docCustomer.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

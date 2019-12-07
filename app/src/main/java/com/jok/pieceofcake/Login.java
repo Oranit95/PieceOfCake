@@ -1,6 +1,7 @@
 package com.jok.pieceofcake;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,20 +16,28 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Login extends AppCompatActivity {
 //Test
     String email = "" , password = "";
+    boolean baker = false;
     private FirebaseAuth FireLog;
+    FirebaseFirestore fStore; //firebase DB
+    String UserID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         FireLog = FirebaseAuth.getInstance();
-
+        fStore = FirebaseFirestore.getInstance();
 
     }
-
 
 
     public void Login() {
@@ -43,24 +52,44 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "signInWithEmail:success");
-                            FirebaseUser user = FireLog.getCurrentUser();
-                            updateUI();
+                            UserID = FireLog.getCurrentUser().getUid();
+                            DocumentReference docRef;
+                            try {
+                                 docRef = fStore.collection("Customers").document(UserID);
+                                Toast.makeText(getApplicationContext(), "You are customer.",
+                                        Toast.LENGTH_SHORT).show();
+
+                            }
+                           catch (Exception e) {
+                               docRef = fStore.collection("Bakers").document(UserID);
+                               baker = true;
+                               Toast.makeText(getApplicationContext(), "You are baker.",
+                                       Toast.LENGTH_SHORT).show();
+                           }
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(), "Sign in failed", Toast.LENGTH_SHORT).show();
                             Log.w("[ERROR]", "signInWithEmail:failure", task.getException());
 
                         }
+
+                        if (baker == true) BakerLogin();
+                        else  CustomerLogin();
+
                     }
                 });
     }
 
 
 
+    private void BakerLogin( ) {
+        Intent intent = new Intent(Login.this, bakerScreen.class);
+        startActivity(intent);
+    }
 
-
-    private void updateUI( ) {
-        Intent intent = new Intent(getApplicationContext(), customerScreen.class);
+    private void CustomerLogin( ) {
+        Intent intent = new Intent(Login.this, customerScreen.class);
         startActivity(intent);
     }
     public void onConfirmClick(View v) {
