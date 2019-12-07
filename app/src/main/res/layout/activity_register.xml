@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/desInput"
+        android:id="@+id/inputFullName"
         android:layout_width="255dp"
         android:layout_height="42dp"
         android:layout_marginEnd="128dp"
@@ -68,7 +68,7 @@
         tools:targetApi="o" />
 
     <TextView
-        android:id="@+id/decription"
+        android:id="@+id/fullName"
         android:layout_width="116dp"
         android:layout_height="44dp"
         android:layout_marginBottom="296dp"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/priceInput"
+        android:id="@+id/PasswordInput"
         android:layout_width="262dp"
         android:layout_height="38dp"
         android:layout_marginEnd="124dp"
@@ -127,7 +127,7 @@
 
 
     <EditText
-        android:id="@+id/nameInput"
+        android:id="@+id/EmailInput"
         android:layout_width="261dp"
         android:layout_height="44dp"
         android:layout_marginEnd="124dp"
@@ -144,7 +144,7 @@
         tools:targetApi="o" />
 
     <TextView
-        android:id="@+id/pastryName"
+        android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
@@ -157,7 +157,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/Password"
         android:layout_width="98dp"
         android:layout_height="45dp"
         android:layout_marginBottom="352dp"

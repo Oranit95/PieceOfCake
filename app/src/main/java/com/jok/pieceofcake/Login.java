@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
     public void Login() {
 
          password = ((EditText) findViewById(R.id.password)).getText().toString();
-        email =  ((EditText) findViewById(R.id.EmailInput)).getText().toString();
+         email =  ((EditText) findViewById(R.id.EmailInput)).getText().toString();
 
         FireLog.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -60,7 +60,7 @@ public class Login extends AppCompatActivity {
 
 
     private void updateUI( ) {
-        Intent intent = new Intent(getApplicationContext(),Choose.class);
+        Intent intent = new Intent(getApplicationContext(), customerScreen.class);
         startActivity(intent);
     }
     public void onConfirmClick(View v) {
