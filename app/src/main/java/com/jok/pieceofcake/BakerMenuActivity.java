@@ -1,12 +1,15 @@
 package com.jok.pieceofcake;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,32 +19,54 @@ public class BakerMenuActivity extends AppCompatActivity {
     private ListView listView;
     String userID;
 
+    //CollectionReference menuRef = fStore.collection("Bakers")
+           // .document(userID).collection("Menu");
+
+    ArrayList<Pastry>  pastryList = new ArrayList<Pastry>();
     //  private ListViewAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_baker_menu);
+        listView= findViewById(R.id.menu);
+
         FireLog = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        Pastry cake = new Pastry(50,"cake","eggs, nuts", "chocloate cake with nuts");
-        Pastry[] pastries = new Pastry[] {cake};
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+      /**  menuRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if(e!=null){
+                    return;
+                }
+                for (QueryDocumentSnapshot querySnap : queryDocumentSnapshots) {
+                    Pastry pastry = querySnap.toObject(Pastry.class);
+                    pastryList.add(pastry);
+                }
+            }
+    });**/
+        String[] pastries = {"cake", " cookie"};
         PastryAdapter pastryAdapter = new PastryAdapter(this,R.layout.list_pastry_item, pastries);
+        if (pastryAdapter==null){
+            Log.d("TAG","pastry adapter is null");
+        }
         //Bind listview
-        listView = (ListView) findViewById(R.id.menu);
 
         //Create adapter and set it to listview.
         //   adapter=new ListViewAdapter(BakerMenuActivity.this, pastryList);
-          listView.setAdapter(pastryAdapter);
-          listView.setOnItemClickListener(new ListView.OnItemClickListener(){
-              @Override
-              public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        listView.setAdapter(pastryAdapter);
+        listView.setOnItemClickListener(new ListView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-              }
+            }
 
-          });
+        });
 
 
     }
-
 }

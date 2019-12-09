@@ -10,11 +10,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,9 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AddPastry extends AppCompatActivity {
     public static final String TAG = "TAG_ADD_PASTRY";
     String userID;
+    String priceIn, nameIn, descIn, allergicIn;
     private FirebaseAuth FireLog;// fire base authentication
     FirebaseFirestore fStore; //firebase DB
     EditText price, name, description, allergenic;
+    CollectionReference docBaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,26 +32,27 @@ public class AddPastry extends AppCompatActivity {
         setContentView(R.layout.activity_add_pastry);
         FireLog = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+
+        docBaker = fStore.collection("Bakers")
+                .document(userID).collection("Menu");
+        FirebaseUser user = FireLog.getCurrentUser();
+        userID = user.getUid();
+
         retrieve();
     }
 
     public void addItem(View view) {
-        FirebaseUser user = FireLog.getCurrentUser();
-        userID = user.getUid();
-        String priceIn = price.getText().toString().trim();
-        final String nameIn = name.getText().toString().trim();
-        String descIn = description.getText().toString().trim();
-        String allergicIn = allergenic.getText().toString().trim();
 
-        DocumentReference docBaker = fStore.collection("Bakers")
-                .document(userID).collection("Menu").document(nameIn);
-        Map<String, Object> pastryDetails = new HashMap<>();
-        pastryDetails.put("מחיר", priceIn);
-        pastryDetails.put("תיאור", descIn);
-        pastryDetails.put("רכיבים אלרגניים", allergicIn);
-        docBaker.set(pastryDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+        priceIn = price.getText().toString().trim();
+        nameIn = name.getText().toString().trim();
+        descIn = description.getText().toString().trim();
+        allergicIn = allergenic.getText().toString().trim();
+
+        Pastry pastry = new Pastry(Integer.parseInt(priceIn), nameIn, allergicIn, descIn);
+
+        docBaker.add(pastry).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
-            public void onSuccess(Void aVoid) {
+            public void onSuccess(DocumentReference documentReference) {
                 Log.d(TAG, "onSuccess: added pastry " + nameIn);
             }
         }).addOnFailureListener(new OnFailureListener() {

@@ -13,9 +13,9 @@ import androidx.annotation.Nullable;
 public class PastryAdapter extends ArrayAdapter {
     private Context context;
     private int rowLayout;
-    private Pastry[] pastries;
+    private String[] pastries;
 
-    public PastryAdapter(@NonNull Context context, int rowLayout, @NonNull Pastry[] pastries) {
+    public PastryAdapter(@NonNull Context context, int rowLayout, @NonNull String[] pastries) {
         super(context, rowLayout);
         this.context = context;
         this.rowLayout = rowLayout;
@@ -34,12 +34,12 @@ public class PastryAdapter extends ArrayAdapter {
         TextView allerganics = row.findViewById(R.id.allerganics);
         TextView description = row.findViewById(R.id.descript);
 
-        Pastry pastry = pastries[position];
-
-        price.setText(pastry.price);
-        name.setText(pastry.name);
-        allerganics.setText(pastry.allerganics);
-        description.setText(pastry.description);
+        String pastry = pastries[position];
+            price.setText(pastry);
+       // price.setText(pastry.getPrice());
+       // name.setText(pastry.getName());
+       // allerganics.setText(pastry.getAllerganics());
+       // description.setText(pastry.getDescription());
 
         return row;
     }
