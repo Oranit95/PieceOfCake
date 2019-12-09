@@ -104,29 +104,42 @@ public class Register extends AppCompatActivity {
                             Log.d("[INFO]", "createUserWithEmail:success");
                             FirebaseUser user = FireLog.getCurrentUser();
                             userID = user.getUid();
-                            DocumentReference docRef = fStore.collection("Users").document(userID);
+                            DocumentReference docBaker;
+                            DocumentReference docCustomer;
                             Map<String, Object> userDetails = new HashMap<>();
                             userDetails.put("Full Name",fullName );
                             userDetails.put("Email",email );
                             userDetails.put("Phone",Phone );
                             //  userDetails.put("Password", password );
                             if(inputBaker.isChecked()){
-                                userDetails.put("Role","Baker");
+                                docBaker = fStore.collection("Bakers").document(userID);
+                                docBaker.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d(TAG, "onSuccess: user profile is create for "+ userID);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d(TAG, "onFailue" + e.toString());
+                                    }
+                                });
                             }
                             else {
-                                userDetails.put("Role","Customer");
+                                docCustomer = fStore.collection("Customers").document(userID);
+
+                                docCustomer.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d(TAG, "onSuccess: user profile is create for " + userID);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d(TAG, "onFailue" + e.toString());
+                                    }
+                                });
                             }
-                            docRef.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "onSuccess: user profile is create for "+ userID);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailue" + e.toString());
-                                }
-                            });
                             moveToLogin();
                         } else {
                             // If sign in fails, display a message to the user.
