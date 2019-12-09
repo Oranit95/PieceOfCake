@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class bakerScreen extends AppCompatActivity {
@@ -29,5 +30,11 @@ public class bakerScreen extends AppCompatActivity {
     private void moveToActivitySchedule() {
         Intent intent = new Intent(this, BakerMenuActivity.class);
         startActivity(intent);
+    }
+
+    public void LogOutB (View v){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
     }
 }

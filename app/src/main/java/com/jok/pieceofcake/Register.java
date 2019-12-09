@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class Register extends AppCompatActivity {
     String password, email, Phone, fullName;
     String userID;
     CheckBox inputBaker, inputCustomer;
+    ProgressBar progressBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,7 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            progressBar2.setVisibility(View.VISIBLE);
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "createUserWithEmail:success");
                             FirebaseUser user = FireLog.getCurrentUser();
@@ -142,6 +145,8 @@ public class Register extends AppCompatActivity {
                             }
                             moveToLogin();
                         } else {
+
+                            progressBar2.setVisibility(View.GONE);
                             // If sign in fails, display a message to the user.
                             Log.w("[INFO]", "createUserWithEmail:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication failed.",
@@ -161,6 +166,8 @@ public class Register extends AppCompatActivity {
         email_handler = (EditText) findViewById(R.id.EmailInput);
         inputPhone = (EditText) findViewById(R.id.inputPhone);
         inputFullName = (EditText) findViewById(R.id.inputFullName);
+
+        progressBar2 = findViewById(R.id.progressBar2);
 
         //retrieving the names near the input bars
         pass = (TextView ) findViewById(R.id.Password);

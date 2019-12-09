@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Login extends AppCompatActivity {
     //Test
     String email = "", password = "";
+    ProgressBar progressBar;
     boolean isBaker = false;
     private FirebaseAuth FireLog;
     FirebaseFirestore fStore; //firebase DB
@@ -40,6 +42,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         FireLog = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        progressBar = findViewById(R.id.progressBar);
 
     }
 
@@ -54,6 +57,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            progressBar.setVisibility(View.VISIBLE);
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "signInWithEmail:success");
 
@@ -77,6 +81,7 @@ public class Login extends AppCompatActivity {
 
 
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             // If sign in fails, display a message to the user.
                             Toast.makeText(getApplicationContext(), "Sign in failed", Toast.LENGTH_SHORT).show();
                             Log.w("[ERROR]", "signInWithEmail:failure", task.getException());

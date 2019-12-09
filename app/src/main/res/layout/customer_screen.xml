@@ -107,12 +107,24 @@
         android:id="@+id/Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="368dp"
+        android:layout_marginBottom="16dp"
         android:background="#F8F7F7"
         android:text="@string/Next"
         android:textColor="#0C0C0C"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/LogOutC"
+        android:layout_width="153dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FCF8F8"
+        android:text="התנתקות"
+        android:onClick="LogOutC"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
