@@ -14,14 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +32,8 @@ public class Register extends AppCompatActivity {
 
     public static final String TAG = "TAG";
     private FirebaseAuth FireLog;// fire base authentication
-    FirebaseFirestore fStore; //firebase DB
+    FirebaseDatabase DB; //firebase DB
+
     Typeface font; // font
     EditText password_handler, email_handler, inputPhone, inputFullName;//input bars
     TextView pass, mail, phone, name;//names near input bars
@@ -43,6 +42,9 @@ public class Register extends AppCompatActivity {
     String userID;
     CheckBox inputBaker, inputCustomer;
     ProgressBar progressBar2;
+    DatabaseReference usersRef;
+    DatabaseReference bakersRef;
+    DatabaseReference customersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,11 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
         FireLog = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
+        DB = FirebaseDatabase.getInstance();
+        usersRef = DB.getReference("Users");
+        bakersRef = DB.getReference("Users/Bakers");
+        customersRef = DB.getReference("Users/Customers");
+
         retrieve();//retrieve all elements in the activity
         setFonts();
 
@@ -106,46 +112,28 @@ public class Register extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "createUserWithEmail:success");
                             FirebaseUser user = FireLog.getCurrentUser();
-                            userID = user.getUid();
-                            DocumentReference docBaker;
-                            DocumentReference docCustomer;
-                            Map<String, Object> userDetails = new HashMap<>();
-                            userDetails.put("Full Name",fullName );
-                            userDetails.put("Email",email );
-                            userDetails.put("Phone",Phone );
-                            //  userDetails.put("Password", password );
-                            if(inputBaker.isChecked()){
-                                docBaker = fStore.collection("Bakers").document(userID);
-                                docBaker.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "onSuccess: user profile is create for "+ userID);
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailue" + e.toString());
-                                    }
-                                });
-                            }
-                            else {
-                                docCustomer = fStore.collection("Customers").document(userID);
 
-                                docCustomer.set(userDetails).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "onSuccess: user profile is create for " + userID);
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailue" + e.toString());
-                                    }
-                                });
+                            userID = user.getUid();
+                            if (inputBaker.isChecked()) {
+                                Baker baker = new Baker(email, fullName, Phone, "address", "Baker");
+                                try {
+                                    bakersRef.child(userID).setValue(baker);
+                                    Toast.makeText(Register.this, "Baker added", Toast.LENGTH_LONG).show();
+                                } catch (Exception e) {
+                                    Log.d(TAG, "onFailue" + e.toString());
+                                }
+                            } else {
+                                Customer customer = new Customer(email, fullName, Phone, "address", "Customer");
+                                try {
+                                    customersRef.child(userID).setValue(customer);
+                                    Toast.makeText(Register.this, "Customer added", Toast.LENGTH_LONG).show();
+                                } catch (Exception e) {
+                                    Log.d(TAG, "onFailue" + e.toString());
+                                }
                             }
                             moveToLogin();
-                        } else {
-
+                        }
+                        else {
                             progressBar2.setVisibility(View.GONE);
                             // If sign in fails, display a message to the user.
                             Log.w("[INFO]", "createUserWithEmail:failure", task.getException());
@@ -160,30 +148,31 @@ public class Register extends AppCompatActivity {
     /**
      * retrieve all elements in the activity
      */
-    public void retrieve(){
+    public void retrieve() {
         //retrieving details EditText input bars
-        password_handler = (EditText) findViewById(R.id.PasswordInput);
-        email_handler = (EditText) findViewById(R.id.EmailInput);
-        inputPhone = (EditText) findViewById(R.id.inputPhone);
-        inputFullName = (EditText) findViewById(R.id.inputFullName);
+        password_handler = findViewById(R.id.PasswordInput);
+        email_handler = findViewById(R.id.EmailInput);
+        inputPhone = findViewById(R.id.inputPhone);
+        inputFullName = findViewById(R.id.inputFullName);
 
         progressBar2 = findViewById(R.id.progressBar2);
 
         //retrieving the names near the input bars
-        pass = (TextView ) findViewById(R.id.Password);
-        mail = (TextView ) findViewById(R.id.Email);
-        phone = (TextView ) findViewById(R.id.Phone);
-        name= (TextView ) findViewById(R.id.fullName);
+        pass = findViewById(R.id.Password);
+        mail = findViewById(R.id.Email);
+        phone = findViewById(R.id.Phone);
+        name = findViewById(R.id.fullName);
 
         //confirm button
-        confirm = (Button)findViewById(R.id.confirm);
+        confirm = findViewById(R.id.confirm);
 
         //checkboxes of baker and customer
-        inputBaker = (CheckBox) findViewById(R.id.ifBaker);
-        inputCustomer = (CheckBox) findViewById(R.id.ifCustomer);
+        inputBaker = findViewById(R.id.ifBaker);
+        inputCustomer = findViewById(R.id.ifCustomer);
 
     }
-    public void setFonts(){
+
+    public void setFonts() {
         pass.setTypeface(font);
         mail.setTypeface(font);
         phone.setTypeface(font);

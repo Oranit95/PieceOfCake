@@ -27,9 +27,7 @@
     <string name="price">מחיר </string>
     <string name="description">תיאור</string>
     <string name="alerganic">מרכיבים אלרגניים</string>
-
-
-
+    <string name="LogOutC">התנתקות</string>
 
 
 </resources>

@@ -7,10 +7,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BakerMenuActivity extends AppCompatActivity {
@@ -19,8 +25,8 @@ public class BakerMenuActivity extends AppCompatActivity {
     private ListView listView;
     String userID;
 
-    //CollectionReference menuRef = fStore.collection("Bakers")
-           // .document(userID).collection("Menu");
+    CollectionReference menuRef = fStore.collection("Bakers")
+            .document(userID).collection("Menu");
 
     ArrayList<Pastry>  pastryList = new ArrayList<Pastry>();
     //  private ListViewAdapter adapter;
@@ -37,7 +43,7 @@ public class BakerMenuActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-      /**  menuRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+        menuRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if(e!=null){
@@ -47,8 +53,11 @@ public class BakerMenuActivity extends AppCompatActivity {
                     Pastry pastry = querySnap.toObject(Pastry.class);
                     pastryList.add(pastry);
                 }
+                if (pastryList.size() == 0) {
+                    moveToAddPastry();
+                }
             }
-    });**/
+    });
         String[] pastries = {"cake", " cookie"};
         PastryAdapter pastryAdapter = new PastryAdapter(this,R.layout.list_pastry_item, pastries);
         if (pastryAdapter==null){
@@ -68,5 +77,8 @@ public class BakerMenuActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void moveToAddPastry() {
     }
 }
