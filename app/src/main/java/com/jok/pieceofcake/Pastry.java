@@ -7,7 +7,8 @@ public class Pastry {
     private String name;
     private String allerganics;
     private String description;
-    private String docID;
+    public String docID;
+
 
     public  Pastry(){
         // no args constructor needed

@@ -7,15 +7,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class PastryAdapter extends ArrayAdapter {
     private Context context;
     private int rowLayout;
-    private String[] pastries;
+    private ArrayList<Pastry> pastries;
 
-    public PastryAdapter(@NonNull Context context, int rowLayout, @NonNull String[] pastries) {
+    public PastryAdapter(@NonNull Context context, int rowLayout, @NonNull ArrayList<Pastry> pastries) {
         super(context, rowLayout);
         this.context = context;
         this.rowLayout = rowLayout;
@@ -34,12 +36,11 @@ public class PastryAdapter extends ArrayAdapter {
         TextView allerganics = row.findViewById(R.id.allerganics);
         TextView description = row.findViewById(R.id.descript);
 
-        String pastry = pastries[position];
-            price.setText(pastry);
-       // price.setText(pastry.getPrice());
-       // name.setText(pastry.getName());
-       // allerganics.setText(pastry.getAllerganics());
-       // description.setText(pastry.getDescription());
+        Pastry pastry = pastries.get(position);
+        price.setText(pastry.getPrice());
+        name.setText(pastry.getName());
+        allerganics.setText(pastry.getAllerganics());
+        description.setText(pastry.getDescription());
 
         return row;
     }
@@ -47,6 +48,6 @@ public class PastryAdapter extends ArrayAdapter {
     @Override
     public int getCount() {
         if(pastries == null) return 0;
-        else return pastries.length;
+        else return pastries.size();
     }
 }
