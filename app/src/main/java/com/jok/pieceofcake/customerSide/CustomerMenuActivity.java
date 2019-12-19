@@ -72,7 +72,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
         listViewPastriesC.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(CustomerMenuActivity.this, BuyPastryPopUpActivity.class);
+                Intent intent = new Intent(CustomerMenuActivity.this, BuyPastryActivity.class);
                 intent.putExtra("pastryID", pastryList.get(i).getDocID());
                 intent.putExtra("bakerID",bakerID);
                 startActivity(intent);
