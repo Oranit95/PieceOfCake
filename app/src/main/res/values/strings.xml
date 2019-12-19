@@ -46,6 +46,15 @@
     <string name="floor">קומה</string>
     <string name="streetName">רחוב</string>
     <string name="Buy">קנה!</string>
+    <string name="command">הערות</string>
+    <string name="cach">מזומן</string>
+    <string name="creditCard">אשראי</string>
+    <string name="recieve">קבלת ההזמנה</string>
+    <string name="selfDelivery">איסוף עצמי</string>
+    <string name="Date">תאריך</string>
+    <string name="Pay">אמצעי תשלום</string>
+    <string name="OrderDetails">פרטי ההזמנה</string>
+    <string name="delivery">משלוח</string>
 
 
 </resources>

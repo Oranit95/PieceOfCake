@@ -7,17 +7,162 @@
     android:background="@drawable/bacground"
     tools:context=".customerSide.BuyPastryPopUpActivity">
 
+    <TextView
+        android:id="@+id/command"
+        android:layout_width="145dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="136dp"
+        android:text="@string/command"
+        android:textColor="#0F0F0F"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/pay"
+        android:layout_width="164dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="228dp"
+        android:text="@string/Pay"
+        android:textColor="#0F0F0F"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputCommand"
+        android:layout_width="194dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="116dp"
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="271dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/OrderDetails"
+        android:textColor="#050505"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/creditCard"
+        android:layout_width="128dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="284dp"
+        android:background="#FCF9F9"
+        android:text="@string/creditCard"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/cach"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Date"
+        android:layout_width="128dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="164dp"
+        android:text="@string/Date"
+        android:textColor="#141414"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cach"
+        android:layout_width="138dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:background="#FCF9F9"
+        android:text="@string/cach"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pay" />
+
+    <CheckBox
+        android:id="@+id/delivery"
+        android:layout_width="161dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="212dp"
+        android:background="#FCF9F9"
+        android:text="@string/delivery"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recieve" />
+
+    <EditText
+        android:id="@+id/inputDate"
+        android:layout_width="214dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="160dp"
+        android:background="#FCF9F9"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/selfDelivery"
+        android:layout_width="189dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="236dp"
+        android:background="#FCF9F9"
+        android:text="@string/selfDelivery"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/delivery"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/Buy"
         android:layout_width="157dp"
         android:layout_height="39dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="48dp"
         android:background="#FAF7F7"
+        android:onClick="sendOrderToBaker"
         android:text="@string/Buy"
         android:textColor="#0A0A0A"
-        android:onClick="sendOrderToBaker"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/recieve"
+        android:layout_width="164dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="328dp"
+        android:text="@string/recieve"
+        android:textColor="#0F0F0F"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/delivery" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
