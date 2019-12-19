@@ -1,5 +1,6 @@
 package com.jok.pieceofcake;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,12 +17,12 @@ import androidx.annotation.Nullable;
 public class PastryAdapter extends ArrayAdapter {
     private Context context;
     private int rowLayout;
-    private ArrayList<Pastry> pastries;
+    private List<Pastry> pastries;
 
-    public PastryAdapter(@NonNull Context context, int rowLayout, @NonNull ArrayList<Pastry> pastries) {
-        super(context, rowLayout);
+    public PastryAdapter(@NonNull Context context,int resorce, int rowLayout, @NonNull List<Pastry> pastries) {
+        super(context,resorce, rowLayout,pastries);
         this.context = context;
-        this.rowLayout = rowLayout;
+        //this.rowLayout = rowLayout;
         this.pastries = pastries;
 
     }
@@ -28,7 +30,8 @@ public class PastryAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater =  LayoutInflater.from(context);
+        LayoutInflater inflater =  ((Activity)context).getLayoutInflater();
+                //LayoutInflater.from(context);
         View row = inflater.inflate(rowLayout, parent, false);
 
         TextView price = row.findViewById(R.id.price);
