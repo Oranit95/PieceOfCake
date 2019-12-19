@@ -3,4 +3,18 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/BakerName"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/BakerAddress"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:text="TextView"
+        android:textColor="#000000" />
 </LinearLayout>
