@@ -1,5 +1,6 @@
 package com.jok.pieceofcake.customerSide;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -75,7 +76,9 @@ public class SearchPastry extends AppCompatActivity {
         listViewBakers.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent = new Intent(SearchPastry.this, CustomerMenuActivity.class);
+                intent.putExtra("bakerID", bakerList.get(i).getUserID());
+                startActivity(intent);
             }
 
         });

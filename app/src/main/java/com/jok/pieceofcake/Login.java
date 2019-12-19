@@ -8,9 +8,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.jok.pieceofcake.bakerSide.bakerScreen;
 import com.jok.pieceofcake.customerSide.customerScreen;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
     //Test
@@ -73,7 +73,6 @@ public class Login extends AppCompatActivity {
                                 usersRef.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                        System.out.println("*************************************************"+dataSnapshot.child("Bakers").hasChild(userID));
                                             if (dataSnapshot.child("Bakers").hasChild(userID)) {
                                                 BakerLogin();
                                                 Toast.makeText(getApplicationContext(), "IN baker", Toast.LENGTH_SHORT).show();

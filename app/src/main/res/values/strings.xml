@@ -40,6 +40,11 @@
     <string name="pastry_name">שם המאפה</string>
     <string name="pastry_id">מזהה המאפה</string>
     <string name="pay">תשלום</string>
+    <string name="cityName">עיר</string>
+    <string name="houseNumber">מספר בית</string>
+    <string name="appartmentNumber">מספר דירה</string>
+    <string name="floor">קומה</string>
+    <string name="streetName">רחוב</string>
 
 
 </resources>

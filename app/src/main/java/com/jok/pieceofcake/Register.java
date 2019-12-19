@@ -36,8 +36,10 @@ public class Register extends AppCompatActivity {
     Typeface font; // font
     EditText password_handler, email_handler, inputPhone, inputFullName;//input bars
     TextView pass, mail, phone, name;//names near input bars
+    EditText city, street, floor, appartment, houseNum;
     Button confirm;
     String password, email, Phone, fullName;
+    String citys, streetS,floorS, apparmentS, housNums;
     String userID;
     CheckBox inputBaker, inputCustomer;
     ProgressBar progressBar2;
@@ -70,6 +72,12 @@ public class Register extends AppCompatActivity {
         Phone = inputPhone.getText().toString().trim();
         fullName = inputFullName.getText().toString().trim();
 
+        citys = city.getText().toString().trim();
+        streetS = street.getText().toString().trim();
+        floorS = floor.getText().toString().trim();
+        apparmentS = appartment.getText().toString().trim();
+        housNums = houseNum.getText().toString().trim();
+
         //check that all the inputs are valid
         if (TextUtils.isEmpty(email)) {
             email_handler.setError("נא למלא E-mail");
@@ -95,6 +103,18 @@ public class Register extends AppCompatActivity {
             inputPhone.setError("יש למלא מספר טלפון");
             return;
         }
+        if (TextUtils.isEmpty(citys)) {
+            inputPhone.setError("יש למלא עיר");
+            return;
+        }
+        if (TextUtils.isEmpty(streetS)) {
+            inputPhone.setError("יש למלא רחוב");
+            return;
+        }
+        if (TextUtils.isEmpty(housNums)) {
+            inputPhone.setError("יש למלא מספר בית");
+            return;
+        }
 
 
         if ((!inputBaker.isChecked()) && (!inputCustomer.isChecked())) {
@@ -111,10 +131,10 @@ public class Register extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("[INFO]", "createUserWithEmail:success");
                             FirebaseUser user = FireLog.getCurrentUser();
-
+                            Address adress = new Address(citys,streetS,housNums,floorS,apparmentS);
                             userID = user.getUid();
                             if (inputBaker.isChecked()) {
-                                Baker baker = new Baker(email, fullName, Phone, "address", "Baker");
+                                Baker baker = new Baker(email, fullName, Phone, adress, userID);
                                 try {
                                     bakersRef.child(userID).setValue(baker);
                                     Toast.makeText(Register.this, "Baker added", Toast.LENGTH_LONG).show();
@@ -122,7 +142,7 @@ public class Register extends AppCompatActivity {
                                     Log.d(TAG, "onFailue" + e.toString());
                                 }
                             } else {
-                                Customer customer = new Customer(email, fullName, Phone, "address", "Customer");
+                                Customer customer = new Customer(email, fullName, Phone, adress, userID);
                                 try {
                                     customersRef.child(userID).setValue(customer);
                                     Toast.makeText(Register.this, "Customer added", Toast.LENGTH_LONG).show();
@@ -153,6 +173,12 @@ public class Register extends AppCompatActivity {
         email_handler = findViewById(R.id.EmailInput);
         inputPhone = findViewById(R.id.inputPhone);
         inputFullName = findViewById(R.id.inputFullName);
+
+        city = findViewById(R.id.cityNameInput);
+        street = findViewById(R.id.streetNameInput);
+        floor = findViewById(R.id.floorNumberInput);
+        appartment = findViewById(R.id.appartmentNumberInput);
+        houseNum = findViewById(R.id.buildingNumberInput);
 
         progressBar2 = findViewById(R.id.progressBar2);
 

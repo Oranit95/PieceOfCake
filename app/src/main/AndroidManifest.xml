@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bakerSide.BakerOrderActivity"></activity>
-        <activity android:name=".customerSide.Favorites"></activity>
+        <activity android:name=".customerSide.CustomerMenuActivity"></activity>
+        <activity android:name=".bakerSide.BakerOrderActivity" />
+        <activity android:name=".customerSide.Favorites" />
         <activity android:name=".customerSide.OrderCustomer" />
         <activity android:name=".bakerSide.AddPastry" />
         <activity android:name=".Register" />

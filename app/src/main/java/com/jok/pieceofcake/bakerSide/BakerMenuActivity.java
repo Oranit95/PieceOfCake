@@ -8,7 +8,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +27,6 @@ public class BakerMenuActivity extends AppCompatActivity {
     String userID;
     DatabaseReference menu;
     FirebaseDatabase DB;
-    FirebaseUser currentUser;
 
     List<Pastry> pastryList;
 
@@ -41,12 +39,9 @@ public class BakerMenuActivity extends AppCompatActivity {
 
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
-        currentUser = FireLog.getCurrentUser();
-        userID = currentUser.getUid();
 
         pastryList = new ArrayList<Pastry>();
 
-        menu = DB.getReference("Menus").child(userID);
     }
 
     @Override

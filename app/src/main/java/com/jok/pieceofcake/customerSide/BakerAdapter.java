@@ -37,7 +37,7 @@ public class BakerAdapter extends ArrayAdapter<Baker> {
 
 
         Baker baker = bakers.get(position);
-        address.setText("כתובת: "+baker.getAddress());
+        address.setText("עיר: "+baker.getAddress().getCity());
         name.setText("שם: "+baker.getFull_name());
 
         return listViewItem;

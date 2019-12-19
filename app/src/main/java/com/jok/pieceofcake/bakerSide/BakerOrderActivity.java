@@ -1,14 +1,10 @@
 package com.jok.pieceofcake.bakerSide;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +15,9 @@ import com.jok.pieceofcake.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class BakerOrderActivity extends AppCompatActivity {
 
     private FirebaseAuth FireLog;// fire base authentication
@@ -26,7 +25,6 @@ public class BakerOrderActivity extends AppCompatActivity {
     String userID;
     DatabaseReference databaseOrdersB;
     FirebaseDatabase DB;
-    FirebaseUser currentUser;
 
     List<OrderB> ordersB_list;
 
@@ -37,13 +35,10 @@ public class BakerOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_baker_order);
         listOrders = (ListView)findViewById(R.id.listOrders);
 
-
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
-        currentUser = FireLog.getCurrentUser();
-        userID = currentUser.getUid();
+
         ordersB_list = new ArrayList<OrderB>();
-        databaseOrdersB = DB.getReference("Orders").child(userID);
 
     }
 
@@ -51,7 +46,8 @@ public class BakerOrderActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
-        databaseOrdersB = DB.getReference("Orders").child(userID);
+        databaseOrdersB = DB.getReference("Baker Orders").child(userID);
+
         databaseOrdersB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
