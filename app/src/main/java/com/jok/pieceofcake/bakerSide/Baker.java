@@ -1,4 +1,6 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.bakerSide;
+
+import com.jok.pieceofcake.User;
 
 public class Baker extends User {
 

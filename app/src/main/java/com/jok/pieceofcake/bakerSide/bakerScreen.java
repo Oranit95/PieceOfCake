@@ -1,4 +1,4 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.bakerSide;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
+import com.jok.pieceofcake.Login;
+import com.jok.pieceofcake.R;
 
 
 public class bakerScreen extends AppCompatActivity {
@@ -34,7 +36,7 @@ public class bakerScreen extends AppCompatActivity {
 
     public void LogOutB (View v){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),Login.class));
+        startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
 }

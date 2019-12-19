@@ -1,4 +1,4 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.bakerSide;
 
 public class OrderB {
     String numOfOrder;

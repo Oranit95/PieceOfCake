@@ -1,6 +1,8 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.customerSide;
 
 import android.os.Bundle;
+
+import com.jok.pieceofcake.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 

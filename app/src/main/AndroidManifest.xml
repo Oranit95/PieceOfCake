@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BakerOrderActivity"></activity>
-        <activity android:name=".Favorites"></activity>
-        <activity android:name=".OrderCustomer" />
-        <activity android:name=".AddPastry" />
+        <activity android:name=".bakerSide.BakerOrderActivity"></activity>
+        <activity android:name=".customerSide.Favorites"></activity>
+        <activity android:name=".customerSide.OrderCustomer" />
+        <activity android:name=".bakerSide.AddPastry" />
         <activity android:name=".Register" />
-        <activity android:name=".SearchPastry" />
-        <activity android:name=".BakerMenuActivity" />
-        <activity android:name=".bakerScreen" />
+        <activity android:name=".customerSide.SearchPastry" />
+        <activity android:name=".bakerSide.BakerMenuActivity" />
+        <activity android:name=".bakerSide.bakerScreen" />
         <activity android:name=".Login" />
-        <activity android:name=".customerScreen" />
+        <activity android:name=".customerSide.customerScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
