@@ -45,6 +45,7 @@
     <string name="appartmentNumber">מספר דירה</string>
     <string name="floor">קומה</string>
     <string name="streetName">רחוב</string>
+    <string name="Buy">קנה!</string>
 
 
 </resources>

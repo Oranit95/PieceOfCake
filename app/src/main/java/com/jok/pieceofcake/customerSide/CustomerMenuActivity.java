@@ -16,11 +16,11 @@ import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.bakerSide.Pastry;
 import com.jok.pieceofcake.bakerSide.PastryAdapter;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CustomerMenuActivity extends AppCompatActivity {
 
@@ -72,7 +72,10 @@ public class CustomerMenuActivity extends AppCompatActivity {
         listViewPastriesC.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent = new Intent(CustomerMenuActivity.this, BuyPastryPopUpActivity.class);
+                intent.putExtra("pastryID", pastryList.get(i).getDocID());
+                intent.putExtra("bakerID",bakerID);
+                startActivity(intent);
             }
 
         });
