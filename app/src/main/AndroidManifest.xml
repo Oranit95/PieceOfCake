@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".BakerOrderActivity"></activity>
+        <activity android:name=".Favorites"></activity>
+        <activity android:name=".OrderCustomer" />
         <activity android:name=".AddPastry" />
         <activity android:name=".Register" />
-        <activity android:name=".ChoosePastry" />
+        <activity android:name=".SearchPastry" />
         <activity android:name=".BakerMenuActivity" />
         <activity android:name=".bakerScreen" />
         <activity android:name=".Login" />

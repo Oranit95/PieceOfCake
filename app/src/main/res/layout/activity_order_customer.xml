@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bacground"
-    tools:context=".ChoosePastry">
+    tools:context=".OrderCustomer">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

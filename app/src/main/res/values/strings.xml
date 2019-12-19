@@ -31,7 +31,15 @@
     <string name="myOrders">ההזמנות שלי</string>
     <string name="myMenu">התפריט שלי</string>
     <string name="settings">הגדרות</string>
-
+    <string name="newOrder">הזמנה חדשה</string>
+    <string name="favorites">המועדפים שלי</string>
+    <string name="numOfOrder">מספר הזמנה</string>
+    <string name="C_email">מייל הלקוח</string>
+    <string name="C_city">עיר</string>
+    <string name="date">תאריך</string>
+    <string name="pastry_name">שם המאפה</string>
+    <string name="pastry_id">מזהה המאפה</string>
+    <string name="pay">תשלום</string>
 
 
 </resources>
