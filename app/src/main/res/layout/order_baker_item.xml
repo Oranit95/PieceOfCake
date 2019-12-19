@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/numOfOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/numOfOrder"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/C_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/C_email"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/C_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/C_city"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/pastry_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pastry_name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/pastry_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pastry_id"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pay"
+        android:textSize="18sp" />
+</LinearLayout>
