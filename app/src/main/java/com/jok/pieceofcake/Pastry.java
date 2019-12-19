@@ -3,7 +3,7 @@ package com.jok.pieceofcake;
 import com.google.firebase.firestore.Exclude;
 
 public class Pastry {
-    private  int price;
+    private  String price;
     private String name;
     private String allerganics;
     private String description;
@@ -14,7 +14,7 @@ public class Pastry {
         // no args constructor needed
     }
 
-    public Pastry(int price, String name, String allerganics, String description){
+    public Pastry(String price, String name, String allerganics, String description){
         this.price=price;
         this.name=name;
         this.allerganics=allerganics;
@@ -24,7 +24,7 @@ public class Pastry {
         return name;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -40,7 +40,7 @@ public class Pastry {
         return docID;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

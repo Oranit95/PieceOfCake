@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,11 +22,9 @@ public class AddPastry extends AppCompatActivity {
     String userID;
     String priceIn, nameIn, descIn, allergicIn;
     private FirebaseAuth FireLog;// fire base authentication
-    FirebaseFirestore fStore; //firebase DB
     EditText price, name, description, allergenic;
     DatabaseReference pastryRef;
     FirebaseDatabase DB;
-    // CollectionReference docBaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +32,9 @@ public class AddPastry extends AppCompatActivity {
         setContentView(R.layout.activity_add_pastry);
         FireLog = FirebaseAuth.getInstance();
         DB = FirebaseDatabase.getInstance();
-        // fStore = FirebaseFirestore.getInstance();
         pastryRef = DB.getReference("Menu/" + FireLog.getCurrentUser().getUid());
-
-        //  docBaker = fStore.collection("Bakers")
-        // .document(userID).collection("Menu");
         FirebaseUser user = FireLog.getCurrentUser();
         userID = user.getUid();
-
         retrieve();
     }
 
@@ -78,20 +70,10 @@ public class AddPastry extends AppCompatActivity {
                 }
             }
         };
-        Pastry pastry = new Pastry(Integer.parseInt(priceIn), nameIn, allergicIn, descIn);
+        Pastry pastry = new Pastry(priceIn, nameIn, allergicIn, descIn);
         pastry.setDocID(pastryRef.push().getKey());
         pastryRef.child(pastry.getDocID()).setValue(pastry, completionListener);
 
-
-        /**docBaker.add(pastry).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-        @Override public void onSuccess(DocumentReference documentReference) {
-        Log.d(TAG, "onSuccess: added pastry " + nameIn);
-        }
-        }).addOnFailureListener(new OnFailureListener() {
-        @Override public void onFailure(@NonNull Exception e) {
-        Log.d(TAG, "onFailue" + e.toString());
-        }
-        });**/
         backToMenu();
     }
 
