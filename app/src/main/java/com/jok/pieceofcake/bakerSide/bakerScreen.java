@@ -14,26 +14,29 @@ import com.jok.pieceofcake.R;
 
 public class bakerScreen extends AppCompatActivity {
     ArrayAdapter adapter;
-    Button myOrders;
+    Button myMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.baker_screen);
-        myOrders = (Button) findViewById(R.id.myOrders);
-        myOrders.setOnClickListener(new View.OnClickListener() {
+        myMenu = (Button) findViewById(R.id.myMenu);
+        myMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToActivitySchedule();
+                moveToBakerMenu();
             }
         });
 
 
     }
-    private void moveToActivitySchedule() {
+    private void moveToBakerMenu() {
         Intent intent = new Intent(this, BakerMenuActivity.class);
         startActivity(intent);
     }
 
+    public void moveToBakerOrders(View v){
+        startActivity(new Intent(getApplicationContext(), BakerOrderActivity.class));
+    }
     public void LogOutB (View v){
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), Login.class));
