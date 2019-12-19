@@ -28,6 +28,10 @@
     <string name="description">תיאור</string>
     <string name="alerganic">מרכיבים אלרגניים</string>
     <string name="LogOutC">התנתקות</string>
+    <string name="myOrders">ההזמנות שלי</string>
+    <string name="myMenu">התפריט שלי</string>
+    <string name="settings">הגדרות</string>
+
 
 
 </resources>
