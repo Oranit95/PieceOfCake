@@ -62,7 +62,6 @@ public class BakerMenuActivity extends AppCompatActivity {
                     Pastry pastry = pastrySnapShot.getValue(Pastry.class);
                     pastryList.add(pastry);
                 }
-                System.out.println("************************* " +pastryList.size());
                 if (pastryList.isEmpty()) {
                     Toast.makeText(BakerMenuActivity.this, "התפריט ריק! הוסף מאפה חדש", Toast.LENGTH_LONG).show();
                     moveToAddPastry();

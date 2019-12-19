@@ -31,7 +31,8 @@
     <string name="myOrders">ההזמנות שלי</string>
     <string name="myMenu">התפריט שלי</string>
     <string name="settings">הגדרות</string>
-
+    <string name="newOrder">הזמנה חדשה</string>
+    <string name="favorites">המועדפים שלי</string>
 
 
 </resources>

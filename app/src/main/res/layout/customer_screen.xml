@@ -11,6 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/myFavorites"
+            android:layout_width="395dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="372dp"
+            android:background="#F5F2F2"
+            android:text="@string/favorites"
+            android:textSize="30sp"
+            android:onClick="moveToFavorites"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/PieceOfCake"
             android:layout_width="wrap_content"
@@ -28,14 +41,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/Next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="368dp"
-            android:layout_marginBottom="16dp"
-            android:background="#F8F7F7"
-            android:text="@string/Next"
-            android:textColor="#0C0C0C"
+            android:id="@+id/myOrders"
+            android:layout_width="395dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="452dp"
+            android:background="#F5F2F2"
+            android:text="@string/myOrders"
+            android:onClick="moveToCustomerOrders"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -54,26 +67,17 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/order"
+            android:id="@+id/newOrder"
             android:layout_width="395dp"
             android:layout_height="64dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginBottom="520dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="528dp"
             android:background="#F5F2F2"
-            android:text="הזמנה"
+            android:text="@string/newOrder"
+            android:onClick="moveToSearch"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="192dp"
-            android:layout_marginBottom="440dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
