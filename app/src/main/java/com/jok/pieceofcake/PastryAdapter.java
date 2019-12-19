@@ -14,7 +14,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class PastryAdapter extends ArrayAdapter {
+public class PastryAdapter extends ArrayAdapter<Pastry> {
     private Context context;
     private int rowLayout;
     private List<Pastry> pastries;
