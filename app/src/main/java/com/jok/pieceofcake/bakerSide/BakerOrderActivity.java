@@ -48,7 +48,7 @@ public class BakerOrderActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
-        databaseOrdersB = DB.getReference("Baker Orders").child(userID);
+        databaseOrdersB = DB.getReference("Orders/Bakers Orders").child(userID);
 
         databaseOrdersB.addValueEventListener(new ValueEventListener() {
             @Override

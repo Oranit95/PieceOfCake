@@ -21,6 +21,7 @@ import com.jok.pieceofcake.bakerSide.Baker;
 import com.jok.pieceofcake.bakerSide.Pastry;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BuyPastryActivity extends AppCompatActivity {
@@ -65,7 +66,7 @@ public class BuyPastryActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         userID = auth.getCurrentUser().getUid();
         orderBRef = DB.getReference("Orders/Bakers Orders");
-        orderCRef = DB.getReference("Orders/Customer Orders");
+        orderCRef = DB.getReference("Orders/Customers Orders");
         customerRef = DB.getReference("Users").child("Customers").child(userID);
     }
 
@@ -108,12 +109,25 @@ public class BuyPastryActivity extends AppCompatActivity {
         if(delivery.isChecked()){
             deliveryBool = true;
         }
+        DatabaseReference.CompletionListener completionListener = new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                if(databaseError!=null){
+                    Toast.makeText(getApplicationContext(), "הוספת מאפה נכשלה",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "מאפה נוסף בהצלחה!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
         orderNum = orderBRef.push().getKey();
-         order = new Order(baker.getUserID(),userID,baker.getEmail()
-               ,customer.getEmail(),orderNum,commentS,baker.getAddress(),customer.getAddress()
-                ,dateS,pastry.getName(),pastry.getDocID(),creditCard,deliveryBool);
-        orderCRef.child(orderNum).setValue(order);
-        orderBRef.child(orderNum).setValue(order);
+         order = new Order(customer,baker,
+                 dateS,pastry.getName(),pastry.getDocID(),commentS,creditCard,deliveryBool);
+        orderCRef.child(customer.getUserID()).child(orderNum).setValue(order,completionListener);
+        orderBRef.child(baker.getUserID()).child(orderNum).setValue(order,completionListener);
         Toast.makeText(BuyPastryActivity.this, "הזמנה נשלחה בהצלחה!", Toast.LENGTH_LONG).show();
         findViewById(R.id.buy).setEnabled(true);
         startActivity(new Intent(BuyPastryActivity.this,CustomerOrderActivity.class));

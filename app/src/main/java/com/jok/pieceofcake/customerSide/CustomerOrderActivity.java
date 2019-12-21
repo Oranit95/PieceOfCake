@@ -22,45 +22,45 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CustomerOrderActivity extends AppCompatActivity {
 
     private FirebaseAuth FireLog;// fire base authentication
-    ListView listOrders;
+    ListView ordersListView;
     String userID;
     DatabaseReference databaseOrdersC;
     FirebaseDatabase DB;
 
-    List<Order> ordersC_list;
+    List<Order> ordersList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order);
-        listOrders = (ListView)findViewById(R.id.listOrdersCustomer);
+        ordersListView = (ListView)findViewById(R.id.listOrdersCustomer);
 
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
 
-        ordersC_list = new ArrayList<Order>();
+        ordersList = new ArrayList<Order>();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
-        databaseOrdersC = DB.getReference("Customer Orders").child(userID);
+        databaseOrdersC = DB.getReference("Orders/Customers Orders").child(userID);
 
         databaseOrdersC.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ordersC_list.clear();
+                ordersList.clear();
                 for (DataSnapshot orderSnapShot : dataSnapshot.getChildren()) {
                     Order order = orderSnapShot.getValue(Order.class);
-                    ordersC_list.add(order);
+                    ordersList.add(order);
                 }
-                if (ordersC_list.isEmpty()) {
+                if (ordersList.isEmpty()) {
                     Toast.makeText(CustomerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
                     return;
                 }
-                OrderAdapter orderC_Adapter = new OrderAdapter(CustomerOrderActivity.this, ordersC_list);
-                listOrders.setAdapter(orderC_Adapter);
+                OrderAdapter orderC_Adapter = new OrderAdapter(CustomerOrderActivity.this, ordersList);
+                ordersListView.setAdapter(orderC_Adapter);
             }
 
             @Override
