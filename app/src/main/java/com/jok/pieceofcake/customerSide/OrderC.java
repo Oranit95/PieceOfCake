@@ -1,24 +1,28 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.customerSide;
 
-public class OrderB {
-    String B_id;
+public class OrderC {
+    String C_id;
     String numOfOrder;
-    String C_email;
+    String B_email;
     String City;
     String date;
     String Pastry_name;
     String Pastry_id;
     String pay;
 
-    public OrderB(String B_id, String numOfOrder, String c_email, String city, String date, String pastry_name,String pastry_id, String pay) {
-        this.B_id = B_id;
+    public OrderC(String C_id,String numOfOrder, String b_email, String city, String date, String pastry_name,String pastry_id, String pay) {
+        this.C_id = C_id;
         this.numOfOrder = numOfOrder;
-        this.C_email = c_email;
+        this.B_email = b_email;
         this.City = city;
         this.date = date;
         this.Pastry_name = pastry_name;
         this.Pastry_id = pastry_id;
         this.pay = pay;
+    }
+
+    public String getC_id() {
+        return C_id;
     }
 
     public String getNumOfOrder() {
@@ -27,6 +31,10 @@ public class OrderB {
 
     public void setNumOfOrder(String numOfOrder) {
         this.numOfOrder = numOfOrder;
+    }
+
+    public String getB_email() {
+        return B_email;
     }
 
     public String getCity() {
@@ -69,11 +77,4 @@ public class OrderB {
         Pastry_id = pastry_id;
     }
 
-    public String getB_id() {
-        return B_id;
-    }
-
-    public String getC_email() {
-        return C_email;
-    }
 }

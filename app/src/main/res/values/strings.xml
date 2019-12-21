@@ -59,6 +59,14 @@
     <string name="selfDelivery">איסוף עצמי</string>
     <string name="comment">הערות</string>
     <string name="buy">קנה</string>
+    <string name="numOfOrderC">מספר הזמנה</string>
+    <string name="baker_email">מייל האופה</string>
+    <string name="city_C">עיר</string>
+    <string name="date_C">תאריך</string>
+    <string name="pastry_name_C">שם המאפה</string>
+    <string name="pastry_id_C">מזהה המאפה</string>
+    <string name="pay_C">תשלום</string>
+    <string name="myOrdersCustomer">ההזמנות שלי</string>
 
 
 </resources>

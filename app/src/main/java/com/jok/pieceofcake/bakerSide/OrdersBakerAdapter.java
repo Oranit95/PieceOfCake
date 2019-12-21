@@ -41,12 +41,12 @@ public class OrdersBakerAdapter extends ArrayAdapter<OrderB> {
 
         OrderB orderB = ordersB.get(position);
         numOfOrder.setText("מספר הזמנה: " +orderB.getNumOfOrder());
-        numOfOrder.setText("מייל הלקוח: " +orderB.getC_email());
-        numOfOrder.setText("עיר: " +orderB.getCity());
-        numOfOrder.setText("תאריך: " +orderB.getDate());
-        numOfOrder.setText("שם המאפה: " +orderB.getPastry_name());
-        numOfOrder.setText("מזהה המאפה: " +orderB.getPastry_id());
-        numOfOrder.setText("תשלום: " +orderB.getPay());
+        C_email.setText("מייל הלקוח: " +orderB.getC_email());
+        City.setText("עיר: " +orderB.getCity());
+        date.setText("תאריך: " +orderB.getDate());
+        pastry_name.setText("שם המאפה: " +orderB.getPastry_name());
+        pastry_id.setText("מזהה המאפה: " +orderB.getPastry_id());
+        pay.setText("תשלום: " +orderB.getPay());
         return listViewItem;
     }
 }

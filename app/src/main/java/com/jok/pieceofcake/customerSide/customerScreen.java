@@ -39,7 +39,7 @@ public class customerScreen extends AppCompatActivity {
     }
 
     public void moveToCustomerOrders(View view) {
-        Intent intent = new Intent(this, OrderCustomer.class);
+        Intent intent = new Intent(this, CustomerOrderActivity.class);
         startActivity(intent);
     }
 

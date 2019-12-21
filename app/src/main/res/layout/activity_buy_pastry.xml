@@ -150,6 +150,7 @@
         android:textColor="#0C0C0C"
         android:textSize="24sp"
         android:background="#FCF9F9"
+        android:onClick="CreateNewOrderC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
