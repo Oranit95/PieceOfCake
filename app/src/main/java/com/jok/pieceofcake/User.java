@@ -1,7 +1,10 @@
 package com.jok.pieceofcake;
 
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
     private String email;
     private String full_name;
     private String phone;

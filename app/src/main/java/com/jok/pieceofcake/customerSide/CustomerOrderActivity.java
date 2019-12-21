@@ -1,8 +1,5 @@
 package com.jok.pieceofcake.customerSide;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -13,10 +10,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.Order;
 import com.jok.pieceofcake.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CustomerOrderActivity extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
     DatabaseReference databaseOrdersC;
     FirebaseDatabase DB;
 
-    List<OrderC> ordersC_list;
+    List<Order> ordersC_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class CustomerOrderActivity extends AppCompatActivity {
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
 
-        ordersC_list = new ArrayList<OrderC>();
+        ordersC_list = new ArrayList<Order>();
     }
 
     @Override
@@ -51,14 +52,14 @@ public class CustomerOrderActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ordersC_list.clear();
                 for (DataSnapshot orderSnapShot : dataSnapshot.getChildren()) {
-                    OrderC order = orderSnapShot.getValue(OrderC.class);
+                    Order order = orderSnapShot.getValue(Order.class);
                     ordersC_list.add(order);
                 }
                 if (ordersC_list.isEmpty()) {
                     Toast.makeText(CustomerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
                     return;
                 }
-                OrderCustomerAdpter orderC_Adapter = new OrderCustomerAdpter(CustomerOrderActivity.this, ordersC_list);
+                OrderAdapter orderC_Adapter = new OrderAdapter(CustomerOrderActivity.this, ordersC_list);
                 listOrders.setAdapter(orderC_Adapter);
             }
 

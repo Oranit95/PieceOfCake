@@ -2,7 +2,9 @@ package com.jok.pieceofcake.bakerSide;
 
 import com.google.firebase.firestore.Exclude;
 
-public class Pastry {
+import java.io.Serializable;
+
+public class Pastry implements Serializable {
     private  String price;
     private String name;
     private String allerganics;

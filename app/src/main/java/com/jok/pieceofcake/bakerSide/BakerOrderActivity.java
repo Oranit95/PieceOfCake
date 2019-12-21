@@ -10,7 +10,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.Order;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.customerSide.OrderAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ public class BakerOrderActivity extends AppCompatActivity {
     DatabaseReference databaseOrdersB;
     FirebaseDatabase DB;
 
-    List<OrderB> ordersB_list;
+    List<Order> ordersList;
 
 
     @Override
@@ -38,7 +40,7 @@ public class BakerOrderActivity extends AppCompatActivity {
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
 
-        ordersB_list = new ArrayList<OrderB>();
+        ordersList = new ArrayList<Order>();
 
     }
 
@@ -51,17 +53,17 @@ public class BakerOrderActivity extends AppCompatActivity {
         databaseOrdersB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ordersB_list.clear();
+                ordersList.clear();
                 for (DataSnapshot orderSnapShot : dataSnapshot.getChildren()) {
-                    OrderB order = orderSnapShot.getValue(OrderB.class);
-                    ordersB_list.add(order);
+                    Order order = orderSnapShot.getValue(Order.class);
+                    ordersList.add(order);
                 }
-                if (ordersB_list.isEmpty()) {
+                if (ordersList.isEmpty()) {
                     Toast.makeText(BakerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
                     return;
                 }
-                OrdersBakerAdapter orderB_Adapter = new OrdersBakerAdapter(BakerOrderActivity.this, ordersB_list);
-                listOrders.setAdapter(orderB_Adapter);
+                OrderAdapter orderAdapter = new OrderAdapter(BakerOrderActivity.this, ordersList);
+                listOrders.setAdapter(orderAdapter);
             }
 
 

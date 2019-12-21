@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.bakerSide.Baker;
 import com.jok.pieceofcake.bakerSide.Pastry;
 import com.jok.pieceofcake.bakerSide.PastryAdapter;
 
@@ -30,7 +31,7 @@ public class CustomerMenuActivity extends AppCompatActivity {
     DatabaseReference menuForCustomer;
     FirebaseDatabase DB;
     List<Pastry> pastryList;
-
+    Baker baker;
     String bakerID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +70,23 @@ public class CustomerMenuActivity extends AppCompatActivity {
 
             }
         });
+        DB.getReference("Users").child("Bakers").child(bakerID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                baker = dataSnapshot.getValue(Baker.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         listViewPastriesC.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(CustomerMenuActivity.this, BuyPastryActivity.class);
-                intent.putExtra("pastryID", pastryList.get(i).getDocID());
-                intent.putExtra("bakerID",bakerID);
+                intent.putExtra("Pastry", pastryList.get(i));
+                intent.putExtra("Baker",baker);
                 startActivity(intent);
             }
 
