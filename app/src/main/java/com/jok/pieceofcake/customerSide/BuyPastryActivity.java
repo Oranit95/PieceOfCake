@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,10 +33,15 @@ public class BuyPastryActivity extends AppCompatActivity {
     FirebaseAuth auth;
     DatabaseReference orderCRef;
     DatabaseReference orderBRef;
+    DatabaseReference customerRef;
     String userID;
     Baker baker;
     Pastry pastry;
     Customer customer;
+    Order order;
+    String orderNum;
+    boolean creditCard;
+    boolean deliveryBool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,36 +59,27 @@ public class BuyPastryActivity extends AppCompatActivity {
         card = findViewById(R.id.creditCard);
         delivery = findViewById(R.id.delivery);
         pickup = findViewById(R.id.selfDelivery);
+        creditCard = false;
+        deliveryBool = false;
         DB = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
         userID = auth.getCurrentUser().getUid();
         orderBRef = DB.getReference("Orders/Bakers Orders");
         orderCRef = DB.getReference("Orders/Customer Orders");
+        customerRef = DB.getReference("Users").child("Customers").child(userID);
     }
 
-    public void CreateNewOrderC(View view) {
-        //OrderC orderC = new OrderC();
-        dateS = date.getText().toString().trim();
-        commentS = comment.getText().toString().trim();
-        boolean creditCard = false;
-        boolean deliveryBool = false;
-        if(TextUtils.isEmpty(dateS)){
-            date.setError("חובה להזין תאריך!");
-        }
-        if((!card.isChecked())&&(!cash.isChecked())){
-            card.setError("חובה לבחור אמצעי תשלום!");
-        }
-        if(card.isChecked()){
-            creditCard = true;
-        }
-        if(delivery.isChecked()){
-            deliveryBool = true;
-        }
-
-        DB.getReference("Users").child("Customers").child(userID).addValueEventListener(new ValueEventListener() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        customerRef = DB.getReference("Users/Customers");
+        customerRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                customer = dataSnapshot.getValue(Customer.class);
+                userID = auth.getCurrentUser().getUid();
+                if(dataSnapshot.hasChild(userID)) {
+                    customer = dataSnapshot.child(userID).getValue(Customer.class);
+                }
             }
 
             @Override
@@ -90,12 +87,35 @@ public class BuyPastryActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-        String orderNum = orderBRef.push().getKey();
-        Order order = new Order(baker.getUserID(),userID,baker.getEmail()
-                ,customer.getEmail(),orderNum,commentS,baker.getAddress(),customer.getAddress()
+    public void CreateNewOrderC(View view) {
+        findViewById(R.id.buy).setEnabled(false);
+        dateS = date.getText().toString().trim();
+        commentS = comment.getText().toString().trim();
+        if(TextUtils.isEmpty(dateS)){
+            date.setError("חובה להזין תאריך!");
+            return;
+        }
+        if((!card.isChecked())&&(!cash.isChecked())){
+            card.setError("חובה לבחור אמצעי תשלום!");
+            return;
+
+        }
+        if(card.isChecked()){
+            creditCard = true;
+        }
+        if(delivery.isChecked()){
+            deliveryBool = true;
+        }
+        orderNum = orderBRef.push().getKey();
+         order = new Order(baker.getUserID(),userID,baker.getEmail()
+               ,customer.getEmail(),orderNum,commentS,baker.getAddress(),customer.getAddress()
                 ,dateS,pastry.getName(),pastry.getDocID(),creditCard,deliveryBool);
         orderCRef.child(orderNum).setValue(order);
         orderBRef.child(orderNum).setValue(order);
+        Toast.makeText(BuyPastryActivity.this, "הזמנה נשלחה בהצלחה!", Toast.LENGTH_LONG).show();
+        findViewById(R.id.buy).setEnabled(true);
+        startActivity(new Intent(BuyPastryActivity.this,CustomerOrderActivity.class));
     }
 }

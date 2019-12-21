@@ -20,8 +20,9 @@ public class Order {
 
     public Order(String b_id, String c_id,
                  String b_email, String c_email,
-                 String numOfOrder,String comments,
-                 Address addressBaker, Address addressCustomer,
+                 String numOfOrder, String comments,
+                 Address addressBaker,
+                 Address addressCustomer,
                  String date,
                  String pastry_name, String pastry_id,
                  boolean card, boolean delivery) {
