@@ -4,8 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bacground"
     android:orientation="vertical"
     tools:context=".bakerSide.BakerOrderActivity">
+
+    <TextView
+        android:id="@+id/myOrdersBaker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/myOrdersBaker"
+        android:textColor="#0C0C0C"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listOrders"

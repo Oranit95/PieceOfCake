@@ -7,35 +7,45 @@
         android:id="@+id/dateOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/dateOrder"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/namePastry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/namePastry"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/bakerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/bakerName"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/bakerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/bakerEmail"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/bakerPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/bakerPhone"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TableLayout
@@ -53,35 +63,45 @@
                 android:layout_width="70dp"
                 android:layout_height="37dp"
                 android:layout_column="5"
-                android:text="@string/bakerAppartment" />
+                android:background="#FFFF"
+                android:text="@string/bakerAppartment"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/bakerFloor"
                 android:layout_width="72dp"
                 android:layout_height="37dp"
                 android:layout_column="4"
-                android:text="@string/bakerFloor" />
+                android:background="#FFFF"
+                android:text="@string/bakerFloor"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/bakerNumHouse"
                 android:layout_width="90dp"
                 android:layout_height="37dp"
                 android:layout_column="3"
-                android:text="@string/bakerNumHouse" />
+                android:background="#FFFF"
+                android:text="@string/bakerNumHouse"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/bakerStreet"
                 android:layout_width="83dp"
                 android:layout_height="37dp"
                 android:layout_column="2"
-                android:text="@string/bakerStreet" />
+                android:background="#FFFF"
+                android:text="@string/bakerStreet"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/bakerCity"
                 android:layout_width="96dp"
                 android:layout_height="37dp"
                 android:layout_column="1"
-                android:text="@string/bakerCity" />
+                android:background="#FFFF"
+                android:text="@string/bakerCity"
+                android:textColor="#0C0C0C" />
         </TableRow>
     </TableLayout>
 
@@ -89,21 +109,27 @@
         android:id="@+id/customerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/customerName"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/customerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/customerEmail"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/customerPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/customerPhone"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TableLayout
@@ -118,31 +144,41 @@
                 android:id="@+id/customerAppartment"
                 android:layout_width="67dp"
                 android:layout_height="match_parent"
-                android:text="@string/customerAppartment" />
+                android:background="#FFFF"
+                android:text="@string/customerAppartment"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/customerFloor"
                 android:layout_width="74dp"
                 android:layout_height="match_parent"
-                android:text="@string/customerFloor" />
+                android:background="#FFFF"
+                android:text="@string/customerFloor"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/customerNumHouse"
                 android:layout_width="91dp"
                 android:layout_height="match_parent"
-                android:text="@string/customerNumHouse" />
+                android:background="#FFFF"
+                android:text="@string/customerNumHouse"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/customerStreet"
                 android:layout_width="86dp"
                 android:layout_height="match_parent"
-                android:text="@string/customerStreet" />
+                android:background="#FFFF"
+                android:text="@string/customerStreet"
+                android:textColor="#0C0C0C" />
 
             <TextView
                 android:id="@+id/customerCity"
                 android:layout_width="91dp"
                 android:layout_height="33dp"
-                android:text="@string/customerCity" />
+                android:background="#FFFF"
+                android:text="@string/customerCity"
+                android:textColor="#0C0C0C" />
         </TableRow>
 
     </TableLayout>
@@ -151,21 +187,27 @@
         android:id="@+id/Comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/Comment"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/PayOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/PayOrder"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/recievedOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFF"
         android:text="@string/recievedOrder"
+        android:textColor="#0C0C0C"
         android:textSize="18sp" />
 
 </LinearLayout>

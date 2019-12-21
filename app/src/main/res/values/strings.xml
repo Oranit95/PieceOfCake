@@ -92,6 +92,7 @@
     <string name="customerName">שם הלקוח</string>
     <string name="bakerPhone">טלפון האופה</string>
     <string name="customerPhone">טלפון הלקוח</string>
+    <string name="myOrdersBaker">ההזמנות שלי</string>
 
 
 </resources>
