@@ -67,6 +67,31 @@
     <string name="pastry_id_C">מזהה המאפה</string>
     <string name="pay_C">תשלום</string>
     <string name="myOrdersCustomer">ההזמנות שלי</string>
+    <string name="NumOfOrder">מספר הזמנה</string>
+    <string name="dateOrder">תאריך</string>
+    <string name="pastryID">מזהה המאפה</string>
+    <string name="namePastry">שם המאפה</string>
+    <string name="bakerID">מזהה האופה</string>
+    <string name="bakerEmail">מייל האופה</string>
+    <string name="bakerAppartment">דירה</string>
+    <string name="bakerFloor">קומה</string>
+    <string name="bakerNumHouse">מספר בית</string>
+    <string name="bakerStreet">רחוב</string>
+    <string name="bakerCity">עיר</string>
+    <string name="customerID">מזהה הלקוח</string>
+    <string name="customerEmail">מייל הלקוח</string>
+    <string name="customerAppartment">דירה</string>
+    <string name="customerFloor">קומה</string>
+    <string name="customerNumHouse">מספר בית</string>
+    <string name="customerStreet">רחוב</string>
+    <string name="customerCity">עיר</string>
+    <string name="Comment">הערות</string>
+    <string name="PayOrder">תשלום</string>
+    <string name="recievedOrder">קבלת ההזמנה</string>
+    <string name="bakerName">שם האופה</string>
+    <string name="customerName">שם הלקוח</string>
+    <string name="bakerPhone">טלפון האופה</string>
+    <string name="customerPhone">טלפון הלקוח</string>
 
 
 </resources>

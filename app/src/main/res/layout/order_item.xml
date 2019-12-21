@@ -4,51 +4,168 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/numOfOrder"
+        android:id="@+id/dateOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/numOfOrder"
+        android:text="@string/dateOrder"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/C_email"
+        android:id="@+id/namePastry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/C_email"
+        android:text="@string/namePastry"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/C_city"
+        android:id="@+id/bakerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/C_city"
+        android:text="@string/bakerName"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/bakerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/date"
+        android:text="@string/bakerEmail"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/pastry_name"
+        android:id="@+id/bakerPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pastry_name"
+        android:text="@string/bakerPhone"
+        android:textSize="18sp" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:id="@+id/TableRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bakerAppartment"
+                android:layout_width="70dp"
+                android:layout_height="37dp"
+                android:layout_column="5"
+                android:text="@string/bakerAppartment" />
+
+            <TextView
+                android:id="@+id/bakerFloor"
+                android:layout_width="72dp"
+                android:layout_height="37dp"
+                android:layout_column="4"
+                android:text="@string/bakerFloor" />
+
+            <TextView
+                android:id="@+id/bakerNumHouse"
+                android:layout_width="90dp"
+                android:layout_height="37dp"
+                android:layout_column="3"
+                android:text="@string/bakerNumHouse" />
+
+            <TextView
+                android:id="@+id/bakerStreet"
+                android:layout_width="83dp"
+                android:layout_height="37dp"
+                android:layout_column="2"
+                android:text="@string/bakerStreet" />
+
+            <TextView
+                android:id="@+id/bakerCity"
+                android:layout_width="96dp"
+                android:layout_height="37dp"
+                android:layout_column="1"
+                android:text="@string/bakerCity" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/customerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/customerName"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/pastry_id"
+        android:id="@+id/customerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pastry_id"
+        android:text="@string/customerEmail"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/pay"
+        android:id="@+id/customerPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pay"
+        android:text="@string/customerPhone"
         android:textSize="18sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="31dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/customerAppartment"
+                android:layout_width="67dp"
+                android:layout_height="match_parent"
+                android:text="@string/customerAppartment" />
+
+            <TextView
+                android:id="@+id/customerFloor"
+                android:layout_width="74dp"
+                android:layout_height="match_parent"
+                android:text="@string/customerFloor" />
+
+            <TextView
+                android:id="@+id/customerNumHouse"
+                android:layout_width="91dp"
+                android:layout_height="match_parent"
+                android:text="@string/customerNumHouse" />
+
+            <TextView
+                android:id="@+id/customerStreet"
+                android:layout_width="86dp"
+                android:layout_height="match_parent"
+                android:text="@string/customerStreet" />
+
+            <TextView
+                android:id="@+id/customerCity"
+                android:layout_width="91dp"
+                android:layout_height="33dp"
+                android:text="@string/customerCity" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/Comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Comment"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/PayOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/PayOrder"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/recievedOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recievedOrder"
+        android:textSize="18sp" />
+
 </LinearLayout>
