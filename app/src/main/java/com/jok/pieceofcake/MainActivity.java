@@ -1,7 +1,5 @@
 package com.jok.pieceofcake;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,10 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
     Button newUser;
     Button ExsitCustomer;
-    TextView headline;
+   // TextView headline;
     TextView welcome;
     Typeface font;
     Typeface bakerF;
@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "firebase conection success",Toast.LENGTH_LONG).show();
         newUser = (Button) findViewById(R.id.Customer);
         ExsitCustomer = (Button) findViewById(R.id.Baker);
-        headline = (TextView) findViewById(R.id.PieceOfCake);
+        //headline = (TextView) findViewById(R.id.PieceOfCake);
         welcome = (TextView) findViewById(R.id.Hello);
         font = Typeface.createFromAsset(this.getAssets(), "fonts/Anka CLM Bold.ttf");
         newUser.setTypeface(font);
         ExsitCustomer.setTypeface(font);
-        headline.setTypeface(font);
+      //  headline.setTypeface(font);
         welcome.setTypeface(font);
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
