@@ -268,20 +268,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.138" />
 
-        <TextView
-            android:id="@+id/PieceOfCake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="@string/pieceofcake"
-            android:textColor="#161616"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:typeface="serif"
-            app:fontFamily="aclonica"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
 
         <EditText
             android:id="@+id/EmailInput"

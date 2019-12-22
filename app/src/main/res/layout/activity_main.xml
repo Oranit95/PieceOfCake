@@ -14,22 +14,6 @@
         tools:layout_editor_absoluteY="-242dp">
 
         <TextView
-            android:id="@+id/PieceOfCake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/pieceofcake"
-            android:textColor="#161616"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:typeface="serif"
-            app:fontFamily="aclonica"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.033"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/Hello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
