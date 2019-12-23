@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -119,6 +120,10 @@ public class Register extends AppCompatActivity {
 
         if ((!inputBaker.isChecked()) && (!inputCustomer.isChecked())) {
             inputBaker.setError("יש לבחור אופה/לקוח");
+            return;
+        }
+        if (inputBaker.isChecked() && inputCustomer.isChecked()) {
+            inputBaker.setError("יש לבחור תפקיד אחד!");
             return;
         }
 
