@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.jok.pieceofcake.Order;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.bakerSide.Pastry;
 
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         TextView comments = listViewItem.findViewById(R.id.Comment);
 
         Order order = ordersList.get(position);
+        Pastry pastry = ordersList.get(position).getPastry();
         B_email.setText("מייל האופה: " +order.getBaker().getEmail());
         C_email.setText("מייל הלקוח: " +order.getCustomer().getEmail());
         B_phone.setText("טלפון האופה: " +order.getBaker().getPhone());
@@ -71,7 +73,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         B_appartment.setText("דירה: " +order.getBaker().getAddress().getAppartmentNumber());
         C_appartment.setText("דירה: " +order.getCustomer().getAddress().getAppartmentNumber());
         date.setText("תאריך: " +order.getDate());
-        namePastry.setText("שם המאפה: " +order.getPastry_name());
+        namePastry.setText("שם המאפה: " +order.getPastry().getName());
         comments.setText("הערות: " +order.getComments());
         if(order.isCard() == true){
             pay.setText("אמצעי תשלום: אשראי");

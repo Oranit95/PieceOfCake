@@ -51,8 +51,12 @@ public class BuyPastryActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         pastry = (Pastry) intent.getSerializableExtra("Pastry");
-        baker = (Baker) intent.getSerializableExtra("Baker");
+        if (pastry == null) {
 
+            System.out.println("******************* pastry isnull");
+        }
+        baker = (Baker) intent.getSerializableExtra("Baker");
+        pastry.getName();
         Buy = findViewById(R.id.buy);
         date = findViewById(R.id.inputDate);
         comment = findViewById(R.id.commentInput);
@@ -124,8 +128,8 @@ public class BuyPastryActivity extends AppCompatActivity {
             }
         };
         orderNum = orderBRef.push().getKey();
-         order = new Order(customer,baker,
-                 dateS,pastry.getName(),pastry.getDocID(),commentS,creditCard,deliveryBool);
+         order = new Order(customer,baker,pastry,
+                 dateS,commentS,creditCard,deliveryBool);
         orderCRef.child(customer.getUserID()).child(orderNum).setValue(order,completionListener);
         orderBRef.child(baker.getUserID()).child(orderNum).setValue(order,completionListener);
         Toast.makeText(BuyPastryActivity.this, "הזמנה נשלחה בהצלחה!", Toast.LENGTH_LONG).show();

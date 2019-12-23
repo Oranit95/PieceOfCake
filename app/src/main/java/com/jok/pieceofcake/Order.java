@@ -1,29 +1,28 @@
 package com.jok.pieceofcake;
 
 import com.jok.pieceofcake.bakerSide.Baker;
+import com.jok.pieceofcake.bakerSide.Pastry;
 import com.jok.pieceofcake.customerSide.Customer;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
     Customer customer;
     Baker baker;
+    Pastry pastry;
+
     String date;
-    String pastry_name;
-    String pastry_id;
     String comments;
 
     boolean card;
     boolean delivery;
 
-    public Order(Customer customer, Baker baker,
-                 String date, String pastry_name,
-                 String pastry_id, String comments,
-                 boolean card, boolean delivery) {
-
+    public Order(Customer customer, Baker baker, Pastry pastry, String date,
+                 String comments, boolean card, boolean delivery) {
         this.customer = customer;
         this.baker = baker;
+        this.pastry = pastry;
         this.date = date;
-        this.pastry_name = pastry_name;
-        this.pastry_id = pastry_id;
         this.comments = comments;
         this.card = card;
         this.delivery = delivery;
@@ -40,6 +39,11 @@ public class Order {
     public Baker getBaker() {
         return baker;
     }
+
+    public Pastry getPastry() {
+        return pastry;
+    }
+
     public String getComments() {
         return comments;
     }
@@ -72,15 +76,4 @@ public class Order {
         this.date = date;
     }
 
-    public String getPastry_name() {
-        return pastry_name;
-    }
-
-    public void setPastry_name(String pastry_name) {
-        this.pastry_name = pastry_name;
-    }
-
-    public String getPastry_id() {
-        return pastry_id;
-    }
 }
