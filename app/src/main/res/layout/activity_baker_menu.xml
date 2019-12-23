@@ -23,13 +23,3 @@
 
 
 
-<!--<Button-->
-<!--android:id="@+id/addPastry"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:background="#FFFFFF"-->
-<!--android:text="@string/addItem"-->
-<!--android:onClick="addNewPastry"-->
-<!--android:textSize="24sp"-->
-<!--android:textStyle="bold" />-->
-<!--    </LinearLayout>-->
