@@ -18,7 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.jok.pieceofcake.bakerSide.bakerScreen;
 import com.jok.pieceofcake.customerSide.customerScreen;
 
@@ -31,7 +30,6 @@ public class Login extends AppCompatActivity {
     ProgressBar progressBar;
     boolean isBaker = false;
     private FirebaseAuth FireLog;
-    FirebaseFirestore fStore; //firebase DB
     String userID;
     DatabaseReference bakersRef;
     DatabaseReference customersRef;

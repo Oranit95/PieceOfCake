@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.addPatryPicturesActivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ public class AddPastry extends AppCompatActivity {
     EditText price, name, description, allergenic;
     DatabaseReference pastryRef;
     FirebaseDatabase DB;
+    Pastry pastry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +73,10 @@ public class AddPastry extends AppCompatActivity {
                 }
             }
         };
-        Pastry pastry = new Pastry(priceIn, nameIn, allergicIn, descIn);
+        pastry = new Pastry(priceIn, nameIn, allergicIn, descIn);
         pastry.setDocID(pastryRef.push().getKey());
         pastryRef.child(pastry.getDocID()).setValue(pastry, completionListener);
-
-        backToMenu();
+        addPicture();
     }
 
     public void retrieve() {
@@ -90,4 +91,9 @@ public class AddPastry extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addPicture() {
+        Intent intent = new Intent(AddPastry.this, addPatryPicturesActivity.class);
+        intent.putExtra("Pastry",pastry);
+        startActivity(intent);
+    }
 }

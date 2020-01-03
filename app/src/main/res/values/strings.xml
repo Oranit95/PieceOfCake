@@ -93,6 +93,9 @@
     <string name="bakerPhone">טלפון האופה</string>
     <string name="customerPhone">טלפון הלקוח</string>
     <string name="myOrdersBaker">ההזמנות שלי</string>
+    <string name="addPicture">אישור והוספת תמונות</string>
+    <string name="chooseFile">בחר קובץ</string>
+    <string name="Upload">העלאה</string>
 
 
 </resources>
