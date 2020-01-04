@@ -15,7 +15,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.bakerSide.Baker;
 import com.jok.pieceofcake.bakerSide.Pastry;
-import com.jok.pieceofcake.bakerSide.PastryAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

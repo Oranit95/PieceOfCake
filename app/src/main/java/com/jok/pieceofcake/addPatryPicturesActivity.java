@@ -23,6 +23,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.jok.pieceofcake.bakerSide.BakerMenuActivity;
 import com.jok.pieceofcake.bakerSide.Pastry;
 import com.squareup.picasso.Picasso;
 
@@ -149,5 +150,9 @@ public class addPatryPicturesActivity extends AppCompatActivity {
             imageUri = data.getData();
             Picasso.with(this).load(imageUri).into(imageView);
         }
+    }
+    public void backToMenu(View view) {
+        Intent intent = new Intent(addPatryPicturesActivity.this, BakerMenuActivity.class);
+        startActivity(intent);
     }
 }

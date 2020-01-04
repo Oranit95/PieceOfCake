@@ -96,6 +96,13 @@
     <string name="addPicture">אישור והוספת תמונות</string>
     <string name="chooseFile">בחר קובץ</string>
     <string name="Upload">העלאה</string>
+    <string name="doneUploading">סיימתי</string>
+    <string name="edit">עריכה</string>
+    <string name="pictures">תמונות</string>
+    <string name="deletePastry">מחיקת מאפה</string>
+    <string name="deletePhoto">לחץ על תמונה למחיקתה</string>
+    <string name="todo">TODO</string>
+    <string name="addPictures">הוספת תמונות</string>
 
 
 </resources>

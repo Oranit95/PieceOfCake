@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.customerSide;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.bakerSide.Pastry;
 
 import java.util.List;
 

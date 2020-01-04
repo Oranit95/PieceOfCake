@@ -11,10 +11,10 @@
 
     <Button
         android:id="@+id/uploadButton"
-        android:layout_width="133dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="132dp"
         android:background="#FFF"
         android:text="@string/Upload"
         android:textSize="24sp"
@@ -24,10 +24,9 @@
 
     <Button
         android:id="@+id/chooseFile"
-        android:layout_width="133dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="228dp"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
         android:background="#FFF"
         android:text="@string/chooseFile"
         android:textSize="24sp"
@@ -54,5 +53,19 @@
         android:layout_height="23dp"
         android:layout_marginTop="608dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/doneUploading"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="#fff"
+        android:text="@string/doneUploading"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:onClick="backToMenu"
+        app:layout_constraintEnd_toStartOf="@+id/uploadButton"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,6 +39,14 @@ public class AddPastry extends AppCompatActivity {
         FirebaseUser user = FireLog.getCurrentUser();
         userID = user.getUid();
         retrieve();
+        Intent intent = getIntent();
+        if(intent.hasExtra("Pastry")) {
+            pastry = (Pastry) intent.getSerializableExtra("Pastry");
+            price.setText(pastry.getPrice());
+            name.setText(pastry.getName());
+            description.setText(pastry.getDescription());
+            allergenic.setText(pastry.getAllerganics());
+        }
     }
 
     public void addItem(View view) {
@@ -73,8 +81,16 @@ public class AddPastry extends AppCompatActivity {
                 }
             }
         };
-        pastry = new Pastry(priceIn, nameIn, allergicIn, descIn);
-        pastry.setDocID(pastryRef.push().getKey());
+        if(pastry==null) {
+            pastry = new Pastry(priceIn, nameIn, allergicIn, descIn);
+            pastry.setDocID(pastryRef.push().getKey());
+        }
+        else{
+            pastry.setPrice(priceIn);
+            pastry.setName(nameIn);
+            pastry.setDescription(descIn);
+            pastry.setAllerganics(allergicIn);
+        }
         pastryRef.child(pastry.getDocID()).setValue(pastry, completionListener);
         addPicture();
     }
@@ -84,11 +100,6 @@ public class AddPastry extends AppCompatActivity {
         name = (EditText) findViewById(R.id.nameInput);
         description = (EditText) findViewById(R.id.desInput);
         allergenic = (EditText) findViewById(R.id.alerganicInput);
-    }
-
-    public void backToMenu() {
-        Intent intent = new Intent(AddPastry.this, BakerMenuActivity.class);
-        startActivity(intent);
     }
 
     public void addPicture() {

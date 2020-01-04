@@ -1,7 +1,6 @@
 package com.jok.pieceofcake.bakerSide;
 
 
-import com.google.firebase.database.Exclude;
 import com.jok.pieceofcake.Upload;
 
 import java.io.Serializable;
@@ -12,7 +11,7 @@ public class Pastry implements Serializable {
     private String name;
     private String allerganics;
     private String description;
-    public String docID;
+    private String docID;
     ArrayList<Upload> images;
     private String imagesID;
 
@@ -29,6 +28,9 @@ public class Pastry implements Serializable {
         imagesID = "";
     }
     public void addImage(Upload upload){
+        if(images==null){
+            images = new ArrayList<Upload>();
+        }
         images.add(upload);
     }
     public ArrayList<Upload> getImages(){
@@ -59,10 +61,6 @@ public class Pastry implements Serializable {
         return description;
     }
 
-    public String getDocID() {
-        return docID;
-    }
-
     public void setPrice(String price) {
         this.price = price;
     }
@@ -75,12 +73,16 @@ public class Pastry implements Serializable {
         this.name = name;
     }
 
-    @Exclude
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setDocID(String docID) {
         this.docID = docID;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getDocID() {
+        return docID;
     }
+
 }

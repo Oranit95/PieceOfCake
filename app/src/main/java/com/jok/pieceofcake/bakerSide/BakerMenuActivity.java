@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.customerSide.PastryAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,9 +76,10 @@ public class BakerMenuActivity extends AppCompatActivity {
         listViewPastries.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent = new Intent(BakerMenuActivity.this, PopUpPastryBaker.class);
+                intent.putExtra("Pastry", pastryList.get(i));
+                startActivity(intent);
             }
-
         });
 
     }
