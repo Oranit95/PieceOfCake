@@ -17,7 +17,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.jok.pieceofcake.PastryImageAdapter;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Upload;
 import com.jok.pieceofcake.addPatryPicturesActivity;
@@ -31,9 +30,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAdapter.OnItemClickListener {
+public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAdapterBaker.OnItemClickListener {
     private RecyclerView recyclerView;
-    private PastryImageAdapter pastryImageAdapter;
+    private PastryImageAdapterBaker pastryImageAdapter;
     private DatabaseReference imageRef;
     private DatabaseReference pastryRef;
     private FirebaseStorage storage;
@@ -57,7 +56,7 @@ public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAd
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         uploads = new ArrayList<>();
-        pastryImageAdapter = new PastryImageAdapter(PopUpPastryBaker.this, uploads);
+        pastryImageAdapter = new PastryImageAdapterBaker(PopUpPastryBaker.this, uploads);
         recyclerView.setAdapter(pastryImageAdapter);
         pastryImageAdapter.setOnItemClickListener(PopUpPastryBaker.this);
         DB = FirebaseDatabase.getInstance();

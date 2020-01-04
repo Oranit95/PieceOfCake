@@ -1,4 +1,4 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.bakerSide;
 
 import android.content.Context;
 import android.view.ContextMenu;
@@ -7,9 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 
+import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.Upload;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -17,12 +18,12 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PastryImageAdapter extends RecyclerView.Adapter<PastryImageAdapter.ImageViewHolder> {
+public class PastryImageAdapterBaker extends RecyclerView.Adapter<PastryImageAdapterBaker.ImageViewHolder> {
     private Context context;
     private List<Upload> uploads;
     private OnItemClickListener listener;
 
-    public PastryImageAdapter(Context context, List<Upload> uploads){
+    public PastryImageAdapterBaker(Context context, List<Upload> uploads){
         this.context=context;
         this.uploads=uploads;
     }
@@ -54,7 +55,6 @@ public class PastryImageAdapter extends RecyclerView.Adapter<PastryImageAdapter.
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        public Button delete;
         public ImageView imageView;
 
         public ImageViewHolder(@NonNull View itemView) {

@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bakerSide.PopUpPastryBaker"
-            android:theme="@style/AppTheme.PopupOverlay"
-            ></activity>
+        <activity android:name=".customerSide.PastryWatchActivityCustomer"></activity>
+        <activity
+            android:name=".bakerSide.PopUpPastryBaker"
+            android:theme="@style/AppTheme.PopupOverlay" />
         <activity android:name=".addPatryPicturesActivity" />
         <activity android:name=".customerSide.CustomerOrderActivity" />
         <activity android:name=".customerSide.BuyPastryActivity" />

@@ -49,12 +49,7 @@ public class BuyPastryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_pastry);
         Intent intent = getIntent();
-
         pastry = (Pastry) intent.getSerializableExtra("Pastry");
-        if (pastry == null) {
-
-            System.out.println("******************* pastry isnull");
-        }
         baker = (Baker) intent.getSerializableExtra("Baker");
         pastry.getName();
         Buy = findViewById(R.id.buy);
@@ -117,13 +112,9 @@ public class BuyPastryActivity extends AppCompatActivity {
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                 if(databaseError!=null){
-                    Toast.makeText(getApplicationContext(), "הוספת מאפה נכשלה",
+                    Toast.makeText(getApplicationContext(), databaseError.getMessage(),
                             Toast.LENGTH_SHORT).show();
 
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "מאפה נוסף בהצלחה!",
-                            Toast.LENGTH_SHORT).show();
                 }
             }
         };

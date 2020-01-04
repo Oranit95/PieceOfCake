@@ -1,8 +1,6 @@
 package com.jok.pieceofcake;
 
 
-import com.google.firebase.database.Exclude;
-
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -51,7 +49,6 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    @Exclude
     public String getUserID() {
         return userID;
     }
