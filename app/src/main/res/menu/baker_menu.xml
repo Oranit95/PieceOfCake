@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/exsitingOrders"
+        android:icon="@drawable/ic_my_orders"
+        android:title="ההזמנות שלי" />
+        <item android:id="@+id/main_menu"
+            android:icon="@drawable/ic_main_menu"
+            android:title="תפריט ראשי"/>
+        <item android:id="@+id/My_meun"
+            android:icon="@drawable/ic_my_menu"
+            android:title="התפריט שלי"/>
+    </group>
+</menu>

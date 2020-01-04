@@ -36,7 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
             Upload uploadCurrent = uploads.get(position);
             Picasso.with(context)
                     .load(uploadCurrent.getImageURL())
-                    .placeholder(R.mipmap.ic_launcher)
+                    .placeholder(R.mipmap.cake)
                     .fit()
                     .centerCrop()
                     .into(holder.imageView);
