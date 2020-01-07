@@ -23,71 +23,72 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:elevation="4dp"/>
-    <FrameLayout
-        android:id="@+id/fragment_container2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fragment_container2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="586dp">
 
-        <Button
-            android:id="@+id/myFavorites"
-            android:layout_width="395dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="372dp"
-            android:background="#F5F2F2"
-            android:text="@string/favorites"
-            android:textSize="30sp"
-            android:onClick="moveToFavorites"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <Button
+                    android:id="@+id/myFavorites"
+                    android:layout_width="395dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="372dp"
+                    android:background="#F5F2F2"
+                    android:onClick="moveToFavorites"
+                    android:text="@string/favorites"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/myOrders"
-            android:layout_width="395dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="452dp"
-            android:background="#F5F2F2"
-            android:text="@string/myOrders"
-            android:onClick="moveToCustomerOrders"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <Button
+                    android:id="@+id/myOrders"
+                    android:layout_width="395dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="452dp"
+                    android:background="#F5F2F2"
+                    android:onClick="moveToCustomerOrders"
+                    android:text="@string/myOrders"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/LogOutC"
-            android:layout_width="153dp"
-            android:layout_height="51dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginBottom="16dp"
-            android:background="#FCF8F8"
-            android:onClick="LogOutC"
-            android:text="@string/LogOutC"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <Button
+                    android:id="@+id/LogOutC"
+                    android:layout_width="153dp"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#FCF8F8"
+                    android:onClick="LogOutC"
+                    android:text="@string/LogOutC"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/newOrder"
-            android:layout_width="395dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="528dp"
-            android:background="#F5F2F2"
-            android:text="@string/newOrder"
-            android:onClick="moveToSearch"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <Button
+                    android:id="@+id/newOrder"
+                    android:layout_width="395dp"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="528dp"
+                    android:background="#F5F2F2"
+                    android:onClick="moveToSearch"
+                    android:text="@string/newOrder"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

@@ -11,6 +11,10 @@
             android:icon="@drawable/buy_pastry"
             android:title="הזמנה חדשה" />
         <item
+            android:id="@+id/customer_favorites"
+            android:icon="@drawable/customer_favorites"
+            android:title="המועדפים שלי" />
+        <item
             android:id="@+id/main_menu_customer"
             android:icon="@drawable/main_menu_customer"
             android:title="תפריט ראשי" />

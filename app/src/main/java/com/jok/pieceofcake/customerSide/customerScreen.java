@@ -66,6 +66,11 @@ public class customerScreen extends AppCompatActivity implements NavigationView.
                         new CustomerMainMenuFragment()).commit();
                 break;
 
+            case R.id.customer_favorites:
+                Intent k = new Intent(this, Favorites.class);
+                startActivity(k);
+                break;
+
             case R.id.log_out_customer:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
