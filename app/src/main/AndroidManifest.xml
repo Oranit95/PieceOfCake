@@ -26,7 +26,8 @@
         <activity android:name=".bakerSide.bakerScreen"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Login" />
-        <activity android:name=".customerSide.customerScreen" />
+        <activity android:name=".customerSide.customerScreen"
+            android:theme="@style/AppTheme.NoActionBar"/>/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
