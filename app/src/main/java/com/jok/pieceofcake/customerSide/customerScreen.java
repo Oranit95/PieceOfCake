@@ -57,7 +57,7 @@ public class customerScreen extends AppCompatActivity implements NavigationView.
                 break;
 
             case R.id.buy_pastry:
-                Intent j = new Intent(this, BuyPastryActivity.class);
+                Intent j = new Intent(this, SearchPastry.class);
                 startActivity(j);
                 break;
 
