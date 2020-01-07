@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.os.Message;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
@@ -55,18 +58,24 @@ public class bakerScreen extends AppCompatActivity implements NavigationView.OnN
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.my_menu:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BakerMenuFragment()).commit();
+                Intent i = new Intent(this,BakerMenuActivity.class);
+                startActivity(i);
                 break;
 
             case R.id.baker_orders:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BakerOrdersFragment()).commit();
+                Intent j = new Intent(this,BakerOrderActivity.class);
+                startActivity(j);
                 break;
 
             case R.id.main_menu:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new BakerMainMenuFragment()).commit();
+                break;
+
+            case R.id.log_out:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
