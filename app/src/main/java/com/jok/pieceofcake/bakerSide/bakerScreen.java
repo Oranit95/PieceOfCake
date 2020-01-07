@@ -36,7 +36,7 @@ public class bakerScreen extends AppCompatActivity implements NavigationView.OnN
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_open);
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -55,9 +55,9 @@ public class bakerScreen extends AppCompatActivity implements NavigationView.OnN
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.my_menu:
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new BakerMenuFragment()).commit();
-            break;
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new BakerMenuFragment()).commit();
+                break;
 
             case R.id.baker_orders:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
