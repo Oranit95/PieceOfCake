@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,14 +26,12 @@ public class Baker_Navigation extends AppCompatActivity implements NavigationVie
     protected NavigationView navigationView;
     protected ActionBarDrawerToggle toggle;
 
-    public Baker_Navigation(){
-
-    }
+    public Baker_Navigation(){ }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.baker_screen);
+        setContentView(R.layout.activity_baker__navigation);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer = findViewById(R.id.drawer_layout);
@@ -43,6 +42,8 @@ public class Baker_Navigation extends AppCompatActivity implements NavigationVie
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
