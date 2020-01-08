@@ -21,11 +21,12 @@ import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.jok.pieceofcake.Baker_Navigation;
 import com.jok.pieceofcake.Login;
 import com.jok.pieceofcake.R;
 
 
-public class bakerScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class bakerScreen extends Baker_Navigation {
     private DrawerLayout drawer;
     ArrayAdapter adapter;
     Button myMenu;
@@ -56,40 +57,12 @@ public class bakerScreen extends AppCompatActivity implements NavigationView.OnN
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.my_menu:
-                Intent i = new Intent(this,BakerMenuActivity.class);
-                startActivity(i);
-                break;
-
-            case R.id.baker_orders:
-                Intent j = new Intent(this,BakerOrderActivity.class);
-                startActivity(j);
-                break;
-
-            case R.id.main_menu:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BakerMainMenuFragment()).commit();
-                break;
-
-            case R.id.log_out:
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
-                break;
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+       return super.onNavigationItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
-        if(drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }
-        else{
         super.onBackPressed();
-    }
     }
 
     private void moveToBakerMenu() {
