@@ -1,6 +1,7 @@
 package com.jok.pieceofcake;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -29,9 +30,9 @@ public class Customer_Navigation extends AppCompatActivity implements Navigation
     protected ActionBarDrawerToggle toggle;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_navigation);
+
     }
 
     public Customer_Navigation(){ }
