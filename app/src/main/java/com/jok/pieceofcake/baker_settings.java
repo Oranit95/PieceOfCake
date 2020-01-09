@@ -70,8 +70,8 @@ public class baker_settings extends Baker_Navigation {
 
                 user.updatePassword(newPasswordS);
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String uid = user.getUid();
-                usersRef.child(uid).
+                //String uid = user.getUid();
+                //usersRef.child(uid).
 
 
                 Toast.makeText(getApplicationContext(), "הפרטים עודכנו בהצלחה",
