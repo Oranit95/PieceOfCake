@@ -8,10 +8,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,10 +24,9 @@ import com.jok.pieceofcake.bakerSide.BakerMenuActivity;
 import com.jok.pieceofcake.bakerSide.BakerOrderActivity;
 import com.jok.pieceofcake.bakerSide.bakerScreen;
 
-public class Baker_Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Baker_Navigation extends Activity implements NavigationView.OnNavigationItemSelectedListener{
     protected DrawerLayout drawer;
     protected Toolbar toolbar;
-    protected NavigationView navigationView;
     protected ActionBarDrawerToggle toggle;
 
     public Baker_Navigation(){ }
@@ -31,18 +34,25 @@ public class Baker_Navigation extends AppCompatActivity implements NavigationVie
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_baker__navigation);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        toggle = new ActionBarDrawerToggle(this,drawer,toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
     }
 
+    @Override
+    public void setContentView(int layoutResID) {
+        drawer = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_baker__navigation, null);
+        FrameLayout container = (FrameLayout) drawer.findViewById(R.id.fragment_container);
+        getLayoutInflater().inflate(layoutResID, container, true);
+        super.setContentView(drawer);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -81,5 +91,5 @@ public class Baker_Navigation extends AppCompatActivity implements NavigationVie
             super.onBackPressed();
         }
     }
+    }
 
-}

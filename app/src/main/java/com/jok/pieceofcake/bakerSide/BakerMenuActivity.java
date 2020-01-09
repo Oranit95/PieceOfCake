@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.Baker_Navigation;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.customerSide.PastryAdapter;
 
@@ -26,7 +27,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class BakerMenuActivity extends AppCompatActivity {
+public class BakerMenuActivity extends Baker_Navigation {
     private FirebaseAuth FireLog;// fire base authentication
     ListView listViewPastries;
     String userID;

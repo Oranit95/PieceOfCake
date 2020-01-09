@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.jok.pieceofcake.Baker_Navigation;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.addPatryPicturesActivity;
 
@@ -19,7 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddPastry extends AppCompatActivity {
+public class AddPastry extends Baker_Navigation {
     public static final String TAG = "TAG_ADD_PASTRY";
     String userID;
     String priceIn, nameIn, descIn, allergicIn;
