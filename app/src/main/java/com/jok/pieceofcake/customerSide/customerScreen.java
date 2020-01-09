@@ -56,4 +56,5 @@ public class customerScreen extends Customer_Navigation {
         Intent intent = new Intent(this, Favorites.class);
         startActivity(intent);
     }
+
 }

@@ -66,6 +66,10 @@ public class Baker_Navigation extends Activity implements NavigationView.OnNavig
                 Intent k = new Intent(this, bakerScreen.class);
                 startActivity(k);
                 break;
+            case R.id.baker_settings:
+                Intent l = new Intent(this, baker_settings.class);
+                startActivity(l);
+                break;
 
             case R.id.log_out:
                 FirebaseAuth.getInstance().signOut();

@@ -25,21 +25,31 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.jok.pieceofcake.Baker_Navigation;
 import com.jok.pieceofcake.Login;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.baker_settings;
 
 
 public class bakerScreen extends Baker_Navigation {
 
     Button myMenu;
+    Button settings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.baker_screen);
         myMenu = (Button) findViewById(R.id.myMenu);
+        settings = (Button) findViewById(R.id.settings);
         myMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 moveToBakerMenu();
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToSettings();
             }
         });
 
@@ -53,6 +63,9 @@ public class bakerScreen extends Baker_Navigation {
 
     public void moveToBakerOrders(View v){
         startActivity(new Intent(getApplicationContext(), BakerOrderActivity.class));
+    }
+    public void moveToSettings(){
+        startActivity(new Intent(getApplicationContext(), baker_settings.class));
     }
     public void LogOutB (View v){
         FirebaseAuth.getInstance().signOut();

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/cake"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Customer_Navigation"></activity>
+        <activity android:name=".baker_settings"></activity>
+        <activity android:name=".Customer_Navigation" />
         <activity android:name=".Baker_Navigation" />
         <activity android:name=".customerSide.PastryWatchActivityCustomer" />
         <activity android:name=".bakerSide.PopUpPastryBaker" />
