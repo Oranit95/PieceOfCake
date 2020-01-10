@@ -86,7 +86,7 @@ public class baker_settings extends Baker_Navigation {
         if(!(phone.isEmpty())) updates.put("phone", phone);
         if(!(cityS.isEmpty())) updates.put("address/city",cityS);
         if(!(streetS.isEmpty())) updates.put("address/streetName",streetS);
-        if(!(numOfHouseS.isEmpty())) updates.put("address/BuildingNumber",numOfHouseS);
+        if(!(numOfHouseS.isEmpty())) updates.put("address/buildingNumber",numOfHouseS);
         if(!(floorS.isEmpty())) updates.put("address/floor",floorS);
         if(!(appartmentS.isEmpty())) updates.put("address/appartmentNumber",appartmentS);
 
