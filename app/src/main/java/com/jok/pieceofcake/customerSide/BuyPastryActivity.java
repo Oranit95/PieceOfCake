@@ -1,10 +1,17 @@
 package com.jok.pieceofcake.customerSide;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -24,10 +31,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+import java.util.List;
+
 public class BuyPastryActivity extends AppCompatActivity {
 
-    Button Buy;
-    EditText date, comment;
+    Button Buy, date;
+    EditText comment;
     RadioButton cash,card, delivery, pickup;
     String dateS,commentS;
     FirebaseDatabase DB;
@@ -43,17 +53,23 @@ public class BuyPastryActivity extends AppCompatActivity {
     String orderNum;
     boolean creditCard;
     boolean deliveryBool;
+    int year,month,day;
+    Calendar calendar;
+    DatePickerDialog.OnDateSetListener mDateListener;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_pastry);
+        calendar = Calendar.getInstance();
         Intent intent = getIntent();
         pastry = (Pastry) intent.getSerializableExtra("Pastry");
         baker = (Baker) intent.getSerializableExtra("Baker");
         pastry.getName();
         Buy = findViewById(R.id.buy);
-        date = findViewById(R.id.inputDate);
+        date = (Button) findViewById(R.id.inputDate);
         comment = findViewById(R.id.commentInput);
         cash = findViewById(R.id.cash);
         card = findViewById(R.id.creditCard);
@@ -67,6 +83,33 @@ public class BuyPastryActivity extends AppCompatActivity {
         orderBRef = DB.getReference("Orders/Bakers Orders");
         orderCRef = DB.getReference("Orders/Customers Orders");
         customerRef = DB.getReference("Users").child("Customers").child(userID);
+
+        date.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog dialog =  new DatePickerDialog(
+                        BuyPastryActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateListener,
+                        calendar.get(Calendar.YEAR),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)
+                );
+
+                dialog.getWindow().setBackgroundDrawable( new ColorDrawable( Color.TRANSPARENT ) );
+                dialog.show();
+            }
+        } );
+
+        mDateListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker ,int Year ,int Month ,int Day) {
+                day = Day;
+                month = Month + 1;
+                year = Year;
+
+            }
+        };
     }
 
     @Override
@@ -87,13 +130,15 @@ public class BuyPastryActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     public void CreateNewOrderC(View view) {
         findViewById(R.id.buy).setEnabled(false);
-        dateS = date.getText().toString().trim();
+        dateS = (day + "/" + month + "/" + year);
         commentS = comment.getText().toString().trim();
-        if(TextUtils.isEmpty(dateS)){
+        if(dateS.isEmpty()){
             date.setError("חובה להזין תאריך!");
             return;
         }
@@ -104,6 +149,7 @@ public class BuyPastryActivity extends AppCompatActivity {
         }
         if(card.isChecked()){
             creditCard = true;
+
         }
         if(delivery.isChecked()){
             deliveryBool = true;
@@ -123,8 +169,19 @@ public class BuyPastryActivity extends AppCompatActivity {
                  dateS,commentS,creditCard,deliveryBool);
         orderCRef.child(customer.getUserID()).child(orderNum).setValue(order,completionListener);
         orderBRef.child(baker.getUserID()).child(orderNum).setValue(order,completionListener);
+/**
+if (creditCard) {
+    System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+         String url = "http://www.google.com";
+         Intent i = new Intent(Intent.ACTION_VIEW);
+         i.setData(Uri.parse(url));
+         startActivity(i);
+
+}
+**/
         Toast.makeText(BuyPastryActivity.this, "הזמנה נשלחה בהצלחה!", Toast.LENGTH_LONG).show();
         findViewById(R.id.buy).setEnabled(true);
         startActivity(new Intent(BuyPastryActivity.this,CustomerOrderActivity.class));
     }
+
 }
