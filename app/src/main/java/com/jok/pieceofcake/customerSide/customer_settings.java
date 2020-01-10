@@ -1,4 +1,6 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.customerSide;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,19 +11,18 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Address;
-import com.jok.pieceofcake.Navigation.Baker_Navigation;
 import com.jok.pieceofcake.R;
+import com.jok.pieceofcake.bakerSide.bakerScreen;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class baker_settings extends Baker_Navigation {
+public class customer_settings extends AppCompatActivity {
+
     private FirebaseAuth FireLog = FirebaseAuth.getInstance();// fire base authentication
     String userID;
     FirebaseDatabase DB;
@@ -41,21 +42,19 @@ public class baker_settings extends Baker_Navigation {
 
     String newPasswordS,cityS, streetS, numOfHouseS, floorS,appartmentS, phoneS;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_baker_settings);
-        oldPassword = findViewById(R.id.oldPassword);
-        newPassword = findViewById(R.id.newPassword);
-        city = findViewById(R.id.city);
-        street = findViewById(R.id.street);
-        numOfHouse = findViewById(R.id.house);
-        floor = findViewById(R.id.floor);
-        appartment = findViewById(R.id.appartment);
-        phone = findViewById(R.id.phone);
-        confirm = (Button)findViewById(R.id.confirm);
+        setContentView(R.layout.activity_customer_settings);
+        oldPassword = findViewById(R.id.oldPasswordC);
+        newPassword = findViewById(R.id.newPasswordC);
+        city = findViewById(R.id.cityC);
+        street = findViewById(R.id.streetC);
+        numOfHouse = findViewById(R.id.houseC);
+        floor = findViewById(R.id.floorC);
+        appartment = findViewById(R.id.appartmentC);
+        phone = findViewById(R.id.phoneC);
+        confirm = (Button)findViewById(R.id.confirmC);
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,19 +68,17 @@ public class baker_settings extends Baker_Navigation {
                 phoneS = phone.getText().toString().trim();
 
                 Address address = new Address(cityS, streetS, numOfHouseS, floorS, appartmentS);
-                updateBaker(cityS, streetS, numOfHouseS, floorS, appartmentS,phoneS,newPasswordS);
+                updateCustomer(cityS, streetS, numOfHouseS, floorS, appartmentS,phoneS,newPasswordS);
 
             }
         });
-
     }
-
-    public void updateBaker(String cityS, String streetS,  String numOfHouseS, String floorS, String appartmentS,
+    public void updateCustomer(String cityS, String streetS,  String numOfHouseS, String floorS, String appartmentS,
                             final String phone, final String newPasswordS){
         user = FireLog.getCurrentUser();
         userID = FireLog.getCurrentUser().getUid();
         DB = FirebaseDatabase.getInstance();
-        BakerRef = DB.getReference("Users/Bakers").child(userID);
+        BakerRef = DB.getReference("Users/Customers").child(userID);
         Map<String ,Object> updates= new HashMap<>();
         if(!(phone.isEmpty())) updates.put("phone", phone);
         if(!(cityS.isEmpty())) updates.put("address/city",cityS);
@@ -92,9 +89,8 @@ public class baker_settings extends Baker_Navigation {
 
         BakerRef.updateChildren(updates);
         if(!(newPasswordS.isEmpty())) user.updatePassword(newPasswordS);
-        startActivity(new Intent(getApplicationContext(), bakerScreen.class));
+        startActivity(new Intent(getApplicationContext(), customerScreen.class));
 
 
     }
-
 }

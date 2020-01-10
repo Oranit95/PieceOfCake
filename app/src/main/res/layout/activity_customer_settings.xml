@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bacground"
-    tools:context=".customer_settings">
+    tools:context=".customerSide.customer_settings">
 
 
     <EditText
         android:id="@+id/oldPasswordC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="164dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/t1"
         android:layout_width="167dp"
         android:layout_height="49dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="52dp"
         android:text="עדכון סיסמא"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
@@ -35,6 +35,7 @@
         android:id="@+id/t2"
         android:layout_width="282dp"
         android:layout_height="53dp"
+        android:layout_marginEnd="4dp"
         android:text="הגדרות"
         android:textColor="#0C0C0C"
         android:textSize="30sp"
@@ -42,12 +43,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/t4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="20dp"
+        android:text="סיסמא חדשה"
+        android:textColor="#0C0C0C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/newPasswordC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="164dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,28 +70,20 @@
         android:id="@+id/t3"
         android:layout_width="110dp"
         android:layout_height="42dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
         android:text="סיסמא ישנה"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/t4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:text="סיסמא חדשה"
-        android:textColor="#0C0C0C"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/t2" />
 
     <TextView
         android:id="@+id/t5"
         android:layout_width="193dp"
         android:layout_height="47dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="8dp"
         android:text="עדכון כתובת"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
@@ -90,68 +95,66 @@
         android:id="@+id/cityC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
+        android:layout_marginStart="88dp"
         android:layout_marginBottom="372dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#0C0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t5"
+        app:layout_constraintVertical_bias="0.164" />
 
     <EditText
         android:id="@+id/streetC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#0C0C0C"
-        app:layout_constraintBottom_toTopOf="@+id/house"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/houseC"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/houseC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#0C0C0C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityC" />
 
     <EditText
         android:id="@+id/floorC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginStart="88dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#0C0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/house"
-        app:layout_constraintVertical_bias="0.909" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/houseC"
+        app:layout_constraintVertical_bias="0.056" />
 
     <EditText
         android:id="@+id/appartmentC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="144dp"
+        android:layout_marginStart="88dp"
         android:layout_marginBottom="136dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#0C0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floor"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/floorC"
+        app:layout_constraintVertical_bias="0.151" />
 
     <Button
         android:id="@+id/confirmC"
@@ -171,8 +174,8 @@
         android:id="@+id/t6"
         android:layout_width="158dp"
         android:layout_height="33dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="112dp"
         android:text="עדכון טלפון"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
@@ -184,8 +187,8 @@
         android:id="@+id/phoneC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="56dp"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -195,8 +198,8 @@
         android:id="@+id/t7"
         android:layout_width="72dp"
         android:layout_height="31dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="24dp"
         android:text="עיר"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
@@ -207,8 +210,8 @@
         android:id="@+id/t8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="268dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="20dp"
         android:text="רחוב"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
@@ -219,36 +222,36 @@
         android:id="@+id/t9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:text="מספר בית"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/t8" />
 
     <TextView
         android:id="@+id/t10"
         android:layout_width="61dp"
         android:layout_height="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="קומה"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/t9" />
 
     <TextView
         android:id="@+id/t11"
         android:layout_width="79dp"
         android:layout_height="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:text="דירה"
         android:textColor="#0C0C0C"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/t10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

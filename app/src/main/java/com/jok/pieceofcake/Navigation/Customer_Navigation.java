@@ -20,6 +20,7 @@ import com.jok.pieceofcake.customerSide.CustomerOrderActivity;
 import com.jok.pieceofcake.customerSide.Favorites;
 import com.jok.pieceofcake.customerSide.SearchPastry;
 import com.jok.pieceofcake.customerSide.customerScreen;
+import com.jok.pieceofcake.customerSide.customer_settings;
 
 public class Customer_Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
     protected DrawerLayout drawer;
@@ -73,6 +74,11 @@ public class Customer_Navigation extends AppCompatActivity implements Navigation
             case R.id.main_menu_customer:
                 Intent l = new Intent(this, customerScreen.class);
                 startActivity(l);
+                break;
+
+            case R.id.customer_settings:
+                Intent m = new Intent(this, customer_settings.class);
+                startActivity(m);
                 break;
 
 
