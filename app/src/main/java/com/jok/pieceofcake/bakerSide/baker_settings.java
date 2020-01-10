@@ -9,17 +9,24 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.Objects.Address;
 import com.jok.pieceofcake.Navigation.Baker_Navigation;
 import com.jok.pieceofcake.R;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class baker_settings extends Baker_Navigation {
     private FirebaseAuth FireLog = FirebaseAuth.getInstance();// fire base authentication
-    FirebaseUser user = FireLog.getCurrentUser();
+    String userID;
     FirebaseDatabase DB;
-    DatabaseReference usersRef;
+    DatabaseReference BakerRef;
+    FirebaseUser user;
 
 
     EditText oldPassword;
@@ -29,19 +36,15 @@ public class baker_settings extends Baker_Navigation {
     EditText numOfHouse;
     EditText floor;
     EditText appartment;
+    EditText phone;
     Button confirm;
 
-
-
-    String oldPasswordS,newPasswordS,cityS, streetS, numOfHouseS, floorS,appartmentS, confirmS;
+    String newPasswordS,cityS, streetS, numOfHouseS, floorS,appartmentS, phoneS;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        DB = FirebaseDatabase.getInstance();
-        usersRef = DB.getReference("Users");
 
         setContentView(R.layout.activity_baker_settings);
         oldPassword = findViewById(R.id.oldPassword);
@@ -51,31 +54,43 @@ public class baker_settings extends Baker_Navigation {
         numOfHouse = findViewById(R.id.house);
         floor = findViewById(R.id.floor);
         appartment = findViewById(R.id.appartment);
+        phone = findViewById(R.id.phone);
         confirm = (Button)findViewById(R.id.confirm);
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                oldPasswordS = oldPassword.getText().toString().trim();
                 newPasswordS = newPassword.getText().toString().trim();
                 cityS = city.getText().toString().trim();
                 streetS = street.getText().toString().trim();
                 numOfHouseS = numOfHouse.getText().toString().trim();
                 floorS = floor.getText().toString().trim();
                 appartmentS = appartment.getText().toString().trim();
+                phoneS = phone.getText().toString().trim();
 
                 Address address = new Address(cityS, streetS, numOfHouseS, floorS, appartmentS);
+                updateBaker(address,phoneS,newPasswordS);
 
-                user.updatePassword(newPasswordS);
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                //String uid = user.getUid();
-                //usersRef.child(uid).
-
-
-                Toast.makeText(getApplicationContext(), "הפרטים עודכנו בהצלחה",
-                        Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), bakerScreen.class));
             }
         });
+
+    }
+
+    public void updateBaker(final Address address, final String phone, final String newPasswordS){
+        user = FireLog.getCurrentUser();
+        userID = FireLog.getCurrentUser().getUid();
+        DB = FirebaseDatabase.getInstance();
+        BakerRef = DB.getReference("Users/Bakers").child(userID);
+        Map<String ,Object> updates= new HashMap<>();
+        updates.put("phone",phone);
+        updates.put("address",address);
+        BakerRef.updateChildren(updates);
+        //user.updatePassword(newPasswordS);
+        if(!(newPasswordS.isEmpty())) user.updatePassword(newPasswordS);
+        Toast.makeText(getApplicationContext(), "הפרטים עודכנו בהצלחה",
+                Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(), bakerScreen.class));
+
 
     }
 
