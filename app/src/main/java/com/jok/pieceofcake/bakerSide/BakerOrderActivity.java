@@ -10,16 +10,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jok.pieceofcake.Baker_Navigation;
-import com.jok.pieceofcake.Order;
+import com.jok.pieceofcake.ListsAdapters.orderAdapterBaker;
+import com.jok.pieceofcake.Navigation.Baker_Navigation;
+import com.jok.pieceofcake.Objects.Order;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.customerSide.OrderAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class BakerOrderActivity extends Baker_Navigation {
 
@@ -63,7 +62,7 @@ public class BakerOrderActivity extends Baker_Navigation {
                     Toast.makeText(BakerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
                     return;
                 }
-                OrderAdapter orderAdapter = new OrderAdapter(BakerOrderActivity.this, ordersList);
+                orderAdapterBaker orderAdapter = new orderAdapterBaker(BakerOrderActivity.this, ordersList);
                 listOrders.setAdapter(orderAdapter);
             }
 

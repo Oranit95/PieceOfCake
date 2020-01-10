@@ -10,15 +10,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jok.pieceofcake.Customer_Navigation;
-import com.jok.pieceofcake.Order;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
+import com.jok.pieceofcake.ListsAdapters.OrderAdapterCustomer;
+import com.jok.pieceofcake.Objects.Order;
 import com.jok.pieceofcake.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class CustomerOrderActivity extends Customer_Navigation {
 
@@ -60,7 +60,7 @@ public class CustomerOrderActivity extends Customer_Navigation {
                     Toast.makeText(CustomerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
                     return;
                 }
-                OrderAdapter orderC_Adapter = new OrderAdapter(CustomerOrderActivity.this, ordersList);
+                OrderAdapterCustomer orderC_Adapter = new OrderAdapterCustomer(CustomerOrderActivity.this, ordersList);
                 ordersListView.setAdapter(orderC_Adapter);
             }
 

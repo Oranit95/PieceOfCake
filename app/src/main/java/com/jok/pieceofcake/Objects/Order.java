@@ -1,4 +1,4 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.Objects;
 
 import com.jok.pieceofcake.bakerSide.Baker;
 import com.jok.pieceofcake.bakerSide.Pastry;

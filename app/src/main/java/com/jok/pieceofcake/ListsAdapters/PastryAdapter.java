@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.ListsAdapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;

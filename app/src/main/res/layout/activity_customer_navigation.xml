@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".Customer_Navigation"
+    tools:context=".Navigation.Customer_Navigation"
     android:background="@drawable/bacground"
     android:layout_height="match_parent"
     android:layout_width="match_parent"

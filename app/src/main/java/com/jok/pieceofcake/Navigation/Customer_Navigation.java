@@ -1,4 +1,4 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.Navigation;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,10 +15,7 @@ import android.widget.FrameLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.jok.pieceofcake.bakerSide.BakerMenuActivity;
-import com.jok.pieceofcake.bakerSide.BakerOrderActivity;
-import com.jok.pieceofcake.bakerSide.bakerScreen;
-import com.jok.pieceofcake.customerSide.BuyPastryActivity;
+import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.customerSide.CustomerOrderActivity;
 import com.jok.pieceofcake.customerSide.Favorites;
 import com.jok.pieceofcake.customerSide.SearchPastry;

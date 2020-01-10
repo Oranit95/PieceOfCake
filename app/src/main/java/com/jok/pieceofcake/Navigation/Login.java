@@ -1,4 +1,4 @@
-package com.jok.pieceofcake;
+package com.jok.pieceofcake.Navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.bakerSide.bakerScreen;
 import com.jok.pieceofcake.customerSide.customerScreen;
 

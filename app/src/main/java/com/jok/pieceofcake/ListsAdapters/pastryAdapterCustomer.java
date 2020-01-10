@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.ListsAdapters;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.Upload;
+import com.jok.pieceofcake.Objects.Upload;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

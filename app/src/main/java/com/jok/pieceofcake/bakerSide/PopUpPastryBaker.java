@@ -17,9 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.jok.pieceofcake.ListsAdapters.PastryImageAdapterBaker;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.Upload;
-import com.jok.pieceofcake.addPatryPicturesActivity;
+import com.jok.pieceofcake.Objects.Upload;
 
 import java.util.ArrayList;
 import java.util.List;

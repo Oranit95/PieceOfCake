@@ -1,31 +1,14 @@
 package com.jok.pieceofcake.bakerSide;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
-import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.jok.pieceofcake.Baker_Navigation;
-import com.jok.pieceofcake.Login;
+import com.jok.pieceofcake.Navigation.Baker_Navigation;
+import com.jok.pieceofcake.Navigation.Login;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.baker_settings;
 
 
 public class bakerScreen extends Baker_Navigation {

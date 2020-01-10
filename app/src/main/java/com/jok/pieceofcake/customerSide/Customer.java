@@ -1,7 +1,7 @@
 package com.jok.pieceofcake.customerSide;
 
-import com.jok.pieceofcake.Address;
-import com.jok.pieceofcake.User;
+import com.jok.pieceofcake.Objects.Address;
+import com.jok.pieceofcake.Objects.User;
 
 public class Customer extends User {
     public Customer(String email, String full_name, String phone, Address address, String userID) {

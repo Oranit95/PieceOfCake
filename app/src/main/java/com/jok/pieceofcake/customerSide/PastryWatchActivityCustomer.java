@@ -13,11 +13,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.jok.pieceofcake.ListsAdapters.PastryImageAdapterCustomer;
+import com.jok.pieceofcake.Objects.Upload;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.Upload;
 import com.jok.pieceofcake.bakerSide.Baker;
 import com.jok.pieceofcake.bakerSide.Pastry;
-import com.jok.pieceofcake.bakerSide.PastryImageAdapterBaker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PastryWatchActivityCustomer extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private PastryImageAdapterBaker pastryImageAdapter;
+    private PastryImageAdapterCustomer pastryImageAdapter;
     private DatabaseReference imageRef;
     private DatabaseReference pastryRef;
     private FirebaseStorage storage;
@@ -53,7 +53,7 @@ public class PastryWatchActivityCustomer extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         uploads = new ArrayList<>();
-        pastryImageAdapter = new PastryImageAdapterBaker(PastryWatchActivityCustomer.this, uploads);
+        pastryImageAdapter = new PastryImageAdapterCustomer(PastryWatchActivityCustomer.this, uploads);
         recyclerView.setAdapter(pastryImageAdapter);
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();

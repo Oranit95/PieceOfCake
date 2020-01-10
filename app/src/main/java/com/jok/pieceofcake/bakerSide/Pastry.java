@@ -1,7 +1,7 @@
 package com.jok.pieceofcake.bakerSide;
 
 
-import com.jok.pieceofcake.Upload;
+import com.jok.pieceofcake.Objects.Upload;
 
 import java.io.Serializable;
 import java.util.ArrayList;
