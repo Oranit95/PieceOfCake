@@ -69,23 +69,28 @@ public class baker_settings extends Baker_Navigation {
                 phoneS = phone.getText().toString().trim();
 
                 Address address = new Address(cityS, streetS, numOfHouseS, floorS, appartmentS);
-                updateBaker(address,phoneS,newPasswordS);
+                updateBaker(cityS, streetS, numOfHouseS, floorS, appartmentS,phoneS,newPasswordS);
 
             }
         });
 
     }
 
-    public void updateBaker(final Address address, final String phone, final String newPasswordS){
+    public void updateBaker(String cityS, String streetS,  String numOfHouseS, String floorS, String appartmentS,
+                            final String phone, final String newPasswordS){
         user = FireLog.getCurrentUser();
         userID = FireLog.getCurrentUser().getUid();
         DB = FirebaseDatabase.getInstance();
         BakerRef = DB.getReference("Users/Bakers").child(userID);
         Map<String ,Object> updates= new HashMap<>();
-        updates.put("phone",phone);
-        updates.put("address",address);
+        if(!(phone.isEmpty())) updates.put("phone", phone);
+        if(!(cityS.isEmpty())) updates.put("address/city",cityS);
+        if(!(streetS.isEmpty())) updates.put("address/streetName",streetS);
+        if(!(numOfHouseS.isEmpty())) updates.put("address/BuildingNumber",numOfHouseS);
+        if(!(floorS.isEmpty())) updates.put("address/floor",floorS);
+        if(!(appartmentS.isEmpty())) updates.put("address/appartmentNumber",appartmentS);
+
         BakerRef.updateChildren(updates);
-        //user.updatePassword(newPasswordS);
         if(!(newPasswordS.isEmpty())) user.updatePassword(newPasswordS);
         Toast.makeText(getApplicationContext(), "הפרטים עודכנו בהצלחה",
                 Toast.LENGTH_SHORT).show();
