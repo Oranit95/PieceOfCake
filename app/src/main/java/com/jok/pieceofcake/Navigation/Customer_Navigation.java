@@ -1,13 +1,5 @@
 package com.jok.pieceofcake.Navigation;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,9 +10,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.customerSideActivities.CustomerOrderActivity;
 import com.jok.pieceofcake.customerSideActivities.Favorites;
-import com.jok.pieceofcake.customerSideActivities.SearchBakerActivity;
+import com.jok.pieceofcake.customerSideActivities.SearchMainMenu;
 import com.jok.pieceofcake.customerSideActivities.customerScreen;
 import com.jok.pieceofcake.customerSideActivities.customer_settings;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class Customer_Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
     protected DrawerLayout drawer;
@@ -62,7 +62,7 @@ public class Customer_Navigation extends AppCompatActivity implements Navigation
                 break;
 
             case R.id.buy_pastry:
-                Intent j = new Intent(this, SearchBakerActivity.class);
+                Intent j = new Intent(this, SearchMainMenu.class);
                 startActivity(j);
                 break;
 

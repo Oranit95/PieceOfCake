@@ -112,6 +112,10 @@
     <string name="bakerDETS">פרטי האופה</string>
     <string name="PASTRYDETS">צפייה במאפה</string>
     <string name="PastryPictures">תמונות:</string>
+    <string name="newORDER">הזמנה חדשה:</string>
+    <string name="myLastOrders">ההזמנות האחרונות שלי - לחץ כדי להזמין שנית</string>
+    <string name="serchBAKER">חפש אופה</string>
+    <string name="serachPASTRY">חפש מאפה</string>
 
 
 </resources>

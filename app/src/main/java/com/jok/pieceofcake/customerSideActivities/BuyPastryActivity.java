@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Baker;
 import com.jok.pieceofcake.Objects.Customer;
 import com.jok.pieceofcake.Objects.Order;
@@ -28,9 +29,8 @@ import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class BuyPastryActivity extends AppCompatActivity {
+public class BuyPastryActivity extends Customer_Navigation {
 
     Button Buy, date;
     EditText comment;

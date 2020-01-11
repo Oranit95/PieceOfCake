@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.jok.pieceofcake.ListsAdapters.PastryImageAdapterCustomer;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Baker;
 import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.Objects.Upload;
@@ -24,11 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PastryWatchActivityCustomer extends AppCompatActivity {
+public class PastryWatchActivityCustomer extends Customer_Navigation {
     private RecyclerView recyclerView;
     private PastryImageAdapterCustomer pastryImageAdapter;
     private DatabaseReference imageRef;
@@ -54,8 +54,8 @@ public class PastryWatchActivityCustomer extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_image_baker);
         pastryDetails = findViewById(R.id.pastryWatch);
         BakerDetails = findViewById(R.id.bakerdets);
-        pastryDetails.setText("פרטי המאפה: "+pastry.getName()+",רכיבים אלרגניים: "+pastry.getAllerganics()+",תיאור: "+pastry.getDescription()+",מחיר: "+pastry.getPrice());
-        BakerDetails.setText("פרטי האופה: "+baker.getFull_name()+",עיר: "+baker.getAddress().getCity()+",רחוב: "+baker.getAddress().getStreetName()+",טלפון: "+baker.getPhone());
+       /**this made balagan - need to fix!!!*/ pastryDetails.setText("פרטי המאפה: "+pastry.getName()+",רכיבים אלרגניים: "+pastry.getAllerganics()+",תיאור: "+pastry.getDescription()+",מחיר: "+pastry.getPrice());
+        /**this also made balagan - need to fix!!!*/ BakerDetails.setText("פרטי האופה: "+baker.getFull_name()+",עיר: "+baker.getAddress().getCity()+",רחוב: "+baker.getAddress().getStreetName()+",טלפון: "+baker.getPhone());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         uploads = new ArrayList<>();

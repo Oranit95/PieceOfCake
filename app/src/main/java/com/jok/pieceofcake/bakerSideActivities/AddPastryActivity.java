@@ -92,6 +92,7 @@ public class AddPastryActivity extends Baker_Navigation {
             pastry.setAllerganics(allergicIn);
         }
         pastryRef.child(pastry.getDocID()).setValue(pastry, completionListener);
+        DB.getReference("Pastries").child(pastry.getDocID()).setValue(pastry,completionListener);
         addPicture();
     }
 

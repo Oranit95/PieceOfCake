@@ -1,7 +1,5 @@
 package com.jok.pieceofcake.customerSideActivities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +10,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Address;
 import com.jok.pieceofcake.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class customer_settings extends AppCompatActivity {
+public class customer_settings extends Customer_Navigation {
 
     private FirebaseAuth FireLog = FirebaseAuth.getInstance();// fire base authentication
     String userID;

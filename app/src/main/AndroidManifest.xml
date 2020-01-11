@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/cake"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customerSideActivities.SearchPastryActivity"></activity>
+        <activity android:name=".customerSideActivities.SearchMainMenu"></activity>
+        <activity android:name=".customerSideActivities.SearchPastryActivity" />
         <activity android:name=".customerSideActivities.customer_settings" />
         <activity android:name=".bakerSideActivities.BakerSettingsActivity" />
         <activity android:name=".Navigation.Customer_Navigation" />

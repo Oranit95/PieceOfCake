@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.ListsAdapters.BakerAdapter;
 import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Objects.Baker;
@@ -66,6 +67,7 @@ public class SearchBakerActivity extends Customer_Navigation {
             @Override
             public void afterTextChanged(Editable s) {
                 if (!s.toString().isEmpty()) {
+                    noResults.setVisibility(View.INVISIBLE);
                     setAdapter(s.toString().toLowerCase().trim());
                 }
                 else{

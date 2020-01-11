@@ -36,7 +36,7 @@ public class customerScreen extends Customer_Navigation {
     }
 
     public void moveToSearch(View view) {
-        Intent intent = new Intent(customerScreen.this, SearchBakerActivity.class);
+        Intent intent = new Intent(customerScreen.this, SearchMainMenu.class);
         startActivity(intent);
     }
 

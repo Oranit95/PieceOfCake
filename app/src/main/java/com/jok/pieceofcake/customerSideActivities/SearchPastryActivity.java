@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.ListsAdapters.PastryAdapter;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Baker;
 import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
@@ -25,9 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class SearchPastryActivity extends AppCompatActivity {
+public class SearchPastryActivity extends Customer_Navigation {
     private FirebaseAuth FireLog;// fire base authentication
     ListView listViewPastries;
     String userID;
@@ -60,6 +60,7 @@ public class SearchPastryActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (!s.toString().isEmpty()) {
+                    noResults.setVisibility(View.INVISIBLE);
                     setAdapter(s.toString().toLowerCase().trim());
                 }
                 else{
