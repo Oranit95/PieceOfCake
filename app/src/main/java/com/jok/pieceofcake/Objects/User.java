@@ -1,5 +1,7 @@
 package com.jok.pieceofcake.Objects;
-
+/**
+ * Represent a General user with general personal details - name, address etc.
+ */
 
 import java.io.Serializable;
 

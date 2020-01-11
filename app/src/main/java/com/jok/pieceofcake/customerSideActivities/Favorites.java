@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.customerSideActivities;
 
 import android.os.Bundle;
 

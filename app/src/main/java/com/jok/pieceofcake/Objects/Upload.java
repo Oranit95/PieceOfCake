@@ -1,4 +1,8 @@
 package com.jok.pieceofcake.Objects;
+/**
+ * Represents the url and name of an image of a pastry,
+ *
+ */
 
 import java.io.Serializable;
 

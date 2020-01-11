@@ -2,6 +2,9 @@ package com.jok.pieceofcake.Objects;
 
 import java.io.Serializable;
 
+/**
+ * Represent a user's Adress - city, street, number etc.
+ */
 public class Address implements Serializable {
     private String city;
     private String streetName;

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bacground"
     android:padding="16dp"
-    tools:context=".bakerSide.addPatryPicturesActivity">
+    tools:context=".bakerSideActivities.addPatryPicturesActivity">
 
 
     <Button

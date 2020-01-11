@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.bakerSideActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,12 +13,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jok.pieceofcake.Navigation.Baker_Navigation;
+import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class AddPastry extends Baker_Navigation {
+public class AddPastryActivity extends Baker_Navigation {
     public static final String TAG = "TAG_ADD_PASTRY";
     String userID;
     String priceIn, nameIn, descIn, allergicIn;
@@ -81,7 +82,7 @@ public class AddPastry extends Baker_Navigation {
             }
         };
         if(pastry==null) {
-            pastry = new Pastry(priceIn, nameIn, allergicIn, descIn);
+            pastry = new Pastry(priceIn, nameIn, allergicIn, descIn, userID);
             pastry.setDocID(pastryRef.push().getKey());
         }
         else{
@@ -102,7 +103,7 @@ public class AddPastry extends Baker_Navigation {
     }
 
     public void addPicture() {
-        Intent intent = new Intent(AddPastry.this, addPatryPicturesActivity.class);
+        Intent intent = new Intent(AddPastryActivity.this, addPatryPicturesActivity.class);
         intent.putExtra("Pastry",pastry);
         startActivity(intent);
     }

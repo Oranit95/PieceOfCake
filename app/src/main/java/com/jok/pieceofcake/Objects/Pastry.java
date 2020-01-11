@@ -1,7 +1,5 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.Objects;
 
-
-import com.jok.pieceofcake.Objects.Upload;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,24 +12,37 @@ public class Pastry implements Serializable {
     private String docID;
     ArrayList<Upload> images;
     private String imagesID;
+    private String bakerID;
 
     public  Pastry(){
         // no args constructor needed
     }
 
-    public Pastry(String price, String name, String allerganics, String description){
+    public Pastry(String price, String name, String allerganics, String description, String bakerID){
         this.price=price;
         this.name=name;
         this.allerganics=allerganics;
         this.description=description;
         images = new ArrayList<Upload>();
         imagesID = "";
+        this.bakerID=bakerID;
     }
     public void addImage(Upload upload){
         if(images==null){
             images = new ArrayList<Upload>();
         }
         images.add(upload);
+    }
+    public void setImages(ArrayList<Upload> images) {
+        this.images = images;
+    }
+
+    public String getBakerID() {
+        return bakerID;
+    }
+
+    public void setBakerID(String bakeID) {
+        this.bakerID = bakeID;
     }
     public ArrayList<Upload> getImages(){
         return images;

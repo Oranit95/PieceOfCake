@@ -2,18 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Relativlayou"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bacground"
-    tools:context=".customerSide.PastryWatchActivityCustomer">
+    tools:context=".customerSideActivities.PastryWatchActivityCustomer">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="76dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="163dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="278dp"
         android:background="#FFFFFF"
         android:onClick="order"
         android:text="@string/order"
@@ -36,4 +37,46 @@
         android:layout_marginTop="134dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:id="@+id/pastryWatch"
+        android:layout_width="355dp"
+        android:layout_height="47dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="654dp"
+        android:gravity="right"
+        android:text="@string/PASTRYDETS"
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/bakerdets"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="603dp"
+        android:gravity="right"
+        android:text="@string/bakerDETS"
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/picturess"
+        android:layout_width="136dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="535dp"
+        android:gravity="endright"
+        android:text="@string/PastryPictures"
+        android:textColor="#000"
+        android:textDirection="rtl"
+        android:textSize="24sp" />
 </RelativeLayout>

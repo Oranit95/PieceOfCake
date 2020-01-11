@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.customerSideActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,16 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Address;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.bakerScreen;
 
 import java.util.HashMap;
 import java.util.Map;

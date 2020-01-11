@@ -16,11 +16,11 @@ import android.widget.FrameLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.customerSide.CustomerOrderActivity;
-import com.jok.pieceofcake.customerSide.Favorites;
-import com.jok.pieceofcake.customerSide.SearchPastry;
-import com.jok.pieceofcake.customerSide.customerScreen;
-import com.jok.pieceofcake.customerSide.customer_settings;
+import com.jok.pieceofcake.customerSideActivities.CustomerOrderActivity;
+import com.jok.pieceofcake.customerSideActivities.Favorites;
+import com.jok.pieceofcake.customerSideActivities.SearchBakerActivity;
+import com.jok.pieceofcake.customerSideActivities.customerScreen;
+import com.jok.pieceofcake.customerSideActivities.customer_settings;
 
 public class Customer_Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
     protected DrawerLayout drawer;
@@ -62,7 +62,7 @@ public class Customer_Navigation extends AppCompatActivity implements Navigation
                 break;
 
             case R.id.buy_pastry:
-                Intent j = new Intent(this, SearchPastry.class);
+                Intent j = new Intent(this, SearchBakerActivity.class);
                 startActivity(j);
                 break;
 

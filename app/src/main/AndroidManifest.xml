@@ -11,31 +11,35 @@
         android:roundIcon="@mipmap/cake"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customerSide.customer_settings"></activity>
-        <activity android:name=".bakerSide.baker_settings" />
+        <activity android:name=".customerSideActivities.SearchPastryActivity"></activity>
+        <activity android:name=".customerSideActivities.customer_settings" />
+        <activity android:name=".bakerSideActivities.BakerSettingsActivity" />
         <activity android:name=".Navigation.Customer_Navigation" />
         <activity android:name=".Navigation.Baker_Navigation" />
-        <activity android:name=".customerSide.PastryWatchActivityCustomer" />
-        <activity android:name=".bakerSide.PopUpPastryBaker" />
-        <activity android:name=".bakerSide.addPatryPicturesActivity" />
-        <activity android:name=".customerSide.CustomerOrderActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".customerSide.BuyPastryActivity" />
-        <activity android:name=".customerSide.CustomerMenuActivity" />
-        <activity android:name=".bakerSide.BakerOrderActivity" />
-        <activity android:name=".customerSide.Favorites"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".bakerSide.AddPastry" />
-        <activity android:name=".Navigation.Register" />
-        <activity android:name=".customerSide.SearchPastry"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".bakerSide.BakerMenuActivity" />
+        <activity android:name=".customerSideActivities.PastryWatchActivityCustomer" />
+        <activity android:name=".bakerSideActivities.WatchPastryBakerActivity" />
+        <activity android:name=".bakerSideActivities.addPatryPicturesActivity" />
         <activity
-            android:name=".bakerSide.bakerScreen"
+            android:name=".customerSideActivities.CustomerOrderActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".customerSideActivities.BuyPastryActivity" />
+        <activity android:name=".customerSideActivities.CustomerMenuActivity" />
+        <activity android:name=".bakerSideActivities.BakerOrderActivity" />
+        <activity
+            android:name=".customerSideActivities.Favorites"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".bakerSideActivities.AddPastryActivity" />
+        <activity android:name=".Navigation.Register" />
+        <activity
+            android:name=".customerSideActivities.SearchBakerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".bakerSideActivities.BakerMenuActivity" />
+        <activity
+            android:name=".bakerSideActivities.bakerScreenActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Navigation.Login" />
         <activity
-            android:name=".customerSide.customerScreen"
+            android:name=".customerSideActivities.customerScreen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Navigation.MainActivity">
             <intent-filter>

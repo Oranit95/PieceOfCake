@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.bakerSideActivities;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Objects.Upload;
 import com.squareup.picasso.Picasso;

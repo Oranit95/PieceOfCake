@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.bakerSideActivities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.jok.pieceofcake.ListsAdapters.PastryImageAdapterBaker;
+import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Objects.Upload;
 
@@ -30,7 +31,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAdapterBaker.OnItemClickListener {
+public class WatchPastryBakerActivity extends AppCompatActivity implements PastryImageAdapterBaker.OnItemClickListener {
     private RecyclerView recyclerView;
     private PastryImageAdapterBaker pastryImageAdapter;
     private DatabaseReference imageRef;
@@ -48,7 +49,7 @@ public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAd
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up_pastry_baker);
+        setContentView(R.layout.activity_watch_pastry_baker);
         Intent intent = getIntent();
         pastry =(Pastry) intent.getSerializableExtra("Pastry");
         recyclerView = findViewById(R.id.pastryPicturesRecycler);
@@ -56,9 +57,9 @@ public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAd
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         uploads = new ArrayList<>();
-        pastryImageAdapter = new PastryImageAdapterBaker(PopUpPastryBaker.this, uploads);
+        pastryImageAdapter = new PastryImageAdapterBaker(WatchPastryBakerActivity.this, uploads);
         recyclerView.setAdapter(pastryImageAdapter);
-        pastryImageAdapter.setOnItemClickListener(PopUpPastryBaker.this);
+        pastryImageAdapter.setOnItemClickListener(WatchPastryBakerActivity.this);
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
         DB = FirebaseDatabase.getInstance();
@@ -91,7 +92,7 @@ public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAd
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(PopUpPastryBaker.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(WatchPastryBakerActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.INVISIBLE);
             }
         });
@@ -112,19 +113,19 @@ public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAd
             @Override
             public void onSuccess(Void aVoid) {
                 imageRef.child(String.valueOf(key)).removeValue();
-                Toast.makeText(PopUpPastryBaker.this," תמונה נמחקה בהצלחה!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WatchPastryBakerActivity.this," תמונה נמחקה בהצלחה!", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(PopUpPastryBaker.this,"המחיקה נכשלה", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WatchPastryBakerActivity.this,"המחיקה נכשלה", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
 
     public void addPictures(View view) {
-        Intent intent = new Intent(PopUpPastryBaker.this, addPatryPicturesActivity.class);
+        Intent intent = new Intent(WatchPastryBakerActivity.this, addPatryPicturesActivity.class);
         intent.putExtra("Pastry",pastry);
         startActivity(intent);
     }
@@ -155,7 +156,7 @@ public class PopUpPastryBaker extends AppCompatActivity implements PastryImageAd
     }
 
     public void editPastry(View view) {
-        Intent intent = new Intent(PopUpPastryBaker.this, AddPastry.class);
+        Intent intent = new Intent(WatchPastryBakerActivity.this, AddPastryActivity.class);
         intent.putExtra("Pastry", pastry);
         startActivity(intent);
     }

@@ -1,11 +1,12 @@
 package com.jok.pieceofcake.Objects;
 
-import com.jok.pieceofcake.bakerSide.Baker;
-import com.jok.pieceofcake.bakerSide.Pastry;
-import com.jok.pieceofcake.customerSide.Customer;
-
 import java.io.Serializable;
 
+/**
+ * Represents the order of a pastry for both customer and baker.
+ * includes the customer and the baker that connected in this order,
+ * the date and more..
+ */
 public class Order implements Serializable {
     Customer customer;
     Baker baker;
@@ -14,8 +15,8 @@ public class Order implements Serializable {
     String date;
     String comments;
 
-    boolean card;
-    boolean delivery;
+    boolean card;// true means pay by card, false means pay by cash
+    boolean delivery;//true means delivery from the baker, false means self-delivery
 
     public Order(Customer customer, Baker baker, Pastry pastry, String date,
                  String comments, boolean card, boolean delivery) {

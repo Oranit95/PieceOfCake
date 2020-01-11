@@ -1,14 +1,10 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.customerSideActivities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,17 +18,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jok.pieceofcake.Objects.Baker;
+import com.jok.pieceofcake.Objects.Customer;
 import com.jok.pieceofcake.Objects.Order;
+import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.Baker;
-import com.jok.pieceofcake.bakerSide.Pastry;
+
+import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Calendar;
-import java.util.List;
 
 public class BuyPastryActivity extends AppCompatActivity {
 

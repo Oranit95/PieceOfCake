@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.jok.pieceofcake.Objects.Order;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.Pastry;
+import com.jok.pieceofcake.Objects.Pastry;
 
 import java.util.List;
 

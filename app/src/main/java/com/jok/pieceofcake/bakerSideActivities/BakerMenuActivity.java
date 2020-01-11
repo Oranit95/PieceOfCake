@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.bakerSideActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.Navigation.Baker_Navigation;
+import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.ListsAdapters.PastryAdapter;
 
@@ -76,7 +77,7 @@ public class BakerMenuActivity extends Baker_Navigation {
         listViewPastries.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(BakerMenuActivity.this, PopUpPastryBaker.class);
+                Intent intent = new Intent(BakerMenuActivity.this, WatchPastryBakerActivity.class);
                 intent.putExtra("Pastry", pastryList.get(i));
                 startActivity(intent);
             }
@@ -84,7 +85,7 @@ public class BakerMenuActivity extends Baker_Navigation {
 
     }
     public void moveToAddPastry() {
-        Intent intent = new Intent(BakerMenuActivity.this, AddPastry.class);
+        Intent intent = new Intent(BakerMenuActivity.this, AddPastryActivity.class);
         startActivity(intent);
     }
 

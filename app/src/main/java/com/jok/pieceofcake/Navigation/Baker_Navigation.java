@@ -16,10 +16,10 @@ import android.widget.FrameLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.BakerMenuActivity;
-import com.jok.pieceofcake.bakerSide.BakerOrderActivity;
-import com.jok.pieceofcake.bakerSide.bakerScreen;
-import com.jok.pieceofcake.bakerSide.baker_settings;
+import com.jok.pieceofcake.bakerSideActivities.BakerMenuActivity;
+import com.jok.pieceofcake.bakerSideActivities.BakerOrderActivity;
+import com.jok.pieceofcake.bakerSideActivities.bakerScreenActivity;
+import com.jok.pieceofcake.bakerSideActivities.BakerSettingsActivity;
 
 public class Baker_Navigation extends Activity implements NavigationView.OnNavigationItemSelectedListener{
     protected DrawerLayout drawer;
@@ -65,11 +65,11 @@ public class Baker_Navigation extends Activity implements NavigationView.OnNavig
                 break;
 
             case R.id.main_menu:
-                Intent k = new Intent(this, bakerScreen.class);
+                Intent k = new Intent(this, bakerScreenActivity.class);
                 startActivity(k);
                 break;
             case R.id.baker_settings:
-                Intent l = new Intent(this, baker_settings.class);
+                Intent l = new Intent(this, BakerSettingsActivity.class);
                 startActivity(l);
                 break;
 

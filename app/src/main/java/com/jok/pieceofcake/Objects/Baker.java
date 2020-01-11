@@ -1,7 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
-
-import com.jok.pieceofcake.Objects.Address;
-import com.jok.pieceofcake.Objects.User;
+package com.jok.pieceofcake.Objects;
 
 public class Baker extends User {
 

@@ -5,7 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".customerSide.CustomerMenuActivity">
+    tools:context=".customerSideActivities.CustomerMenuActivity">
+
+    <EditText
+        android:id="@+id/search_edit_text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/SearchbyPastry"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/noResults2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/noRes"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listViewPastriesC"

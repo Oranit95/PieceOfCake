@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.customerSideActivities;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -10,8 +10,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jok.pieceofcake.ListsAdapters.orderAdapterBaker;
-import com.jok.pieceofcake.Navigation.Baker_Navigation;
+import com.jok.pieceofcake.Navigation.Customer_Navigation;
+import com.jok.pieceofcake.ListsAdapters.OrderAdapterCustomer;
 import com.jok.pieceofcake.Objects.Order;
 import com.jok.pieceofcake.R;
 
@@ -20,37 +20,35 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
-public class BakerOrderActivity extends Baker_Navigation {
+public class CustomerOrderActivity extends Customer_Navigation {
 
     private FirebaseAuth FireLog;// fire base authentication
-    ListView listOrders;
+    ListView ordersListView;
     String userID;
-    DatabaseReference databaseOrdersB;
+    DatabaseReference databaseOrdersC;
     FirebaseDatabase DB;
 
     List<Order> ordersList;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_baker_order);
-        listOrders = (ListView)findViewById(R.id.listOrders);
+        setContentView(R.layout.activity_customer_order);
+        ordersListView = (ListView)findViewById(R.id.listOrdersCustomer);
 
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
 
         ordersList = new ArrayList<Order>();
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
-        databaseOrdersB = DB.getReference("Orders/Bakers Orders").child(userID);
+        databaseOrdersC = DB.getReference("Orders/Customers Orders").child(userID);
 
-        databaseOrdersB.addValueEventListener(new ValueEventListener() {
+        databaseOrdersC.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ordersList.clear();
@@ -59,21 +57,17 @@ public class BakerOrderActivity extends Baker_Navigation {
                     ordersList.add(order);
                 }
                 if (ordersList.isEmpty()) {
-                    Toast.makeText(BakerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CustomerOrderActivity.this, "אין הזמנות בתור", Toast.LENGTH_LONG).show();
                     return;
                 }
-                orderAdapterBaker orderAdapter = new orderAdapterBaker(BakerOrderActivity.this, ordersList);
-                listOrders.setAdapter(orderAdapter);
+                OrderAdapterCustomer orderC_Adapter = new OrderAdapterCustomer(CustomerOrderActivity.this, ordersList);
+                ordersListView.setAdapter(orderC_Adapter);
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-
-
-    });
-
+        });
     }
 }

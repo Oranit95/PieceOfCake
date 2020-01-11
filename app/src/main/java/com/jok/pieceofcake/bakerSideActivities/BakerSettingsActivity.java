@@ -1,19 +1,15 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.bakerSideActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.Objects.Address;
 import com.jok.pieceofcake.Navigation.Baker_Navigation;
 import com.jok.pieceofcake.R;
@@ -21,7 +17,7 @@ import com.jok.pieceofcake.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class baker_settings extends Baker_Navigation {
+public class BakerSettingsActivity extends Baker_Navigation {
     private FirebaseAuth FireLog = FirebaseAuth.getInstance();// fire base authentication
     String userID;
     FirebaseDatabase DB;
@@ -92,7 +88,7 @@ public class baker_settings extends Baker_Navigation {
 
         BakerRef.updateChildren(updates);
         if(!(newPasswordS.isEmpty())) user.updatePassword(newPasswordS);
-        startActivity(new Intent(getApplicationContext(), bakerScreen.class));
+        startActivity(new Intent(getApplicationContext(), bakerScreenActivity.class));
 
 
     }

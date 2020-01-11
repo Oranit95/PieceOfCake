@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.bakerSide;
+package com.jok.pieceofcake.bakerSideActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import com.jok.pieceofcake.Navigation.Login;
 import com.jok.pieceofcake.R;
 
 
-public class bakerScreen extends Baker_Navigation {
+public class bakerScreenActivity extends Baker_Navigation {
 
     Button myMenu;
     Button settings;
@@ -19,7 +19,7 @@ public class bakerScreen extends Baker_Navigation {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.baker_screen);
+        setContentView(R.layout.activity_baker_screen);
         myMenu = (Button) findViewById(R.id.myMenu);
         settings = (Button) findViewById(R.id.settings);
         myMenu.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +48,7 @@ public class bakerScreen extends Baker_Navigation {
         startActivity(new Intent(getApplicationContext(), BakerOrderActivity.class));
     }
     public void moveToSettings(){
-        startActivity(new Intent(getApplicationContext(), baker_settings.class));
+        startActivity(new Intent(getApplicationContext(), BakerSettingsActivity.class));
     }
     public void LogOutB (View v){
         FirebaseAuth.getInstance().signOut();

@@ -1,4 +1,4 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.customerSideActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ public class customerScreen extends Customer_Navigation {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.customer_screen);
+        setContentView(R.layout.activity_customer_screen);
 
         myFavorites = findViewById(R.id.myFavorites);
         myOrders = findViewById(R.id.myOrders);
@@ -36,7 +36,7 @@ public class customerScreen extends Customer_Navigation {
     }
 
     public void moveToSearch(View view) {
-        Intent intent = new Intent(customerScreen.this, SearchPastry.class);
+        Intent intent = new Intent(customerScreen.this, SearchBakerActivity.class);
         startActivity(intent);
     }
 

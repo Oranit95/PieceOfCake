@@ -106,6 +106,12 @@
     <string name="todo">TODO</string>
     <string name="addPictures">הוספת תמונות</string>
     <string name="order">הזמן</string>
+    <string name="noRes">לא נמצאו תוצאות</string>
+    <string name="searchbyBaker">חפש אופה לפי עיר/שם/רחוב</string>
+    <string name="SearchbyPastry">חפש מאפה</string>
+    <string name="bakerDETS">פרטי האופה</string>
+    <string name="PASTRYDETS">צפייה במאפה</string>
+    <string name="PastryPictures">תמונות:</string>
 
 
 </resources>

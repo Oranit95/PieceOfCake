@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bacground"
     android:orientation="vertical"
-    tools:context=".customerSideActivities.SearchPastryActivity">
+    tools:context=".customerSideActivities.SearchBakerActivity">
 
     <EditText
-        android:id="@+id/search_edit_text2"
+        android:id="@+id/search_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="@string/SearchbyPastry"
+        android:hint="@string/searchbyBaker"
         android:importantForAutofill="no"
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/noResults2"
+        android:id="@+id/noResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/noRes"
@@ -26,8 +27,7 @@
         android:textStyle="bold" />
 
     <ListView
-        android:id="@+id/listViewPastriesC"
+        android:id="@+id/bakersListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="634dp" />
 </LinearLayout>

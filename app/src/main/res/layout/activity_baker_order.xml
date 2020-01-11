@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bacground"
     android:orientation="vertical"
-    tools:context=".bakerSide.BakerOrderActivity">
+    tools:context=".bakerSideActivities.BakerOrderActivity">
 
     <TextView
         android:id="@+id/myOrdersBaker"

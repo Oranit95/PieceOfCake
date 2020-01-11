@@ -19,8 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.bakerScreen;
-import com.jok.pieceofcake.customerSide.customerScreen;
+import com.jok.pieceofcake.bakerSideActivities.bakerScreenActivity;
+import com.jok.pieceofcake.customerSideActivities.customerScreen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -107,7 +107,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void BakerLogin() {
-        Intent intent = new Intent(Login.this, bakerScreen.class);
+        Intent intent = new Intent(Login.this, bakerScreenActivity.class);
         startActivity(intent);
     }
 

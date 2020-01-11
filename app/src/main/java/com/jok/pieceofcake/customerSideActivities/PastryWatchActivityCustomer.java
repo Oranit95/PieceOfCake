@@ -1,9 +1,10 @@
-package com.jok.pieceofcake.customerSide;
+package com.jok.pieceofcake.customerSideActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,10 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.jok.pieceofcake.ListsAdapters.PastryImageAdapterCustomer;
+import com.jok.pieceofcake.Objects.Baker;
+import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.Objects.Upload;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.Baker;
-import com.jok.pieceofcake.bakerSide.Pastry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,7 @@ public class PastryWatchActivityCustomer extends AppCompatActivity {
     String userID;
     Pastry pastry;
     Baker baker;
+    TextView pastryDetails,BakerDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,10 @@ public class PastryWatchActivityCustomer extends AppCompatActivity {
         baker =(Baker) intent.getSerializableExtra("Baker");
         recyclerView = findViewById(R.id.pastryPicturesRecycler);
         progressBar = findViewById(R.id.progress_image_baker);
+        pastryDetails = findViewById(R.id.pastryWatch);
+        BakerDetails = findViewById(R.id.bakerdets);
+        pastryDetails.setText("פרטי המאפה: "+pastry.getName()+",רכיבים אלרגניים: "+pastry.getAllerganics()+",תיאור: "+pastry.getDescription()+",מחיר: "+pastry.getPrice());
+        BakerDetails.setText("פרטי האופה: "+baker.getFull_name()+",עיר: "+baker.getAddress().getCity()+",רחוב: "+baker.getAddress().getStreetName()+",טלפון: "+baker.getPhone());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         uploads = new ArrayList<>();

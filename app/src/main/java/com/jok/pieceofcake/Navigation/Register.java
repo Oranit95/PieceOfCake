@@ -22,8 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jok.pieceofcake.Objects.Address;
 import com.jok.pieceofcake.R;
-import com.jok.pieceofcake.bakerSide.Baker;
-import com.jok.pieceofcake.customerSide.Customer;
+import com.jok.pieceofcake.Objects.Baker;
+import com.jok.pieceofcake.Objects.Customer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
