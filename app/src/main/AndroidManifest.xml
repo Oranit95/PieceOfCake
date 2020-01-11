@@ -18,14 +18,17 @@
         <activity android:name=".customerSide.PastryWatchActivityCustomer" />
         <activity android:name=".bakerSide.PopUpPastryBaker" />
         <activity android:name=".bakerSide.addPatryPicturesActivity" />
-        <activity android:name=".customerSide.CustomerOrderActivity" />
+        <activity android:name=".customerSide.CustomerOrderActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".customerSide.BuyPastryActivity" />
         <activity android:name=".customerSide.CustomerMenuActivity" />
         <activity android:name=".bakerSide.BakerOrderActivity" />
-        <activity android:name=".customerSide.Favorites" />
+        <activity android:name=".customerSide.Favorites"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".bakerSide.AddPastry" />
         <activity android:name=".Navigation.Register" />
-        <activity android:name=".customerSide.SearchPastry" />
+        <activity android:name=".customerSide.SearchPastry"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".bakerSide.BakerMenuActivity" />
         <activity
             android:name=".bakerSide.bakerScreen"

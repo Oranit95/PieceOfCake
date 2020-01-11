@@ -19,6 +19,8 @@
         android:layout_marginEnd="12dp"
         android:background="#FCF9F9"
         android:text="תאריך"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:textColor="#0C0C0C"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
