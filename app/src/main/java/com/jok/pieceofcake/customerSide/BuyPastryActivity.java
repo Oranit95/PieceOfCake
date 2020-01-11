@@ -138,7 +138,7 @@ public class BuyPastryActivity extends AppCompatActivity {
         findViewById(R.id.buy).setEnabled(false);
         dateS = (day + "/" + month + "/" + year);
         commentS = comment.getText().toString().trim();
-        if(dateS.trim().equalsIgnoreCase("0/0/0")){
+        if(dateS.equals("0/0/0")){
             date.setError("חובה להזין תאריך!");
             return;
         }
