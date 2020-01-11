@@ -135,26 +135,27 @@ public class BuyPastryActivity extends AppCompatActivity {
     }
 
     public void CreateNewOrderC(View view) {
-        findViewById(R.id.buy).setEnabled(false);
+        findViewById(R.id.buy).setEnabled(true);
         dateS = (day + "/" + month + "/" + year);
         commentS = comment.getText().toString().trim();
+
         if(dateS.equals("0/0/0")){
             date.setError("חובה להזין תאריך!");
             return;
         }
 
-        if((!card.isChecked())&&(!cash.isChecked())){
+        else if((!card.isChecked())&&(!cash.isChecked())){
             card.setError("חובה לבחור אמצעי תשלום!");
             return;
 
         }
-/**
-        if((!delivery.isChecked())&&(!pickup.isChecked())){
+
+        else if((!delivery.isChecked())&&(!pickup.isChecked())){
             delivery.setError("חובה לבחור אמצעי איסוף!");
             return;
 
         }
- **/
+
         if(card.isChecked()){
             creditCard = true;
 

@@ -106,18 +106,25 @@ public class Register extends AppCompatActivity {
             return;
         }
         if (TextUtils.isEmpty(citys)) {
-            inputPhone.setError("יש למלא עיר");
+            city.setError("יש למלא עיר");
             return;
         }
         if (TextUtils.isEmpty(streetS)) {
-            inputPhone.setError("יש למלא רחוב");
+            street.setError("יש למלא רחוב");
             return;
         }
         if (TextUtils.isEmpty(housNums)) {
-            inputPhone.setError("יש למלא מספר בית");
+            houseNum.setError("יש למלא מספר בית");
             return;
         }
-
+        if (TextUtils.isEmpty(floorS)) {
+            floor.setError("יש למלא מספר קומה");
+            return;
+        }
+        if (TextUtils.isEmpty(apparmentS)) {
+            appartment.setError("יש למלא מספר דירה");
+            return;
+        }
 
         if ((!inputBaker.isChecked()) && (!inputCustomer.isChecked())) {
             inputBaker.setError("יש לבחור אופה/לקוח");
