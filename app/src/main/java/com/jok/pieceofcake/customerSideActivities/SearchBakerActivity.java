@@ -118,6 +118,7 @@ public class SearchBakerActivity extends Customer_Navigation {
     }
 
     public void cleanFilter(){
+        noResults.setVisibility(View.INVISIBLE);
         bakersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

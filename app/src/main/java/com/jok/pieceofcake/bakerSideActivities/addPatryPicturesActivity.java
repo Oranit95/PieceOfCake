@@ -40,7 +40,7 @@ public class addPatryPicturesActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Uri imageUri;
     private StorageReference storageReference;
-    private DatabaseReference picRef;
+    private DatabaseReference picRef,pastriesRef;
     private StorageTask uploadTask;
     FirebaseDatabase DB;
     private FirebaseAuth FireLog;
@@ -62,6 +62,7 @@ public class addPatryPicturesActivity extends AppCompatActivity {
         userID = FireLog.getCurrentUser().getUid();
         storageReference = FirebaseStorage.getInstance().getReference("Menu").child(userID).child(pastry.getDocID());
         picRef = DB.getReference("Menu").child(userID).child(pastry.getDocID());
+        pastriesRef = DB.getReference("Pastries").child(pastry.getDocID());
 
 
 
@@ -113,6 +114,7 @@ public class addPatryPicturesActivity extends AppCompatActivity {
                     Upload upload = new Upload(now + "",url.toString());
                     pastry.addImage(upload);
                     picRef.setValue(pastry);
+                    pastriesRef.setValue(pastry);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

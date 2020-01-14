@@ -42,20 +42,21 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
     String userID;
     Pastry pastry;
     Baker baker;
-    TextView pastryDetails,BakerDetails;
+    DatabaseReference bakerRef;
+    TextView pastryDetails,BakerDetails, street, city, total;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pastry_watch_customer);
         Intent intent = getIntent();
         pastry =(Pastry) intent.getSerializableExtra("Pastry");
-        baker =(Baker) intent.getSerializableExtra("Baker");
         recyclerView = findViewById(R.id.pastryPicturesRecycler);
         progressBar = findViewById(R.id.progress_image_baker);
         pastryDetails = findViewById(R.id.pastryWatch);
         BakerDetails = findViewById(R.id.bakerdets);
-       /**this made balagan - need to fix!!!*/ pastryDetails.setText("פרטי המאפה: "+pastry.getName()+",רכיבים אלרגניים: "+pastry.getAllerganics()+",תיאור: "+pastry.getDescription()+",מחיר: "+pastry.getPrice());
-        /**this also made balagan - need to fix!!!*/ BakerDetails.setText("פרטי האופה: "+baker.getFull_name()+",עיר: "+baker.getAddress().getCity()+",רחוב: "+baker.getAddress().getStreetName()+",טלפון: "+baker.getPhone());
+        total = findViewById(R.id.totalPay);
+        street = findViewById(R.id.bakerStreet);
+        city = findViewById(R.id.bakerCity);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         uploads = new ArrayList<>();
@@ -65,12 +66,33 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
         FireLog = FirebaseAuth.getInstance();
         DB = FirebaseDatabase.getInstance();
         userID = FireLog.getCurrentUser().getUid();
-        imageRef = DB.getReference("Menu").child(baker.getUserID()).child(pastry.getDocID()).child("images");
+        imageRef = DB.getReference("Menu").child(pastry.getBakerID()).child(pastry.getDocID()).child("images");
         storage = FirebaseStorage.getInstance();
-        pastryRef=DB.getReference("Menu").child(baker.getUserID()).child(pastry.getDocID());
+        pastryRef=DB.getReference("Menu").child(pastry.getBakerID()).child(pastry.getDocID());
     }
     protected void onStart() {
         super.onStart();
+        bakerRef = DB.getReference("Users/Bakers");
+        bakerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChild(pastry.getBakerID())){
+                    baker = dataSnapshot.child(pastry.getBakerID()).getValue(Baker.class);
+                    pastryDetails.setText("צפייה במאפה: "+ pastry.getName());
+                    total.setText("סך הכל לתשלום: "+pastry.getPrice()+".");
+                    BakerDetails.setText("פרטי האופה: "+baker.getFull_name());
+                    street.setText("רחוב: "+ baker.getAddress().getStreetName());
+                    city.setText("עיר: "+ baker.getAddress().getCity());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         imageRefListener = imageRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -92,6 +114,7 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
                 progressBar.setVisibility(View.INVISIBLE);
             }
         });
+
     }
         public void order(View v) {
             Intent intent = new Intent(PastryWatchActivityCustomer.this, BuyPastryActivity.class);

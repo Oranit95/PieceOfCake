@@ -72,6 +72,7 @@ public class SearchPastryActivity extends Customer_Navigation {
 
     private void cleanFilter() {
         userID = FireLog.getCurrentUser().getUid();
+        noResults.setVisibility(View.INVISIBLE);
         menuForCustomer = DB.getReference("Pastries");
         menuForCustomer.addValueEventListener(new ValueEventListener() {
             @Override
@@ -119,20 +120,8 @@ public class SearchPastryActivity extends Customer_Navigation {
         listViewPastries.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                DB.getReference("Users").child("Bakers").child(pastryList.get(i).getBakerID()).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        baker = dataSnapshot.getValue(Baker.class);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
                 Intent intent = new Intent(SearchPastryActivity.this, PastryWatchActivityCustomer.class);
                 intent.putExtra("Pastry", pastryList.get(i));
-                intent.putExtra("Baker",baker);
                 startActivity(intent);
             }
         });
