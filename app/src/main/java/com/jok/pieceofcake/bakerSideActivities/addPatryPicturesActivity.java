@@ -155,6 +155,10 @@ public class addPatryPicturesActivity extends AppCompatActivity {
         }
     }
     public void backToMenu(View view) {
+        if(pastry.getImages().isEmpty()){
+            Toast.makeText(this, " לא הוספו תמונות! ", Toast.LENGTH_LONG).show();
+            return;
+        }
         Intent intent = new Intent(addPatryPicturesActivity.this, BakerMenuActivity.class);
         startActivity(intent);
     }

@@ -21,9 +21,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.jok.pieceofcake.Objects.Address;
-import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Objects.Baker;
 import com.jok.pieceofcake.Objects.Customer;
+import com.jok.pieceofcake.R;
+
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -155,7 +157,8 @@ public class Register extends AppCompatActivity {
                                     Log.d(TAG, "onFailue" + e.toString());
                                 }
                             } else {
-                                Customer customer = new Customer(email, fullName, Phone, adress, userID);
+                                ArrayList<Baker> b= new ArrayList<Baker>();
+                                Customer customer = new Customer(email, fullName, Phone, adress, userID, b);
                                 try {
                                     customersRef.child(userID).setValue(customer);
                                     Toast.makeText(Register.this, "Customer added", Toast.LENGTH_LONG).show();

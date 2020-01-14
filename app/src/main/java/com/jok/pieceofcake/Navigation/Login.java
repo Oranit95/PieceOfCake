@@ -67,23 +67,17 @@ public class Login extends AppCompatActivity {
                             FirebaseUser user = FireLog.getCurrentUser();
 
                             userID = user.getUid();
-                          //  System.out.println("************************************   "+ userID);
+                            //  System.out.println("************************************   "+ userID);
                             if (user != null) {
                                 usersRef.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                            if (dataSnapshot.child("Bakers").hasChild(userID)) {
-                                                BakerLogin();
-                                                Toast.makeText(getApplicationContext(), "IN baker", Toast.LENGTH_SHORT).show();
+                                        if (dataSnapshot.child("Bakers").hasChild(userID)) {
+                                            BakerLogin();
 
-                                            } else if (dataSnapshot.child("Customers").hasChild(userID)) {
-                                                Toast.makeText(getApplicationContext(), "In customer", Toast.LENGTH_SHORT).show();
-                                                CustomerLogin();
-                                            } else {
-                                                Toast.makeText(getApplicationContext(), "not foundddddd", Toast.LENGTH_SHORT).show();
-
-                                            }
-
+                                        } else if (dataSnapshot.child("Customers").hasChild(userID)) {
+                                            CustomerLogin();
+                                        }
                                     }
 
                                     @Override

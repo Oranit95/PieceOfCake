@@ -170,11 +170,13 @@ public class SearchBakerActivity extends Customer_Navigation {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(SearchBakerActivity.this, CustomerMenuActivity.class);
-                intent.putExtra("bakerID", bakerList.get(i).getUserID());
+                intent.putExtra("baker", bakerList.get(i));
                 startActivity(intent);
             }
 
         });
 
     }
+
+
 }

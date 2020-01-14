@@ -6,9 +6,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.ListsAdapters.PastryAdapter;
 import com.jok.pieceofcake.Navigation.Customer_Navigation;
 import com.jok.pieceofcake.Objects.Baker;
+import com.jok.pieceofcake.Objects.Customer;
 import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
 
@@ -26,17 +29,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class CustomerMenuActivity extends Customer_Navigation {
 
     private FirebaseAuth FireLog;// fire base authentication
     ListView listViewPastries;
     String userID;
-    DatabaseReference menuForCustomer;
+    DatabaseReference menuForCustomer, customerRef;
     FirebaseDatabase DB;
     List<Pastry> pastryList;
     Baker baker;
     String bakerID;
+    Customer me;
     EditText search_edit_text;
     TextView noResults;
 
@@ -45,13 +50,14 @@ public class CustomerMenuActivity extends Customer_Navigation {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_menu);
         Intent intent = getIntent();
-        bakerID = intent.getExtras().getString("bakerID");
+        baker = (Baker) intent.getSerializableExtra("baker");
         search_edit_text = (EditText) findViewById(R.id.search_edit_text2);
         noResults = findViewById(R.id.noResults2);
         noResults.setVisibility(View.INVISIBLE);
         listViewPastries = (ListView) findViewById(R.id.listViewPastriesC);
         DB = FirebaseDatabase.getInstance();
         FireLog = FirebaseAuth.getInstance();
+        userID = FireLog.getCurrentUser().getUid();
         pastryList = new ArrayList<Pastry>();
         search_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,8 +73,7 @@ public class CustomerMenuActivity extends Customer_Navigation {
                 if (!s.toString().isEmpty()) {
                     noResults.setVisibility(View.INVISIBLE);
                     setAdapter(s.toString().toLowerCase().trim());
-                }
-                else{
+                } else {
                     cleanFilter();
                 }
             }
@@ -77,7 +82,7 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
     private void cleanFilter() {
         userID = FireLog.getCurrentUser().getUid();
-        menuForCustomer = DB.getReference("Menu").child(bakerID);
+        menuForCustomer = DB.getReference("Menu").child(baker.getUserID());
         menuForCustomer.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -102,7 +107,7 @@ public class CustomerMenuActivity extends Customer_Navigation {
     protected void onStart() {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
-        menuForCustomer = DB.getReference("Menu").child(bakerID);
+        menuForCustomer = DB.getReference("Menu").child(baker.getUserID());
         menuForCustomer.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -121,10 +126,18 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
             }
         });
-        DB.getReference("Users").child("Bakers").child(bakerID).addValueEventListener(new ValueEventListener() {
+        customerRef = DB.getReference("Users/Customers").child(userID);
+        customerRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                baker = dataSnapshot.getValue(Baker.class);
+                me = dataSnapshot.getValue(Customer.class);
+                for (int i = 0; i < me.getFavorites().size(); i++) {
+                    if(me.getFavorites().get(i).getUserID().equals(baker.getUserID())){
+                        Button button = (Button) findViewById(R.id.addtoFavorites);
+                        button.setClickable(false);
+                        button.setText("זהו אופה מועדף עליי!");
+                    }
+                }
             }
 
             @Override
@@ -132,20 +145,22 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
             }
         });
+
         listViewPastries.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(CustomerMenuActivity.this, PastryWatchActivityCustomer.class);
                 intent.putExtra("Pastry", pastryList.get(i));
-                intent.putExtra("Baker",baker);
+                intent.putExtra("Baker", baker);
                 startActivity(intent);
             }
 
         });
 
     }
+
     public void setAdapter(final String searchedText) {
-        menuForCustomer = DB.getReference("Menu").child(bakerID);
+        menuForCustomer = DB.getReference("Menu").child(baker.getUserID());
         menuForCustomer.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -163,7 +178,7 @@ public class CustomerMenuActivity extends Customer_Navigation {
                         pastryList.add(pastry);
                     }
                 }
-                if(pastryList.isEmpty()){
+                if (pastryList.isEmpty()) {
                     noResults.setVisibility(View.VISIBLE);
                 }
                 PastryAdapter pastryAdapter = new PastryAdapter(CustomerMenuActivity.this, pastryList);
@@ -178,4 +193,39 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
     }
 
+    public void addToFavorits(View view) {
+
+        customerRef = DB.getReference("Users/Customers").child(userID);
+        customerRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                me = dataSnapshot.getValue(Customer.class);
+                me.addBaker(baker);
+                customerRef.setValue(me, completionListener);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+            DatabaseReference.CompletionListener completionListener = new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                    if (databaseError != null) {
+                        Toast.makeText(getApplicationContext(), "אופה לא נוסף למועדפים!",
+                                Toast.LENGTH_SHORT).show();
+
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "אופה נוסף למועדפים!",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+        });
+
+
+        //findViewById(R.id.addtoFavorites).setVisibility(view.INVISIBLE);
+    }
 }

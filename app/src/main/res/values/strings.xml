@@ -116,6 +116,10 @@
     <string name="myLastOrders">ההזמנות האחרונות שלי - לחץ כדי להזמין שנית</string>
     <string name="serchBAKER">חפש אופה</string>
     <string name="serachPASTRY">חפש מאפה</string>
+    <string name="addTofavorites">הוספת אופה למועדפים</string>
+    <string name="bakerdits">אופה:</string>
+    <string name="move_to_menu">עבור לתפריט</string>
+    <string name="delete_from_favorites">מחק מהמועדפים</string>
 
 
 </resources>

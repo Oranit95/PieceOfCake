@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jok.pieceofcake.ListsAdapters.PastryAdapter;
 import com.jok.pieceofcake.Navigation.Customer_Navigation;
-import com.jok.pieceofcake.Objects.Baker;
 import com.jok.pieceofcake.Objects.Pastry;
 import com.jok.pieceofcake.R;
 
@@ -34,8 +33,6 @@ public class SearchPastryActivity extends Customer_Navigation {
     DatabaseReference menuForCustomer;
     FirebaseDatabase DB;
     List<Pastry> pastryList;
-    Baker baker;
-    String bakerID;
     EditText search_edit_text;
     TextView noResults;
     @Override
@@ -117,6 +114,7 @@ public class SearchPastryActivity extends Customer_Navigation {
 
             }
         });
+
         listViewPastries.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
