@@ -42,6 +42,7 @@ public class Customer_Navigation extends AppCompatActivity implements Navigation
         getLayoutInflater().inflate(layoutResID, container, true);
         super.setContentView(drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        toolbar.setTitle("PieceOfCake");
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);

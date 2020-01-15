@@ -41,6 +41,7 @@ public class Baker_Navigation extends Activity implements NavigationView.OnNavig
         getLayoutInflater().inflate(layoutResID, container, true);
         super.setContentView(drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("PieceOfCake");
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
