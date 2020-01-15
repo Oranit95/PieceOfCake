@@ -12,20 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".customerSideActivities.FavoriteBakerActivity"></activity>
-        <activity android:name=".customerSideActivities.SearchMainMenu" />
-        <activity android:name=".customerSideActivities.SearchPastryActivity" />
-        <activity android:name=".customerSideActivities.customer_settings" />
+        <activity android:name=".customerSideActivities.SearchMainMenu"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".customerSideActivities.SearchPastryActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".customerSideActivities.customer_settings"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".bakerSideActivities.BakerSettingsActivity" />
         <activity android:name=".Navigation.Customer_Navigation" />
         <activity android:name=".Navigation.Baker_Navigation" />
-        <activity android:name=".customerSideActivities.PastryWatchActivityCustomer" />
+        <activity android:name=".customerSideActivities.PastryWatchActivityCustomer"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".bakerSideActivities.WatchPastryBakerActivity" />
         <activity android:name=".bakerSideActivities.addPatryPicturesActivity" />
         <activity
             android:name=".customerSideActivities.CustomerOrderActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".customerSideActivities.BuyPastryActivity" />
-        <activity android:name=".customerSideActivities.CustomerMenuActivity" />
+        <activity android:name=".customerSideActivities.BuyPastryActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".customerSideActivities.CustomerMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".bakerSideActivities.BakerOrderActivity" />
         <activity
             android:name=".customerSideActivities.Favorites"
