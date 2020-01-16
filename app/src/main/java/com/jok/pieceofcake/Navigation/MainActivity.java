@@ -12,6 +12,9 @@ import com.jok.pieceofcake.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Main activity - the first activity the users sees when he open's the app
+ */
 public class MainActivity extends AppCompatActivity {
     Button newUser;
     Button ExsitCustomer;

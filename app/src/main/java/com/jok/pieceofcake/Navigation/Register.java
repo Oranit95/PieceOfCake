@@ -30,7 +30,10 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
+/**
+ * In this Activity the user will register,
+ * fill in details and choose to be a customer or a baker
+ */
 public class Register extends AppCompatActivity {
 
     public static final String TAG = "TAG";

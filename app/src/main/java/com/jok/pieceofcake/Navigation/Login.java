@@ -25,6 +25,9 @@ import com.jok.pieceofcake.customerSideActivities.customerScreen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Login for an existing user - both customer and baker
+ */
 public class Login extends AppCompatActivity {
     //Test
     String email = "", password = "";
