@@ -4,6 +4,9 @@ package com.jok.pieceofcake.Objects;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Represent a Pastry
+ */
 public class Pastry implements Serializable {
     private  String price;
     private String name;

@@ -28,6 +28,9 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * In this activity, the customer can search a baker
+ */
 public class SearchBakerActivity extends Customer_Navigation {
     private FirebaseAuth FireLog;// fire base authentication
     ListView listViewBakers;

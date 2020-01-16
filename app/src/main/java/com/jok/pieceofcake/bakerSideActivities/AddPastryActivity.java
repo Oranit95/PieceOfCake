@@ -19,6 +19,10 @@ import com.jok.pieceofcake.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * In this activity, the baker can add a new pastry or edit an existing one
+ *
+ */
 public class AddPastryActivity extends Baker_Navigation {
     public static final String TAG = "TAG_ADD_PASTRY";
     String userID;
@@ -38,7 +42,7 @@ public class AddPastryActivity extends Baker_Navigation {
         pastryRef = DB.getReference("Menu/" + FireLog.getCurrentUser().getUid());
         FirebaseUser user = FireLog.getCurrentUser();
         userID = user.getUid();
-        retrieve();
+        retrieve(); //retrieve all the Edit texts
         Intent intent = getIntent();
         if(intent.hasExtra("Pastry")) {
             pastry = (Pastry) intent.getSerializableExtra("Pastry");
@@ -85,6 +89,7 @@ public class AddPastryActivity extends Baker_Navigation {
             pastry = new Pastry(priceIn, nameIn, allergicIn, descIn, userID);
             pastry.setDocID(pastryRef.push().getKey());
         }
+        //if the pastry exist and we just want to edit it
         else{
             pastry.setPrice(priceIn);
             pastry.setName(nameIn);

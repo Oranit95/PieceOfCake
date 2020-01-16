@@ -23,6 +23,10 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * shows the baker it's pastries, and an option to add a new pastry,
+ * when pressing a pastry wil move to WatchPastryBaker activity
+ */
 public class BakerMenuActivity extends Baker_Navigation {
     private FirebaseAuth FireLog;// fire base authentication
     ListView listViewPastries;

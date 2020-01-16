@@ -138,7 +138,7 @@ public class WatchPastryBakerActivity extends Baker_Navigation implements Pastry
         intent.putExtra("Pastry",pastry);
         startActivity(intent);
     }
-
+//contains a dialog to ask if the baker is sure he wants to delete the pastry
     public void deletePastry(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);

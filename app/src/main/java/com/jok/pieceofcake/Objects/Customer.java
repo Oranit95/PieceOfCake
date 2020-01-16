@@ -3,6 +3,9 @@ package com.jok.pieceofcake.Objects;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class that represents the customer
+ */
 public class Customer extends User {
     List<Baker> favorites;
 

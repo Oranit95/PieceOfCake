@@ -23,16 +23,19 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.jok.pieceofcake.Navigation.Baker_Navigation;
 import com.jok.pieceofcake.Objects.Pastry;
-import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Objects.Upload;
+import com.jok.pieceofcake.R;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class addPatryPicturesActivity extends AppCompatActivity {
+/**
+ * In this activity, the bake is adding pictures for his pastry
+ */
+public class addPatryPicturesActivity extends Baker_Navigation {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button uploadButton;
     private Button chooseFileButton;

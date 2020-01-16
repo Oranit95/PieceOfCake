@@ -1,5 +1,8 @@
 package com.jok.pieceofcake.Objects;
 
+/**
+ * A class that represents the baker
+ */
 public class Baker extends User {
 
     public Baker(){
