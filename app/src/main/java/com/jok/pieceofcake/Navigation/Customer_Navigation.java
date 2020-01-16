@@ -21,7 +21,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
+/**
+ * An activity that contains a side navigator for the customer,
+ * all the customer's activities will inherit it
+ */
 public class Customer_Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
     protected DrawerLayout drawer;
     protected Toolbar toolbar;

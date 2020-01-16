@@ -1,12 +1,5 @@
 package com.jok.pieceofcake.Navigation;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,9 +11,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.bakerSideActivities.BakerMenuActivity;
 import com.jok.pieceofcake.bakerSideActivities.BakerOrderActivity;
-import com.jok.pieceofcake.bakerSideActivities.bakerScreenActivity;
 import com.jok.pieceofcake.bakerSideActivities.BakerSettingsActivity;
+import com.jok.pieceofcake.bakerSideActivities.bakerScreenActivity;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+/**
+ * An activity that contains a side navigator for the baker
+ * all the baker's activities will inherit it
+ */
 public class Baker_Navigation extends Activity implements NavigationView.OnNavigationItemSelectedListener{
     protected DrawerLayout drawer;
     protected Toolbar toolbar;
