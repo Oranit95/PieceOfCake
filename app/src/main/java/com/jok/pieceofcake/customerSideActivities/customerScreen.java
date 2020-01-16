@@ -12,6 +12,9 @@ import com.jok.pieceofcake.R;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
+/**
+ * Main screen for the customer - the first screen he sees when he logs in
+ */
 public class customerScreen extends Customer_Navigation {
     Button myOrders;
     Button newOrder;

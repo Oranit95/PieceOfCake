@@ -30,6 +30,9 @@ import java.util.Calendar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * Activity for filling detail for the order after choosing a pastry to order
+ */
 public class BuyPastryActivity extends Customer_Navigation {
 
     Button Buy, date;
@@ -79,7 +82,7 @@ public class BuyPastryActivity extends Customer_Navigation {
         orderBRef = DB.getReference("Orders/Bakers Orders");
         orderCRef = DB.getReference("Orders/Customers Orders");
         customerRef = DB.getReference("Users").child("Customers").child(userID);
-
+        //adding a date chooser
         date.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,6 +115,7 @@ public class BuyPastryActivity extends Customer_Navigation {
     @Override
     protected void onStart() {
         super.onStart();
+        //getting the customer info
         customerRef = DB.getReference("Users/Customers");
         customerRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -134,7 +138,7 @@ public class BuyPastryActivity extends Customer_Navigation {
         findViewById(R.id.buy).setEnabled(true);
         dateS = (day + "/" + month + "/" + year);
         commentS = comment.getText().toString().trim();
-
+        //validations
         if(dateS.equals("0/0/0")){
             date.setError("חובה להזין תאריך!");
             return;
@@ -184,6 +188,7 @@ if (creditCard) {
 
 }
 **/
+        // when finishing to order - moves to the orders list
         Toast.makeText(BuyPastryActivity.this, "הזמנה נשלחה בהצלחה!", Toast.LENGTH_LONG).show();
         findViewById(R.id.buy).setEnabled(true);
         startActivity(new Intent(BuyPastryActivity.this,CustomerOrderActivity.class));

@@ -30,9 +30,4 @@ public class Customer extends User {
             favorites.add(baker);
         }
     }
-    public void removeFromFavorites(int i){
-        if(favorites.size()!=0){
-           favorites.remove(i);
-        }
-    }
 }

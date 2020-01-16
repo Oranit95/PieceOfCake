@@ -10,7 +10,9 @@ import com.jok.pieceofcake.Navigation.Baker_Navigation;
 import com.jok.pieceofcake.Navigation.Login;
 import com.jok.pieceofcake.R;
 
-
+/**
+ * The bakers main menu - the first screen he sees when he logs in
+ */
 public class bakerScreenActivity extends Baker_Navigation {
 
     Button myMenu;

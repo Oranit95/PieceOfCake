@@ -28,22 +28,27 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * This activity will show the pastry chosen, it's details and pictures,
+ * and will shoe a button to order the pastry.
+ */
 public class PastryWatchActivityCustomer extends Customer_Navigation {
     private RecyclerView recyclerView;
-    private PastryImageAdapterCustomer pastryImageAdapter;
-    private DatabaseReference imageRef;
-    private DatabaseReference pastryRef;
-    private FirebaseStorage storage;
-    private List<Upload> uploads;
+    private PastryImageAdapterCustomer pastryImageAdapter; //adapter for the pastries images
+    private DatabaseReference imageRef; //reference for the upload details in the DB
+    private DatabaseReference pastryRef; //reference to the pastry in the Menu in the DB
+    private FirebaseStorage storage; // reference to the picture itself in the storage
+    private List<Upload> uploads; // one upload gives us one picture URL
     private ProgressBar progressBar;
-    private ValueEventListener imageRefListener;
+    private ValueEventListener imageRefListener; //Listener for the picture
     FirebaseDatabase DB;
     private FirebaseAuth FireLog;
     String userID;
     Pastry pastry;
     Baker baker;
     DatabaseReference bakerRef;
-    TextView pastryDetails,BakerDetails, street, city, total;
+    TextView pastryDetails,BakerDetails, street, city, total; //will show the pastry and bakers main details
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +80,9 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
         bakerRef = DB.getReference("Users/Bakers");
         bakerRef.addValueEventListener(new ValueEventListener() {
             @Override
+            /**
+             * Setting the details of the pastry and baker from the DB
+             */
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChild(pastry.getBakerID())){
                     baker = dataSnapshot.child(pastry.getBakerID()).getValue(Baker.class);
@@ -92,7 +100,9 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
             }
         });
 
-
+        /**
+         * Adding te pictures to the Activity
+         */
         imageRefListener = imageRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -116,6 +126,12 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
         });
 
     }
+
+    /**
+     *
+     * @param v - the button "order" - will take the user to the BuyPastry activity
+     *           to fill details of the order.
+     */
         public void order(View v) {
             Intent intent = new Intent(PastryWatchActivityCustomer.this, BuyPastryActivity.class);
             intent.putExtra("Pastry",pastry);

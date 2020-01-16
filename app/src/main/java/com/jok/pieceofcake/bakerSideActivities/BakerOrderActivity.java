@@ -20,6 +20,9 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * In this activity, the baker can watch his orders and their details
+ */
 public class BakerOrderActivity extends Baker_Navigation {
 
     private FirebaseAuth FireLog;// fire base authentication

@@ -25,14 +25,18 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * This Activity contains all the favorites bakers that the user have chosen.
+ *
+ */
 public class Favorites extends Customer_Navigation {
-    private FirebaseAuth FireLog;// fire base authentication
-    ListView listViewBakers;
+    private FirebaseAuth FireLog;// fire base authentication - will give us the user ID
+    ListView listViewBakers; // The list view that will show the bakers
     String userID;
-    DatabaseReference customerRef;
-    FirebaseDatabase DB;
-    FirebaseUser currentUser;
-    List<Baker> bakerList;
+    DatabaseReference customerRef; //A reference to the customer's favorites arrayList in the DB
+    FirebaseDatabase DB; // A reference to our DataBase
+    FirebaseUser currentUser; //A reference to the current user
+    List<Baker> bakerList; // the list that will contain the bakers
 
 
     @Override
@@ -54,6 +58,9 @@ public class Favorites extends Customer_Navigation {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
         customerRef = DB.getReference("Users/Customers").child(userID);
+        /**
+         * Adding the favorites bakers to the bakerList.
+         */
         customerRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -76,10 +83,14 @@ public class Favorites extends Customer_Navigation {
 
             }
         });
+        /**
+         * when the customer will press one baker,
+         * the activity of the pastries of this baker will be opened
+         */
         listViewBakers.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Favorites.this, FavoriteBakerActivity.class);
+                Intent intent = new Intent(Favorites.this, CustomerMenuActivity.class);
                 intent.putExtra("baker", bakerList.get(i));
                 startActivity(intent);
             }

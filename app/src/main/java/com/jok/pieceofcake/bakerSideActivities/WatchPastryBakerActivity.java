@@ -18,20 +18,24 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.jok.pieceofcake.ListsAdapters.PastryImageAdapterBaker;
+import com.jok.pieceofcake.Navigation.Baker_Navigation;
 import com.jok.pieceofcake.Objects.Pastry;
-import com.jok.pieceofcake.R;
 import com.jok.pieceofcake.Objects.Upload;
+import com.jok.pieceofcake.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class WatchPastryBakerActivity extends AppCompatActivity implements PastryImageAdapterBaker.OnItemClickListener {
+/**
+ * In this activity the baker can watch a certain pastry in his menu,
+ * and edit or delete it or delete photos of it
+ */
+public class WatchPastryBakerActivity extends Baker_Navigation implements PastryImageAdapterBaker.OnItemClickListener {
     private RecyclerView recyclerView;
     private PastryImageAdapterBaker pastryImageAdapter;
     private DatabaseReference imageRef;
@@ -105,6 +109,10 @@ public class WatchPastryBakerActivity extends AppCompatActivity implements Pastr
 
     }
 
+    /**
+     * removing a certain photo the was deleted
+     * @param position
+     */
     @Override
     public void onDeleteClick(int position) {
         Upload selectedITem = uploads.get(position);

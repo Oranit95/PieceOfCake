@@ -17,6 +17,9 @@ import com.jok.pieceofcake.R;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * the baker can change his password and personal details in here
+ */
 public class BakerSettingsActivity extends Baker_Navigation {
     private FirebaseAuth FireLog = FirebaseAuth.getInstance();// fire base authentication
     String userID;

@@ -31,6 +31,10 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * Shows a menu of a baker,
+ * a press on a pastry will move to order this pastry
+ */
 public class CustomerMenuActivity extends Customer_Navigation {
 
     private FirebaseAuth FireLog;// fire base authentication
@@ -40,7 +44,6 @@ public class CustomerMenuActivity extends Customer_Navigation {
     FirebaseDatabase DB;
     List<Pastry> pastryList;
     Baker baker;
-    String bakerID;
     Customer me;
     EditText search_edit_text;
     TextView noResults;
@@ -126,6 +129,7 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
             }
         });
+        //If this baker is in the favorits - will point this out to the customer
         customerRef = DB.getReference("Users/Customers").child(userID);
         customerRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -159,6 +163,10 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
     }
 
+    /**
+     * shows the search according to the searched text
+     * @param searchedText
+     */
     public void setAdapter(final String searchedText) {
         menuForCustomer = DB.getReference("Menu").child(baker.getUserID());
         menuForCustomer.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -193,6 +201,10 @@ public class CustomerMenuActivity extends Customer_Navigation {
 
     }
 
+    /**
+     * When pressing the button "add to favorites"
+     * @param view
+     */
     public void addToFavorits(View view) {
 
         customerRef = DB.getReference("Users/Customers").child(userID);
@@ -224,8 +236,5 @@ public class CustomerMenuActivity extends Customer_Navigation {
                 }
             };
         });
-
-
-        //findViewById(R.id.addtoFavorites).setVisibility(view.INVISIBLE);
     }
 }

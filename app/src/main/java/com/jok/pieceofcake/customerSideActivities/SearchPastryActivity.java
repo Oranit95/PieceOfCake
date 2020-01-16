@@ -26,6 +26,9 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * Search by pastry - a list of all the pastries from the "Pastries" in the DB
+ */
 public class SearchPastryActivity extends Customer_Navigation {
     private FirebaseAuth FireLog;// fire base authentication
     ListView listViewPastries;
@@ -54,6 +57,10 @@ public class SearchPastryActivity extends Customer_Navigation {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
 
+            /**
+             * Option to search a pastry by it's name
+             * @param s
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (!s.toString().isEmpty()) {

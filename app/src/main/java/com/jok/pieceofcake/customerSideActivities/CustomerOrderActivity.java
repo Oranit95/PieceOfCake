@@ -20,6 +20,9 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * In this activity, the customer can watch his orders
+ */
 public class CustomerOrderActivity extends Customer_Navigation {
 
     private FirebaseAuth FireLog;// fire base authentication

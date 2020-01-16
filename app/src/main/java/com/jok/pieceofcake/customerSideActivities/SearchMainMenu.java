@@ -23,11 +23,15 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 
+/**
+ * The main menu for the search - will show the last orders,
+ * option to search by a pastry or a baker
+ */
 public class SearchMainMenu extends Customer_Navigation {
     private FirebaseAuth FireLog;// fire base authentication
     ListView ordersListView;
     String userID;
-    DatabaseReference databaseOrdersC;
+    DatabaseReference databaseOrdersC; //reference to the orders
     FirebaseDatabase DB;
     List<Order> ordersList;
 
@@ -48,7 +52,7 @@ public class SearchMainMenu extends Customer_Navigation {
         super.onStart();
         userID = FireLog.getCurrentUser().getUid();
         databaseOrdersC = DB.getReference("Orders/Customers Orders").child(userID);
-
+        //Will show all the last orders of the user
         databaseOrdersC.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -70,6 +74,7 @@ public class SearchMainMenu extends Customer_Navigation {
 
             }
         });
+        //A click on a order will move to the PastryWatchActivity to re-order
         ordersListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

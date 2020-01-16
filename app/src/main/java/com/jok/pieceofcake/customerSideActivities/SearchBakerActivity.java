@@ -37,7 +37,7 @@ public class SearchBakerActivity extends Customer_Navigation {
     FirebaseUser currentUser;
     List<Baker>  bakerList;
     EditText search_edit_text;
-    TextView noResults;
+    TextView noResults; //will notify when the baker searched not found
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,11 @@ public class SearchBakerActivity extends Customer_Navigation {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
 
+            /**
+             *
+             * @param s
+             * Will update the list according to the sort
+             */
             @Override
             public void afterTextChanged(Editable s) {
                 if (!s.toString().isEmpty()) {
@@ -71,6 +76,7 @@ public class SearchBakerActivity extends Customer_Navigation {
                     setAdapter(s.toString().toLowerCase().trim());
                 }
                 else{
+                    //if there is not searched text - will again show all the bakers
                    cleanFilter();
                 }
             }
@@ -93,7 +99,7 @@ public class SearchBakerActivity extends Customer_Navigation {
                     String full_name = baker.getFull_name();
                     String city = baker.getAddress().getCity();
                     String streetName = baker.getAddress().getStreetName();
-
+                    //Adding all the bakers macthing to the search
                     if (full_name.toLowerCase().trim().contains(searchedText)) {
                         bakerList.add(baker);
                     } else if (city.toLowerCase().trim().contains(searchedText)) {
@@ -116,7 +122,7 @@ public class SearchBakerActivity extends Customer_Navigation {
         });
 
     }
-
+//showing all the bakers again
     public void cleanFilter(){
         noResults.setVisibility(View.INVISIBLE);
         bakersRef.addValueEventListener(new ValueEventListener() {
@@ -166,6 +172,7 @@ public class SearchBakerActivity extends Customer_Navigation {
 
             }
         });
+        //Press on a baker will move to the baker's menu
         listViewBakers.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

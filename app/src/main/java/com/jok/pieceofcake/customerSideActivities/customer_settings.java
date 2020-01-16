@@ -17,6 +17,9 @@ import com.jok.pieceofcake.R;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * An activity in which the customer can change his password and details
+ */
 public class customer_settings extends Customer_Navigation {
 
     private FirebaseAuth FireLog = FirebaseAuth.getInstance();// fire base authentication
