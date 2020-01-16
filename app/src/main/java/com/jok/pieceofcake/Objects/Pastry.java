@@ -48,6 +48,7 @@ public class Pastry implements Serializable {
         this.bakerID = bakeID;
     }
     public ArrayList<Upload> getImages(){
+        if(images==null) images = new ArrayList<>();
         return images;
     }
 
