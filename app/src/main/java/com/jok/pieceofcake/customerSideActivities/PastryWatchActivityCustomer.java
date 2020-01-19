@@ -50,6 +50,7 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
     TextView pastryDetails,BakerDetails, street, city, total; //will show the pastry and bakers main details
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pastry_watch_customer);
@@ -74,6 +75,7 @@ public class PastryWatchActivityCustomer extends Customer_Navigation {
         imageRef = DB.getReference("Menu").child(pastry.getBakerID()).child(pastry.getDocID()).child("images");
         storage = FirebaseStorage.getInstance();
         pastryRef=DB.getReference("Menu").child(pastry.getBakerID()).child(pastry.getDocID());
+
     }
     protected void onStart() {
         super.onStart();
