@@ -1,9 +1,28 @@
 # PieceOfCake
-An application using Android Studio and google Firebase dadtabase and authentication services.
+An application using Android Studio and google Firebase database and authentication services.
 This Application's goal is to connect between people who sale home-made pastries, cookies, cake, etc. and potential customers.
 The customers will be able to search and invite pastries and connect with the bakers.
+There are still a lot of UI changes to be done, the project is not done.
+
+*Existing featurs:
+
+* Search by baker's name, city etc.
+* Search by pastry type
+* Make a reservation
+* Add a baker to my favorites.
+* Watch previous orders and re-order the same pastry.
+
+*
+To Do:
+* UI changes
+* Adding payment methods
+* Customer's opinions
+* Sorting search results
+
+
 
  Registration:
+ 
  
  
 ![register](https://user-images.githubusercontent.com/44542433/75115406-f2e57b80-5666-11ea-9916-fe89467c4337.png)
