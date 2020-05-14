@@ -11,7 +11,7 @@ There are still a lot of UI changes to be done, the project is not done.
 * Make a reservation
 * Add a baker to my favorites.
 * Watch previous orders and re-order the same pastry.
-* Addin new pastries with pictures
+* Adding new pastries with pictures
 
 To Do:
 * UI changes
